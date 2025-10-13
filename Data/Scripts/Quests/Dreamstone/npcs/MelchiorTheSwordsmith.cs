@@ -202,7 +202,7 @@ namespace Server.Mobiles
 
 				m_Player.TithingPoints -= 50000;
 
-				Item reward = new LevelNoDachiMasamune();
+				Item reward = new LevelNoDachiMasamune(m_Player.Name);
 				m_Player.AddToBackpack(reward);
 
 				m_Player.SendMessage("Melchior takes the Dreamstone and nods solemnly.");

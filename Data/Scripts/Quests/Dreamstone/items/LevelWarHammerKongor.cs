@@ -6,6 +6,15 @@ namespace Server.Items
 {
 	public class LevelWarHammerKongor : BaseLevelBashing
 	{
+		private string m_Owner;
+
+		[CommandProperty(AccessLevel.GameMaster)]
+		public string Owner
+		{
+			get { return m_Owner; }
+			set { m_Owner = value; InvalidateProperties(); }
+		}
+
 		public override WeaponAbility PrimaryAbility{ get{ return WeaponAbility.WhirlwindAttack; } }
 		public override WeaponAbility SecondaryAbility{ get{ return WeaponAbility.CrushingBlow; } }
 		public override WeaponAbility ThirdAbility{ get{ return WeaponAbility.ArmorIgnore; } }
@@ -29,15 +38,38 @@ namespace Server.Items
 		public override WeaponAnimation DefAnimation{ get{ return WeaponAnimation.Bash2H; } }
 
 		[Constructable]
-		public LevelWarHammerKongor() : base( 0x1439 )
+		public LevelWarHammerKongor(string ownerName) : base( 0x1439 )
 		{
 			Weight = 10.0;
             Hue = 0x373;
 			Layer = Layer.TwoHanded;
 			Name = "Kongor's Undying Rage";
-			ItemID = Utility.RandomList( 0x1439, 0x267C );
+			ItemID = Utility.RandomList( 0x1439 );
             Attributes.WeaponDamage = 50;
             WeaponAttributes.HitPhysicalArea = 100;
+			m_Owner = ownerName;
+		}
+		[Constructable]
+		public LevelWarHammerKongor() : this("unknown")
+		{
+		}
+
+		public override bool OnEquip(Mobile from)
+		{
+			if (m_Owner != null && m_Owner.Length > 0 && from.Name != m_Owner)
+			{
+				from.SendMessage("You are not worthy of Kongor's Undying Rage.");
+				return false;
+			}
+
+			return base.OnEquip(from);
+		}
+		public override void GetProperties(ObjectPropertyList list)
+		{
+			base.GetProperties(list);
+
+			if (m_Owner != null && m_Owner.Length > 0 && m_Owner != "unknown")
+				list.Add("Belongs to {0}", m_Owner);
 		}
 
 		public LevelWarHammerKongor( Serial serial ) : base( serial )
@@ -48,7 +80,8 @@ namespace Server.Items
 		{
 			base.Serialize( writer );
 
-			writer.Write( (int) 0 ); // version
+			writer.Write( (int) 1 ); // version
+			writer.Write((string)m_Owner);
 		}
 
 		public override void Deserialize( GenericReader reader )
@@ -56,6 +89,8 @@ namespace Server.Items
 			base.Deserialize( reader );
 
 			int version = reader.ReadInt();
+			if (version >= 1)
+				m_Owner = reader.ReadString();
 		}
 	}
 }

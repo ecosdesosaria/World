@@ -194,7 +194,7 @@ namespace Server.Mobiles
                 	return;
                 }
 
-				Item reward = new LevelWarHammerKongor();
+				Item reward = new LevelWarHammerKongor(m_Player.Name);
 				m_Player.AddToBackpack(reward);
 
 				m_Player.SendMessage("Kongor takes the Dreamstone and nods eagerly.");
