@@ -185,13 +185,14 @@ namespace Server.Mobiles
 
 			if (info.ButtonID == 1)
 			{
-				bool hasDreamstone = Server.Misc.PlayerSettings.GetKeys(m_Player, "Dreamstone");
+				bool hasUsableDreamstone = Server.Misc.PlayerSettings.GetKeys(m_Player, "Dreamstone") 
+	                    && !Server.Misc.PlayerSettings.GetKeys(m_Player, "DreamstoneUsed");
 
-				if (!hasDreamstone)
-				{
-					m_Player.SendMessage("You do not have a Dreamstone to give.");
-					return;
-				}
+                if(!hasUsableDreamstone)
+                {
+                	m_Player.SendMessage("You do not have a Dreamstone to give.");
+                	return;
+                }
 
 				if (m_Player.TithingPoints < 50000)
 				{
@@ -214,6 +215,7 @@ namespace Server.Mobiles
 					else
 					{
 						PlayerSettings.SetKeys( m_Player, "Masamune", true );
+                        PlayerSettings.SetKeys( m_Player,"DreamstoneUsed", true);
 						m_Player.SendSound( 0x3D );
 						m_Player.PrivateOverheadMessage(MessageType.Regular, 1150, false, "You aqquired the Masamune.", m_Player.NetState);
 					}
