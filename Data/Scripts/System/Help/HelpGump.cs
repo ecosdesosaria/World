@@ -1637,6 +1637,15 @@ namespace Server.Engines.Help
 			{
 				quests = quests + "-You have constructed a Gem of Immortality.<br><br>";
 			}
+			
+			if(PlayerSettings.GetKeys ( from, "Masamune"))
+			{
+				quests = quests + "-You have given Melchior the Dreamstone, and he has forged you the Masamune.<br><br>";
+			}
+			if ( PlayerSettings.GetKeys( from, "Dreamstone" ) )
+			{
+				quests = quests + "-You have found the Dreamstone.<br><br>";
+			}
 
 			if ( PlayerSettings.GetKeys( from, "Museums" ) )
 			{
