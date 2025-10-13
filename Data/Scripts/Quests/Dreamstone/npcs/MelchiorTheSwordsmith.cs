@@ -124,7 +124,7 @@ namespace Server.Mobiles
 					   "I shall not offer you my services, I'm afraid.";
 			}
 
-			if (karma > 0 && bushido >= 111.0 && tithing >= 25000 && karma >= 15000)
+			if (karma > 0 && bushido >= 111.0 && tithing >= 50000 && karma >= 15000)
 			{
 				return intro + "Your soul weighs like a feather, " + name + ". Very well. I shall light up the forge, one last time.";
 			}
@@ -142,7 +142,7 @@ namespace Server.Mobiles
 
 		private bool ShouldOfferQuest(int karma, double bushido, int tithing)
 		{
-			return (karma >= 15000 && bushido >= 111.0 && tithing >= 25000);
+			return (karma >= 15000 && bushido >= 111.0 && tithing >= 50000);
 		}
 
 		public override void OnResponse(NetState state, RelayInfo info)
