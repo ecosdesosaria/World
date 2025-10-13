@@ -107,7 +107,12 @@ namespace Server.Mobiles
 			string intro = "Greetings " + name + ", I've wandered far and learned much, and now have settled in this little piece of my old home.<br><br>" +
 						   "Much have I learned about the craft of war, a craft from which I grew weary. What is the need that we have of more swords?<br><br>";
 
-			if (hasDreamstone)
+			if (!hasDreamstone)
+            {
+                intro += "Besides, what am I to do with the crude metal of this land? No, my skills would serve no purpose unless I had the material to match. <br><br>"+
+                "I would require a dreamstone, which was lost to time.<br><br>";
+            }
+            else if (hasDreamstone)
 				intro += "You have it... You somehow found the Dream Stone...The Perfect metal. I thought all of it was lost in a begone age. <br><br>"+
                 "No. It will not do anyone any good.<br><br>";
 
