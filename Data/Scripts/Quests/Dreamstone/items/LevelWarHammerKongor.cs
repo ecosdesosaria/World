@@ -21,7 +21,7 @@ namespace Server.Items
 		public override WeaponAbility FourthAbility{ get{ return WeaponAbility.DoubleStrike; } }
 		public override WeaponAbility FifthAbility{ get{ return WeaponAbility.DeathBlow; } }
 
-		public override int AosStrengthReq{ get{ return 95; } }
+		public override int AosStrengthReq{ get{ return 125; } }
 		public override int AosMinDamage{ get{ return (int)(22 * GetDamageScaling()); } }
 		public override int AosMaxDamage{ get{ return (int)(26 * GetDamageScaling()); } }
 		public override int AosSpeed{ get{ return 28; } }
@@ -44,7 +44,7 @@ namespace Server.Items
             Hue = 0x373;
 			Layer = Layer.TwoHanded;
 			Name = "Kongor's Undying Rage";
-			ItemID = Utility.RandomList( 0x1439 );
+			ItemID = 0x1439;
             Attributes.WeaponDamage = 50;
             WeaponAttributes.HitPhysicalArea = 100;
 			m_Owner = ownerName;
