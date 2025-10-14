@@ -848,6 +848,7 @@ namespace Server.Misc
 						else if ( nEntry == 16 && found == "1" && key == "DreamstoneUsed" ){ HaveIt = true; }
 						else if ( nEntry == 17 && found == "1" && key == "Kongor" ){ HaveIt = true; }
 						else if ( nEntry == 18 && found == "1" && key == "Mitru" ){ HaveIt = true; }
+						else if ( nEntry == 18 && found == "1" && key == "Soveliss" ){ HaveIt = true; }
 						
 
 						nEntry++;
@@ -864,14 +865,14 @@ namespace Server.Misc
 			{
 				string keys = ((PlayerMobile)m).CharacterKeys;
 
-				if ( keys == null ){ keys = "0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#"; }
+				if ( keys == null ){ keys = "0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#"; }
 
 				if ( keys.Length > 0 )
 				{
 					string[] discoveries = keys.Split('#');
 					string entry = "";
 					int nEntry = 1;
-					int records = 17; // TOTAL ENTRIES
+					int records = 19; // TOTAL ENTRIES
 
 					foreach ( string keyset in discoveries )
 					{
@@ -895,6 +896,7 @@ namespace Server.Misc
 						else if ( nEntry == 16 && key == "DreamstoneUsed" ){ entry = entry + "1#"; }
 						else if ( nEntry == 17 && key == "Kongor" ){ entry = entry + "1#"; }
 						else if ( nEntry == 18 && key == "Mitru" ){ entry = entry + "1#"; }
+						else if ( nEntry == 19 && key == "Soveliss" ){ entry = entry + "1#"; }
 
 						else if ( nEntry == 1 ){ entry = entry + sets + "#"; }
 						else if ( nEntry == 2 ){ entry = entry + sets + "#"; }
@@ -914,6 +916,7 @@ namespace Server.Misc
 						else if ( nEntry == 16 ){ entry = entry + sets + "#"; }
 						else if ( nEntry == 17 ){ entry = entry + sets + "#"; }
 						else if ( nEntry == 18 ){ entry = entry + sets + "#"; }
+						else if ( nEntry == 19 ){ entry = entry + sets + "#"; }
 						nEntry++;
 					}
 

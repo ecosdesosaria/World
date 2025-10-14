@@ -1637,6 +1637,10 @@ namespace Server.Engines.Help
 			{
 				quests = quests + "-You have constructed a Gem of Immortality.<br><br>";
 			}
+			if(PlayerSettings.GetKeys ( from, "Soveliss"))
+			{
+				quests = quests + "-You have given Soveliss the Dreamstone, and he has gifted you the Dragonbane.<br><br>";
+			}
 			if(PlayerSettings.GetKeys ( from, "Mitru"))
 			{
 				quests = quests + "-You have given Mitru the Dreamstone, and he has gifted you the Moon Dancer.<br><br>";
