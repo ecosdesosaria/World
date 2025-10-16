@@ -38,13 +38,13 @@ namespace Server.Items
 		public override WeaponAnimation DefAnimation{ get{ return WeaponAnimation.Bash2H; } }
 
 		[Constructable]
-		public LevelWarHammerKongor(string ownerName) : base( 0x1439 )
+		public LevelWarHammerKongor(string ownerName) : base( 0x267C )
 		{
 			Weight = 10.0;
             Hue = 0x373;
 			Layer = Layer.TwoHanded;
 			Name = "Kongor's Undying Rage";
-			ItemID = 0x1439;
+			ItemID = 0x267C;
             Attributes.WeaponDamage = 50;
             WeaponAttributes.HitPhysicalArea = 100;
 			m_Owner = ownerName;
