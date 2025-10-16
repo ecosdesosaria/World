@@ -692,7 +692,8 @@ namespace Server
 				typeof( ECrystalAltarDeed ),	typeof( ECrystalBeggarStatueDeed ),		typeof( RunicUndertaker ),
 				typeof( RunicLeatherKit ),		typeof( RunicScales ),					typeof( GolemManual ),
 				typeof( SummonPrison ),			typeof( MagicalWand ),					typeof( MagicalWand ),
-				typeof( BrokenBedDeed ),		typeof( Runebook ),						typeof( FrankenJournalInBox )
+				typeof( BrokenBedDeed ),		typeof( Runebook ),						typeof( FrankenJournalInBox ),
+				typeof( LesserWandOfDisenchanting )
 			};
 
 		public static Type[] RareItemTypes{ get{ return m_RareItemTypes; } }
@@ -713,7 +714,8 @@ namespace Server
 				typeof( CarpetBuild ),			typeof( RunicScales ),					typeof( GolemManual ),
 				typeof( SmallHollowBook ),		typeof( LargeHollowBook ),				typeof( RecallRune),
 				typeof( SlaversNet ),			typeof( TelescopeAddonDeed ),			typeof( RunicUndertaker ),
-				typeof( RunicTinker ),			typeof( RunicSewingKit )				
+				typeof( RunicTinker ),			typeof( RunicSewingKit ), 				typeof( LesserWandOfDisenchanting),
+				typeof( WandOfDisenchanting )				
 			};
 
 		public static Type[] AdventurerRareItemTypes{ get{ return m_RareItemTypes; } }
