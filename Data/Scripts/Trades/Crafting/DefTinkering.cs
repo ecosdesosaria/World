@@ -309,7 +309,28 @@ namespace Server.Engines.Craft
 			#endregion
 
 			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			
+			#region Disenchanting Wands
 
+			index = AddCraft(typeof(LesserWandOfDisenchanting), 1011383, "Lesser Wand of Disenchanting", 80.0, 120.0, typeof(ArcaneDust), "Arcane Dust", 25, "");
+			AddSkill(index, SkillName.Magery, 80.0, 100.0);
+			AddRes(index, typeof(ArcaneGem), "Arcane Gem", 5, "");
+			AddRes(index, typeof(Oyster), "Pearl", 1, "");
+			
+			index = AddCraft(typeof(WandOfDisenchanting), 1011383, "Wand of Disenchanting", 100.0, 140.0, typeof(ArcaneDust), "Arcane Dust", 50, "");
+			AddSkill(index, SkillName.Magery, 100.0, 120.0);
+			AddRes(index, typeof(ArcaneGem), "Arcane Gem", 10, "");
+			AddRes(index, typeof(Oyster), "Pearl", 3, "");
+			
+			index = AddCraft(typeof(GreaterWandOfDisenchanting), 1011383, "Greater Wand of Disenchanting", 125.0, 160.0, typeof(ArcaneDust), "Arcane Dust", 100, "");
+			AddSkill(index, SkillName.Magery, 125.0, 145.0);
+			AddRes(index, typeof(ArcaneGem), "Arcane Gem", 15, "");
+			AddRes(index, typeof(Oyster), "Pearl", 5, "");
+			
+			#endregion
+
+			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			
 			#region Wooden Items
 
 			AddCraft( typeof( ClockFrame ), 1044042, 1024173, 0.0, 50.0, typeof( Log ), 1015101, 6, 1044351 );
