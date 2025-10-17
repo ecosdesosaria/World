@@ -258,7 +258,7 @@ namespace Server.Misc
 
             }
 
-            if (item is BaseWeapon || item is BaseArmor || item is BaseTrinket || item is BaseClothing || item is Spellbook || item is BaseShield)
+            if (item is BaseWeapon || item is BaseArmor || item is BaseTrinket || item is BaseClothing || item is Spellbook || item is BaseShield || item is BaseInstrument)
             {
                 AosAttributes a = null;
                 try

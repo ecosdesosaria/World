@@ -312,20 +312,20 @@ namespace Server.Engines.Craft
 			
 			#region Disenchanting Wands
 
-			index = AddCraft(typeof(LesserWandOfDisenchanting), 1011383, "Lesser Wand of Disenchanting", 80.0, 120.0, typeof(ArcaneDust), "Arcane Dust", 25, "");
-			AddSkill(index, SkillName.Magery, 80.0, 100.0);
+			index = AddCraft(typeof(LesserWandOfDisenchanting), 1011383, "Lesser Wand of Disenchanting", 60.0, 80.0, typeof(ArcaneDust), "Arcane Dust", 25, "");
+			AddSkill(index, SkillName.Magery, 60.0, 80.0);
 			AddRes(index, typeof(ArcaneGem), "Arcane Gem", 5, "");
 			AddRes(index, typeof(Oyster), "Pearl", 1, "");
 			
-			index = AddCraft(typeof(WandOfDisenchanting), 1011383, "Wand of Disenchanting", 100.0, 140.0, typeof(ArcaneDust), "Arcane Dust", 50, "");
-			AddSkill(index, SkillName.Magery, 100.0, 120.0);
+			index = AddCraft(typeof(WandOfDisenchanting), 1011383, "Wand of Disenchanting", 80.0, 100.0, typeof(ArcaneDust), "Arcane Dust", 50, "");
+			AddSkill(index, SkillName.Magery, 80.0, 100.0);
 			AddRes(index, typeof(ArcaneGem), "Arcane Gem", 10, "");
-			AddRes(index, typeof(Oyster), "Pearl", 3, "");
+			AddRes(index, typeof(Oyster), "Pearl", 2, "");
 			
-			index = AddCraft(typeof(GreaterWandOfDisenchanting), 1011383, "Greater Wand of Disenchanting", 125.0, 160.0, typeof(ArcaneDust), "Arcane Dust", 100, "");
-			AddSkill(index, SkillName.Magery, 125.0, 145.0);
+			index = AddCraft(typeof(GreaterWandOfDisenchanting), 1011383, "Greater Wand of Disenchanting", 105.0, 125.0, typeof(ArcaneDust), "Arcane Dust", 100, "");
+			AddSkill(index, SkillName.Magery, 105.0, 125.0);
 			AddRes(index, typeof(ArcaneGem), "Arcane Gem", 15, "");
-			AddRes(index, typeof(Oyster), "Pearl", 5, "");
+			AddRes(index, typeof(Oyster), "Pearl", 3, "");
 			
 			#endregion
 
