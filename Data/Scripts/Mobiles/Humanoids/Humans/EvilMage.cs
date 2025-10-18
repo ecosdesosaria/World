@@ -97,6 +97,10 @@ namespace Server.Mobiles
 
 			if ( 0.7 > Utility.RandomDouble() )
 				PackItem( new ArcaneGem() );
+
+			if ( 0.02 > Utility.RandomDouble() )
+				PackItem( new ArcaneResearchMaterials() );
+			
 		}
 
 		public override void GenerateLoot()
