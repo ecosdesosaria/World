@@ -23,13 +23,24 @@ namespace Server.Custom.DefenderOfTheRealm
             Hue = hue;
         }
 
-        public Item CreateItem(bool isDefender)
+        public Item CreateItem(int type)
         {
             Item item = (Item)Activator.CreateInstance(ItemType);
 
             if (Hueable)
             {
-                item.Hue = isDefender ? 0x35 : 0x25;
+                if(type == 1)
+                {
+                    item.Hue = 53;
+                }
+                else if (type == 2)
+                {
+                    item.Hue = 37;
+                }
+                else if (type == 3)
+                {
+                    item.Hue = 1109;
+                }
             }
             return item;
         }
