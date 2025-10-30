@@ -576,7 +576,7 @@ namespace Server.Misc
 							case 13: henchman.Say("Uma parte justa por uma luta justa."); break;
 							case 14: henchman.Say("As crianças que tenho em casa vão apreciar isso, "+from.Name+"."); break;
 						}
-						
+
 						if ( (henchman.Fame + nGold) > 1800 ){ henchman.Fame = 1800; }
 						else { henchman.Fame = henchman.Fame + nGold; }
 						int nTime = (int)(henchman.Fame/5);
@@ -605,7 +605,7 @@ namespace Server.Misc
 						case 14: henchman.Say("Não posso pagar a pensão alimentícia com isso, " + from.Name + "."); break;
 					}
 				}
-
+			}
 			((BaseCreature)henchman).Loyalty = 100;
 		}
 
