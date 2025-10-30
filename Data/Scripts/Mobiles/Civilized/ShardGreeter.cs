@@ -144,10 +144,10 @@ namespace Server.Gumps
 			AddImage(0, 0, 2610, Server.Misc.PlayerSettings.GetGumpHue( from ));
 
 			int header = 11474;
-			if ( MySettings.S_ServerName == "Secrets of Sosaria" ){ header = 11377; }
+			if ( MySettings.S_ServerName == "Ecos de Sosaria" ){ header = 11377; }
 			AddImage(13, 12, header, 2126);
 
-			AddHtml( 13, 58, 482, 312, @"<BODY><BASEFONT Color=#94C541>For you, the day was normal compared to any other. However, when the evening sun finally disappeared below the landscape, you retired to bed where the sleep felt restless and the dreams more vivid. You cannot remember the details of the dream, but you can recall being drawn from this world through a swirling portal. When you awoke, you found yourself here in this forest. Your night clothes are gone and you are now dressed in some medieval garb, wielding a light in your hand.<BR><BR>Through the darkness of the night, you see a campfire just ahead. A colorful tent is next to it with the welcoming glow of lanterns about. The sounds of the nearby stream provides a tranquility, and you can see a grizzly bear soundly sleeping next to the warmth of the fire. If you were to shrug off the worries of your current life, you feel like this would be the place to start anew. You decide to see who is camping here and to perhaps find out where you are.</BASEFONT></BODY>", (bool)false, (bool)false);
+			AddHtml( 13, 58, 482, 312, @"<BODY><BASEFONT Color=#94C541>Para você, o dia foi normal, como qualquer outro. No entanto, quando o sol da tarde finalmente desapareceu atrás da paisagem, você se recolheu à cama, onde o sono foi inquieto e os sonhos mais vívidos. Você não se lembra dos detalhes do sonho, mas recorda-se de ter sido puxado deste mundo através de um portal giratório. Ao acordar, você se encontrou aqui, nesta floresta. Suas roupas de dormir desapareceram e agora você veste trajes medievais, empunhando uma lanterna.<BR><BR>Através da escuridão da noite, você vê uma fogueira à frente. Uma tenda colorida está ao lado, com o brilho acolhedor de lanternas ao redor. O som do riacho próximo proporciona tranquilidade, e você pode ver um urso pardo dormindo profundamente ao lado do calor do fogo. Se você pudesse se livrar das preocupações da sua vida atual, sente que este seria o lugar para recomeçar. Você decide ver quem está acampando aqui e talvez descobrir onde você está.</BASEFONT></BODY>", (bool)false, (bool)false);
 			
 			AddButton(468, 10, 4017, 4017, 0, GumpButtonType.Reply, 0);
         }
