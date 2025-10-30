@@ -124,7 +124,7 @@ namespace Server.Mobiles
 				ThiefNote job = (ThiefNote)note;
 				m.AddToBackpack( note );
 				m.PlaySound( 0x249 );
-				SayTo(m, "Hmmm...you already have a job from " + job.NoteItemPerson + ". Here is a copy if you lost it.");
+				SayTo(m, "Hmmm... você já tem um trabalho de " + job.NoteItemPerson + ". Aqui está uma cópia caso você tenha perdido.");
 			}
 			else
 			{
@@ -132,8 +132,9 @@ namespace Server.Mobiles
 				Server.Items.ThiefNote.SetupNote( task, m );
 				m.AddToBackpack( task );
 				m.PlaySound( 0x249 );
-				SayTo(m, "Here is something I think you can handle.");
-            }
+				SayTo(m, "Aqui está algo que acredito que você possa realizar.");
+			}
+
         }
 
 		public override void AddCustomContextEntries( Mobile from, List<ContextMenuEntry> list )
@@ -169,27 +170,29 @@ namespace Server.Mobiles
 				ProcessGuild( from, dropped );
 			}
 			else if (dropped is ContrabandBox)
-    		{
+			{
 				DateTime lastTime;
 				PlayerMobile pm = (PlayerMobile)from;
-        		if (m_LastContrabandTurnIn.TryGetValue(from, out lastTime))
-        		{
-        		    TimeSpan remaining = (lastTime + TimeSpan.FromHours(1)) - DateTime.UtcNow;
+				if (m_LastContrabandTurnIn.TryGetValue(from, out lastTime))
+				{
+					TimeSpan remaining = (lastTime + TimeSpan.FromHours(1)) - DateTime.UtcNow;
 
-        		    if (remaining > TimeSpan.Zero)
-        		    {
-        		        SayTo(from, "I'm still waiting on the buyer for the last one. Give me about {0} minute{1}.",
-        		            (int)Math.Ceiling(remaining.TotalMinutes),
-        		            remaining.TotalMinutes > 1 ? "s" : "");
-        		        return false;
-        		    }
-        		}
+					if (remaining > TimeSpan.Zero)
+					{
+						SayTo(from, "Ainda estou aguardando o comprador do último. Me dê cerca de {0} minuto{1}.",
+							(int)Math.Ceiling(remaining.TotalMinutes),
+							remaining.TotalMinutes > 1 ? "s" : "");
+						return false;
+					}
+				}
 
-	    		if (pm == null || pm.NpcGuild != NpcGuild.ThievesGuild)
-	    		{
-	    		    SayTo(from, "Sorry but I do not do business with those I don't trust. Guild members only, {0}.", from.Name);
-	    		    return false;
-	    		}
+				if (pm == null || pm.NpcGuild != NpcGuild.ThievesGuild)
+				{
+					SayTo(from, "Desculpe, mas não faço negócios com quem não confio. Apenas membros da guilda, {0}.", from.Name);
+					return false;
+				}
+
+
 
         		ContrabandBox box = (ContrabandBox)dropped;
         		string[] messages = GetMessageForBox(box);
@@ -213,47 +216,48 @@ namespace Server.Mobiles
 			{
 				return new string[]
 				{
-					"We will be rich my friend, rich beyond our wildest dreams!",
-					"I can't believe you managed to snatch one of those! You did the guild a great favor, my friend!",
-					"They'll be telling stories about this one in every tavern for years to come!",
-					"This is the score of a lifetime, friend!"
+					"Ficaremos ricos, meu amigo, ricos além dos nossos sonhos mais loucos!",
+					"Não acredito que você conseguiu pegar um desses! Você fez um grande favor à guilda, meu amigo!",
+					"Vão contar histórias sobre este em todas as tavernas por anos!",
+					"Este é o roubo de uma vida, amigo!"
 				};
 			}
 			else if (box is ExtremelyRareContrabandBox)
 			{
 				return new string[]
 				{
-					"This will take all my kids through college!",
-					"I might be looking to retire after I pass this one along.",
-					"Careful with that one—it might be a lot of trouble. I hope no one can trace this back to us",
-					"Top-tier stuff, I'll need to make some calls. You focus on celebrating. You earned it.",
-					"This is worth its weight in platinum.",
-					"You might just be the best thief in the realm!"
+					"Isso vai colocar todos os meus filhos na faculdade!",
+					"Talvez eu pense em me aposentar depois de passar este adiante.",
+					"Cuidado com esse—pode dar muito trabalho. Espero que ninguém consiga rastrear até nós",
+					"Material de primeira, vou precisar fazer algumas ligações. Você se concentra em comemorar. Você merece.",
+					"Vale seu peso em platina.",
+					"Você pode ser o melhor ladrão do reino!"
 				};
 			}
 			else if (box is VeryRareContrabandBox || box is RareContrabandBox)
 			{
 				return new string[]
 				{
-					"You make the guild proud, my friend.",
-					"Ah...This will fetch a nice price.",
-					"It's not often you see these around... I know someone that will be very happy to receive this.",
-					"A find like this doesn't come around often.",
-					"I'm sure that this one will a some noble sweat...",
-					"It's got that special shine to it...Doesn't it?"
+					"Você deixa a guilda orgulhosa, meu amigo.",
+					"Ah... isso vai render um bom preço.",
+					"Não se vê isso por aí com frequência... conheço alguém que ficará muito feliz em receber.",
+					"Uma descoberta assim não aparece todo dia.",
+					"Tenho certeza que este vai fazer algum nobre suar...",
+					"Tem aquele brilho especial, não tem?"
 				};
 			}
 			else if (box is UncommonContrabandBox || box is CommonContrabandBox)
 			{
 				return new string[]
 				{
-					"A day's work for a day's pay, eh?",
-					"I think I know someone that might be interested in this.",
-					"Not bad for an honest day's crime.",
-					"Keeps the network running, these little ones.",
-					"I don't think that this one will be missed too much."
+					"Um dia de trabalho para um dia de pagamento, hein?",
+					"Acho que conheço alguém que pode se interessar por isso.",
+					"Nada mal para um dia de crime honesto.",
+					"Mantém a rede funcionando, esses pequeninos.",
+					"Não acho que alguém vá sentir muita falta deste."
 				};
 			}
+
 
 			return new string[0];
 		}
@@ -349,7 +353,7 @@ namespace Server.Mobiles
 		        rewardBag.DropItem(Loot.RandomRelic(mobile));
 		    }
 		    mobile.AddToBackpack(rewardBag);
-			mobile.SendMessage("The Guildmaster rewards you for your skill and discretion.");
+			mobile.SendMessage("O Mestre da Guilda recompensa você por sua habilidade e discrição.");
 			Effects.PlaySound(mobile.Location, mobile.Map, 0x32);
 
 			int fame = 0;
@@ -368,7 +372,7 @@ namespace Server.Mobiles
 			    fame = Utility.RandomMinMax(1200, 1800);
 
 			Titles.AwardFame(mobile, fame, false);
-			LoggingFunctions.LogStandard( mobile, "has smuggled a " + box.Name + "!" );
+			LoggingFunctions.LogStandard( mobile, "contrabandeou um(a) " + box.Name + "!" );
 
 		}
 

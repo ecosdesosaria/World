@@ -126,14 +126,14 @@ namespace Server.Mobiles
 
 			int nCost = 1000;
 
-			if ( BeggingPose(from) > 0 ) // LET US SEE IF THEY ARE BEGGING
+			if ( BeggingPose(from) > 0 ) // VAMOS VER SE ELES ESTÃO IMPLORANDO
 			{
 				nCost = nCost - (int)( ( from.Skills[SkillName.Begging].Value * 0.005 ) * nCost ); if ( nCost < 1 ){ nCost = 1; }
-				SayTo(from, "Since you are begging, do you still want me to tend to your pack animal for up to 5 journeys, it will only cost you " + nCost.ToString() + " gold?");
+				SayTo(from, "Já que você está implorando, você ainda quer que eu cuide do seu animal de carga por até 5 jornadas, custará apenas " + nCost.ToString() + " de ouro?");
 			}
-			else { SayTo(from, "If you want me to tend to your pack animal for up to 5 journeys, it will cost you " + nCost.ToString() + " gold."); }
+			else { SayTo(from, "Se você quiser que eu cuide do seu animal de carga por até 5 jornadas, custará " + nCost.ToString() + " de ouro."); }
 
-            from.Target = new RepairTarget(this);
+			from.Target = new RepairTarget(this);
         }
 
         private class RepairTarget : Target
@@ -164,31 +164,31 @@ namespace Server.Mobiles
 						}
                     }
                     else
-                    {
-						m_Druid.SayTo(from, "You pack animal has been tended to enough.");
-                    }
+					{
+						m_Druid.SayTo(from, "Seu animal de carga já foi cuidado o suficiente.");
+					}
 
-                    if (toConsume == 0)
-                        return;
+					if (toConsume == 0)
+						return;
 
-                    if (pack.ConsumeTotal(typeof(Gold), toConsume))
-                    {
-						if ( BeggingPose(from) > 0 ){ Titles.AwardKarma( from, -BeggingKarma( from ), true ); } // DO ANY KARMA LOSS
-                        m_Druid.SayTo(from, "Your pack animal is properly tended to.");
-                        from.SendMessage(String.Format("You pay {0} gold.", toConsume));
-                        Effects.PlaySound(from.Location, from.Map, 0x5C1);
+					if (pack.ConsumeTotal(typeof(Gold), toConsume))
+					{
+						if ( BeggingPose(from) > 0 ){ Titles.AwardKarma( from, -BeggingKarma( from ), true ); } // FAZER QUALQUER PERDA DE KARMA
+						m_Druid.SayTo(from, "Seu animal de carga está devidamente cuidado.");
+						from.SendMessage(String.Format("Você paga {0} de ouro.", toConsume));
+						Effects.PlaySound(from.Location, from.Map, 0x5C1);
 						ball.Charges = ball.Charges + 5;
-                    }
-                    else
-                    {
-                        m_Druid.SayTo(from, "It would cost you {0} gold to have that pack animal tended to.", toConsume);
-                        from.SendMessage("You do not have enough gold.");
-                    }
-                }
-				else
-				{
-					m_Druid.SayTo(from, "That does not need my services.");
-				}
+					}
+					else
+					{
+						m_Druid.SayTo(from, "Custaria {0} de ouro para ter esse animal de carga cuidado.", toConsume);
+						from.SendMessage("Você não tem ouro suficiente.");
+					}
+					}
+					else
+					{
+						m_Druid.SayTo(from, "Isso não precisa dos meus serviços.");
+					}
             }
         }
 
@@ -201,14 +201,14 @@ namespace Server.Mobiles
 
 				if ( TreeSap > 19 )
 				{
-					sMessage = "Ahhh...this is generous of you. Here...have this as a token of the guild's gratitude.";
+					sMessage = "Ahhh... isso é generoso de sua parte. Aqui... tome isto como um símbolo da gratidão da guilda.";
 					PackBeastItem ball = new PackBeastItem();
 					ball.PorterOwner = from.Serial;
 					from.AddToBackpack ( ball );
 				}
 				else
 				{
-					sMessage = "Thank you for these. Mystical tree sap is something we often look for.";
+					sMessage = "Obrigado por estes. A seiva de árvore mística é algo que frequentemente procuramos.";
 				}
 
 				this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
@@ -220,13 +220,13 @@ namespace Server.Mobiles
 
 				PackBeastItem ball = (PackBeastItem)dropped;
 
-				if ( ball.PorterType == 291 ){ ball.ItemID = 0x2127; ball.PorterType = 292; ball.Hue = 0; sMessage = "You may like a pack llama instead." ; }
-				else if ( ball.PorterType == 292 ){ ball.ItemID = 0x20DB; ball.PorterType = 23; ball.Hue = 0; sMessage = "You may like a pack brown bear instead." ; }
-				else if ( ball.PorterType == 23 ){ ball.ItemID = 0x20CF; ball.PorterType = 177; ball.Hue = 0; sMessage = "You may like a pack black bear instead." ; }
-				else if ( ball.PorterType == 177 ){ ball.ItemID = 0x20E1; ball.PorterType = 179; ball.Hue = 0; sMessage = "You may like a pack polar bear instead." ; }
-				else if ( ball.PorterType == 179 ){ ball.ItemID = 0x2126; ball.PorterType = 291; ball.Hue = 0; sMessage = "You may like a pack horse instead." ; }
+				if ( ball.PorterType == 291 ){ ball.ItemID = 0x2127; ball.PorterType = 292; ball.Hue = 0; sMessage = "Você pode gostar de uma lhama de carga no lugar." ; }
+				else if ( ball.PorterType == 292 ){ ball.ItemID = 0x20DB; ball.PorterType = 23; ball.Hue = 0; sMessage = "Você pode gostar de um urso marrom de carga no lugar." ; }
+				else if ( ball.PorterType == 23 ){ ball.ItemID = 0x20CF; ball.PorterType = 177; ball.Hue = 0; sMessage = "Você pode gostar de um urso negro de carga no lugar." ; }
+				else if ( ball.PorterType == 177 ){ ball.ItemID = 0x20E1; ball.PorterType = 179; ball.Hue = 0; sMessage = "Você pode gostar de um urso polar de carga no lugar." ; }
+				else if ( ball.PorterType == 179 ){ ball.ItemID = 0x2126; ball.PorterType = 291; ball.Hue = 0; sMessage = "Você pode gostar de um cavalo de carga no lugar." ; }
 
-				sMessage = "You would perhaps like a different pack animal? " + sMessage;
+				sMessage = "Você talvez gostaria de um animal de carga diferente? " + sMessage;
 				from.AddToBackpack ( ball );
 
 				this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
@@ -252,7 +252,7 @@ namespace Server.Mobiles
 
 					if ( m.Map == null || !m.Map.CanFit( m.Location, 16, false, false ) )
 					{
-						Say("I sense a spirt of an animal...somewhere.");
+						Say("Sinto o espírito de um animal... em algum lugar.");
 					}
 					else
 					{
@@ -263,7 +263,7 @@ namespace Server.Mobiles
 
 						bc.ResurrectPet();
 
-						Say("Rise my friend. I wish I could save every unfortunate animal.");
+						Say("Levante-se, meu amigo. Gostaria de poder salvar todos os animais infelizes.");
 					}
 				}
 			}
