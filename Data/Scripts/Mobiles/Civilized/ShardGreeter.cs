@@ -144,7 +144,7 @@ namespace Server.Gumps
 			AddImage(0, 0, 2610, Server.Misc.PlayerSettings.GetGumpHue( from ));
 
 			int header = 11474;
-			if ( MySettings.S_ServerName == "Secrets of Sosaria" ){ header = 11377; }
+			if ( MySettings.S_ServerName == "Ecos de Sosaria" ){ header = 11377; }
 			AddImage(13, 12, header, 2126);
 
 			AddHtml( 13, 58, 482, 312, @"<BODY><BASEFONT Color=#94C541>Para você, o dia foi normal, como qualquer outro. No entanto, quando o sol da tarde finalmente desapareceu atrás da paisagem, você se recolheu à cama, onde o sono foi inquieto e os sonhos mais vívidos. Você não se lembra dos detalhes do sonho, mas recorda-se de ter sido puxado deste mundo através de um portal giratório. Ao acordar, você se encontrou aqui, nesta floresta. Suas roupas de dormir desapareceram e agora você veste trajes medievais, empunhando uma lanterna.<BR><BR>Através da escuridão da noite, você vê uma fogueira à frente. Uma tenda colorida está ao lado, com o brilho acolhedor de lanternas ao redor. O som do riacho próximo proporciona tranquilidade, e você pode ver um urso pardo dormindo profundamente ao lado do calor do fogo. Se você pudesse se livrar das preocupações da sua vida atual, sente que este seria o lugar para recomeçar. Você decide ver quem está acampando aqui e talvez descobrir onde você está.</BASEFONT></BODY>", (bool)false, (bool)false);

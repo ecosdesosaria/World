@@ -308,9 +308,9 @@ namespace Server.Items
 
 					switch ( Utility.Random( 3 ) )
 					{
-						case 0: ScrollText = "Dear " + QuestCharacters.ParchmentWriter() + ",<br><br>We were sailing the high seas in " + Server.Lands.LandName( land ) + ", when we noticed our anchor was caught on something. The water was clear so we could see almost to the bottom of the sea floor. We were caught on a ship that met its demise. We spent about " + Utility.RandomMinMax( 2, 8 ) + " days, fishing up what we could from the wreck.<br><br>" + my_location + "<br><br>We found some interesting items. One of our crew, who was a member of the mariners guild, seemed to bring up the most valuable items. We were running out of food so we headed toward shore. With my cut of the bounty, I now sit here in " + RandomThings.GetRandomCity() + ", writing this long awaited letter to you. Stop here when you can, as I have a proposition for you.<br><br> - " + QuestCharacters.QuestGiver() + ""; break;
-						case 1: ScrollText = "Dear " + QuestCharacters.ParchmentWriter() + ",<br><br>We were found our old ship while on the high seas in " + Server.Lands.LandName( land ) + ". The sun was favorable, and we could see the mast close to the surface of the wake. We spent about " + Utility.RandomMinMax( 2, 8 ) + " days trying to bring up what we could.<br><br>" + my_location + "<br><br>We recovered many of our things. One of our crew, who was a member of the mariners guild, seemed to bring up the captain's loot. The water was gettig rough, so we headed for the nearby docks. If you can meet me in " + RandomThings.GetRandomCity() + ", I can return some of your things you lost that fateful day.<br><br> - " + QuestCharacters.QuestGiver() + ""; break;
-						case 2: ScrollText = "Dear " + QuestCharacters.ParchmentWriter() + ",<br><br>The legends were true! That crazy " + RandomThings.GetRandomJob() + " knew where that ship was and I found it. I had to take a small boat out there, but I could make out its shadow beneath the waves.<br><br>" + my_location + "<br><br>I can't hope to recover anything from the wreck, but I might be able to with he help of your father. Make your way to " + RandomThings.GetRandomCity() + ", and we will come up with a plan to buy a ship and return for the treasure.<br><br> - " + QuestCharacters.QuestGiver() + ""; break;
+						case 0: ScrollText = "Caro " + QuestCharacters.ParchmentWriter() + ",<br><br>Estávamos navegando em alto mar em " + Server.Lands.LandName( land ) + ", quando notamos que nossa âncora ficou presa em algo. A água estava clara então podíamos ver quase até o fundo do mar. Estávamos presos em um navio que encontrou seu fim. Passamos cerca de " + Utility.RandomMinMax( 2, 8 ) + " dias, pescando o que podíamos dos destroços.<br><br>" + my_location + "<br><br>Encontramos alguns itens interessantes. Um de nossos tripulantes, que era membro da guilda dos marinheiros, parecia trazer os itens mais valiosos. Estávamos ficando sem comida então rumamos para a costa. Com minha parte do espólio, agora estou aqui em " + RandomThings.GetRandomCity() + ", escrevendo esta tão esperada carta para você. Pare aqui quando puder, pois tenho uma proposta para você.<br><br> - " + QuestCharacters.QuestGiver() + ""; break;
+						case 1: ScrollText = "Caro " + QuestCharacters.ParchmentWriter() + ",<br><br>Encontramos nosso antigo navio enquanto estávamos em alto mar em " + Server.Lands.LandName( land ) + ". O sol estava favorável, e podíamos ver o mastro próximo à superfície da esteira. Passamos cerca de " + Utility.RandomMinMax( 2, 8 ) + " dias tentando recuperar o que podíamos.<br><br>" + my_location + "<br><br>Recuperamos muitas de nossas coisas. Um de nossos tripulantes, que era membro da guilda dos marinheiros, parecia trazer o saque do capitão. A água estava ficando agitada, então rumamos para o cais mais próximo. Se puder me encontrar em " + RandomThings.GetRandomCity() + ", posso devolver algumas de suas coisas que você perdeu naquele dia fatídico.<br><br> - " + QuestCharacters.QuestGiver() + ""; break;
+						case 2: ScrollText = "Caro " + QuestCharacters.ParchmentWriter() + ",<br><br>As lendas eram verdadeiras! Aquele " + RandomThings.GetRandomJob() + " maluco sabia onde estava aquele navio e eu o encontrei. Tive que levar um pequeno barco até lá, mas pude distinguir sua sombra sob as ondas.<br><br>" + my_location + "<br><br>Não posso esperar recuperar nada dos destroços, mas talvez consiga com a ajuda do seu pai. Venha até " + RandomThings.GetRandomCity() + ", e elaboraremos um plano para comprar um navio e voltar pelo tesouro.<br><br> - " + QuestCharacters.QuestGiver() + ""; break;
 					}
 				}
 				else
@@ -405,19 +405,19 @@ namespace Server.Items
 						my_location = String.Format( "{0}° {1}'{2}, {3}° {4}'{5}", yLat, yMins, ySouth ? "S" : "N", xLong, xMins, xEast ? "E" : "W" );
 					}
 
-					string sBuilding = "tower";
+					string sBuilding = "torre";
 					switch( Utility.RandomMinMax( 0, 6 ) )
 					{
-						case 0: sBuilding = "tower"; break;
-						case 1: sBuilding = "house"; break;
-						case 2: sBuilding = "keep"; break;
-						case 3: sBuilding = "castle"; break;
-						case 4: sBuilding = "cabin"; break;
-						case 5: sBuilding = "mansion"; break;
-						case 6: sBuilding = "tent"; break;
+						case 0: sBuilding = "torre"; break;
+						case 1: sBuilding = "casa"; break;
+						case 2: sBuilding = "fortaleza"; break;
+						case 3: sBuilding = "castelo"; break;
+						case 4: sBuilding = "cabana"; break;
+						case 5: sBuilding = "mansão"; break;
+						case 6: sBuilding = "tenda"; break;
 					}
 
-					ScrollText = QuestCharacters.ParchmentWriter() + ",<br><br>During my last journey, I found something quite remarkable. I stumbled upon " + vHome + " that appeared to be abandoned. I believe it was " + vHome + " that once belonged to " + QuestCharacters.QuestGiver() + ". Our " + sBuilding + " by " + RandomThings.GetRandomCity() + " is getting too small for the hoards of gold we have been getting from searching " + QuestCharacters.SomePlace( "parchment" ) + ", so it is probably time we move. I am guessing we almost have enough gold to hire the help needed to get the place ready to live, so I would like you to meet me in " + RandomThings.GetRandomCity() + " where we can maybe seek out workers to help us with this endeavor. If you can make the journey, you should see it for yourself. If you still have that sextant, you can find it in " + vMap + " at...<br><br>" + my_location + "<br><br> - " + QuestCharacters.QuestGiver() + "";
+					ScrollText = QuestCharacters.ParchmentWriter() + ",<br><br>Durante minha última jornada, encontrei algo bastante notável. Deparei-me com " + vHome + " que parecia estar abandonado(a). Acredito que era " + vHome + " que uma vez pertenceu a " + QuestCharacters.QuestGiver() + ". Nossa " + sBuilding + " próxima a " + RandomThings.GetRandomCity() + " está ficando muito pequena para as pilhas de ouro que temos conseguido ao explorar " + QuestCharacters.SomePlace( "parchment" ) + ", então provavelmente é hora de nos mudarmos. Acho que já temos quase ouro suficiente para contratar a ajuda necessária para deixar o lugar pronto para morar, então gostaria que você me encontrasse em " + RandomThings.GetRandomCity() + " onde podemos procurar trabalhadores para nos ajudar neste empreendimento. Se puder fazer a viagem, deveria ver por si mesmo. Se ainda tiver aquele sextante, pode encontrá-lo em " + vMap + " em...<br><br>" + my_location + "<br><br> - " + QuestCharacters.QuestGiver() + "";
 				}
 			}
 
@@ -527,19 +527,19 @@ namespace Server.Items
 
 						if ( graveshovel == null )
 						{
-							e.SendMessage("You need to be holding a grave shovel!");
+							e.SendMessage("Você precisa estar segurando uma pá de cova!");
 						}
 						else if ( graveshovel != null && !(graveshovel is GraveSpade) )
 						{
-							e.SendMessage("You need to be holding a grave shovel!");
+							e.SendMessage("Você precisa estar segurando uma pá de cova!");
 						}
 						else if ( e.Mounted )
 						{
-							e.SendMessage("You can't dig very well when riding on a mount!");
+							e.SendMessage("Você não consegue cavar muito bem quando está em uma montaria!");
 						}
 						else if ( e.IsBodyMod && !e.Body.IsHuman && e.RaceID < 1 )
 						{
-							e.SendMessage("You cannot dig very well while polymorphed.");
+							e.SendMessage("Você não consegue cavar muito bem enquanto está transformado.");
 						}
 						else if ( ScrollTrue == 0 )
 						{
@@ -547,19 +547,19 @@ namespace Server.Items
 							e.Animate( 14, 5, 1, true, false, 0 );
 							switch( Utility.RandomMinMax( 0, 6 ) )
 							{
-								case 0: e.SendMessage("It appears someone was already here, so you toss the parchment out."); break;
-								case 1: e.SendMessage("The message must have been a lie, so you toss the parchment out."); break;
-								case 2: e.SendMessage("This must have been a hoax, so you toss the parchment out."); break;
-								case 3: e.SendMessage("There is obviously nothing here, so you toss the parchment out."); break;
-								case 4: e.SendMessage("You notice an empty hole nearby, so you toss the parchment out."); break;
-								case 5: e.SendMessage("This looks like it was a waste of time, so you toss the parchment out."); break;
-								case 6: e.SendMessage("You traveled all this way for nothing, so you toss the parchment out."); break;
+								case 0: e.SendMessage("Parece que alguém já esteve aqui, então você joga fora o pergaminho."); break;
+								case 1: e.SendMessage("A mensagem deve ter sido uma mentira, então você joga fora o pergaminho."); break;
+								case 2: e.SendMessage("Isso deve ter sido uma farsa, então você joga fora o pergaminho."); break;
+								case 3: e.SendMessage("Obviamente não há nada aqui, então você joga fora o pergaminho."); break;
+								case 4: e.SendMessage("Você nota um buraco vazio por perto, então você joga fora o pergaminho."); break;
+								case 5: e.SendMessage("Isso parece ter sido uma perda de tempo, então você joga fora o pergaminho."); break;
+								case 6: e.SendMessage("Você viajou todo esse caminho por nada, então você joga fora o pergaminho."); break;
 							}
 							this.Delete();
 						}
 						else
 						{
-							e.SendMessage("You found the body just below the ground, so you have no more use for the parchment.");
+							e.SendMessage("Você encontrou o corpo logo abaixo do chão, então não tem mais uso para o pergaminho.");
 							Item chest = new BuriedBody( ScrollLevel*2, ScrollCharacter, e );
 							LoggingFunctions.LogQuestBody( e, ScrollCharacter );
 							chest.MoveToWorld( e.Location, e.Map );
@@ -576,19 +576,19 @@ namespace Server.Items
 
 						if ( shovel == null )
 						{
-							e.SendMessage("You need to be holding a shovel!");
+							e.SendMessage("Você precisa estar segurando uma pá!");
 						}
 						else if ( shovel != null && !(shovel is Spade) )
 						{
-							e.SendMessage("You need to be holding a shovel!");
+							e.SendMessage("Você precisa estar segurando uma pá!");
 						}
 						else if ( e.Mounted )
 						{
-							e.SendMessage("You can't dig very well when riding on a mount!");
+							e.SendMessage("Você não consegue cavar muito bem quando está em uma montaria!");
 						}
 						else if ( e.IsBodyMod && !e.Body.IsHuman && e.RaceID < 1 )
 						{
-							e.SendMessage("You cannot dig very well while polymorphed.");
+							e.SendMessage("Você não pode cavar muito bem enquanto estiver transformado.");
 						}
 						else if ( ScrollTrue == 0 )
 						{
@@ -596,19 +596,19 @@ namespace Server.Items
 							e.Animate( 14, 5, 1, true, false, 0 );
 							switch( Utility.RandomMinMax( 0, 6 ) )
 							{
-								case 0: e.SendMessage("It appears someone was already here, so you toss the parchment out."); break;
-								case 1: e.SendMessage("The message must have been a lie, so you toss the parchment out."); break;
-								case 2: e.SendMessage("This must have been a hoax, so you toss the parchment out."); break;
-								case 3: e.SendMessage("There is obviously nothing here, so you toss the parchment out."); break;
-								case 4: e.SendMessage("You notice an empty hole nearby, so you toss the parchment out."); break;
-								case 5: e.SendMessage("This looks like it was a waste of time, so you toss the parchment out."); break;
-								case 6: e.SendMessage("You traveled all this way for nothing, so you toss the parchment out."); break;
+								case 0: e.SendMessage("Parece que alguém já esteve aqui, então você joga fora o pergaminho."); break;
+								case 1: e.SendMessage("A mensagem deve ter sido uma mentira, então você joga fora o pergaminho."); break;
+								case 2: e.SendMessage("Isso deve ter sido uma farsa, então você joga fora o pergaminho."); break;
+								case 3: e.SendMessage("Obviamente não há nada aqui, então você joga fora o pergaminho."); break;
+								case 4: e.SendMessage("Você nota um buraco vazio por perto, então você joga fora o pergaminho."); break;
+								case 5: e.SendMessage("Isso parece ter sido uma perda de tempo, então você joga fora o pergaminho."); break;
+								case 6: e.SendMessage("Você viajou todo esse caminho por nada, então você joga fora o pergaminho."); break;
 							}
 							this.Delete();
 						}
 						else
 						{
-							e.SendMessage("You found the chest just below the ground, so you have no more use for the parchment.");
+							e.SendMessage("Você encontrou o baú logo abaixo do chão, então não tem mais uso para o pergaminho.");
 							Item chest = new BuriedChest( ScrollLevel*2, ScrollCharacter, e );
 							chest.MoveToWorld( e.Location, e.Map );
 							LoggingFunctions.LogQuestChest( e, ScrollCharacter );
@@ -620,7 +620,7 @@ namespace Server.Items
 
 					else { e.SendGump( new ClueGump( e, this ) ); e.PlaySound( 0x249 ); }
 				}
-				else { e.SendMessage("You cannot seem to figure out what is written here!"); }
+				else { e.SendMessage("Você não parece entender o que está escrito aqui!"); }
 			}
 		}
 
