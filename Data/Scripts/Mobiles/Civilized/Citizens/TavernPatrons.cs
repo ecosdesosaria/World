@@ -627,7 +627,7 @@ namespace Server.Misc
 						case 10: wyrm = "a stygian dragan"; break;
 						case 11: wyrm = "a night dragon"; break;
 					}
-					    case 51: sWords = wyrm + " voando pela área de " + where + " em " + land + ""; break;	
+					sWords = wyrm + " voando pela área de " + where + " em " + land + ""; break;	
 				case 52: sWords = "um ancient wyrm dormindo abaixo de Dungeon Hate"; break;	
 				case 53: sWords = "um passe élfico que leva a grandes artesãos"; break;	
 				case 54: sWords = "uma infestação de ratos e cobras em Dungeon Wrath"; break;	
