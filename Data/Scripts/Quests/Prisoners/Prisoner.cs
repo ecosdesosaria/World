@@ -288,7 +288,7 @@ namespace Server.Items
 				AddButton(9, 450, 4008, 4008, 2, GumpButtonType.Reply, 0);
 				AddButton(9, 483, 4020, 4020, 3, GumpButtonType.Reply, 0);
 				AddHtml( 48, 417, 346, 20, @"<BODY><BASEFONT Color=" + color + ">Liberte-os & Ganhe " + m_Jail.PrisonerReward + " de Ouro</BASEFONT></BODY>", (bool)false, (bool)false);
-				AddHtml( 48, 450, 346, 20, @"<BODY><BASEFONT Color=" + color + "">Dê a Eles " + m_Jail.PrisonerJoin + " de Ouro para se Juntarem a Você</BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 48, 450, 346, 20, @"<BODY><BASEFONT Color=" + color + ">Dê a Eles " + m_Jail.PrisonerJoin + " de Ouro para se Juntarem a Você</BASEFONT></BODY>", (bool)false, (bool)false);
 				AddHtml( 48, 483, 346, 20, @"<BODY><BASEFONT Color=" + color + ">Deixe-os com Seu Destino</BASEFONT></BODY>", (bool)false, (bool)false);
 			}
 
