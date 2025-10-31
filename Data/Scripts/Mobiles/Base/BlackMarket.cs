@@ -205,10 +205,9 @@ namespace Server
 							Titles.AwardKarma( m_From, -BaseVendor.BeggingKarma( m_From ), true );
 
 						if ( fromBank )
-							m_Merchant.SayTo( m_From, true, "The total of thy purchase is {0} gold, which has been withdrawn from your bank account.  My thanks for the patronage.", price );
+							m_Merchant.SayTo( m_From, true, "O total de sua compra é {0} de ouro, que foi retirado de sua conta bancária. Meus agradecimentos pelo patrocínio.", price );
 						else
-							m_Merchant.SayTo( m_From, true, "The total of thy purchase is {0} gold.  My thanks for the patronage.", price );
-
+							m_Merchant.SayTo( m_From, true, "O total de sua compra é {0} de ouro. Meus agradecimentos pelo patrocínio.", price );
 						m_Merchant.InvalidateProperties();
 					}
 				}

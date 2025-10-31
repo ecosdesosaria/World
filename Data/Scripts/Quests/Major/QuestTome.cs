@@ -146,7 +146,7 @@ namespace Server.Items
 			}
 			else if ( QuestTomeOwner != from )
 			{
-				from.SendMessage( "This book does not belong and it crumbles to dust!" );
+				from.SendMessage( "Este livro não pertence aqui e desintegra-se em pó!" );
 				bool remove = true;
 				foreach ( Account a in Accounts.GetAccounts() )
 				{
@@ -461,20 +461,20 @@ namespace Server.Items
 
 			if ( talk )
 			{
-				string who = "I heard";
+				string who = "Eu ouvi";
 				switch ( Utility.RandomMinMax( 0, 5 ) )
 				{
-					case 0:	who = "I heard";																								break;
-					case 1:	who = "I learned";																								break;
-					case 2:	who = "I found out";																							break;
-					case 3:	who = "The " + RandomThings.GetRandomJob() + " in " + RandomThings.GetRandomCity() + " told me";				break;
-					case 4:	who = "I overheard some " + RandomThings.GetRandomJob() + " say";												break;
-					case 5:	who = "My friend told me";																						break;
+					case 0:	who = "Eu ouvi";																								break;
+					case 1:	who = "Eu soube";																								break;
+					case 2:	who = "Eu descobri";																							break;
+					case 3:	who = "O " + RandomThings.GetRandomJob() + " em " + RandomThings.GetRandomCity() + " me contou";				break;
+					case 4:	who = "Eu ouvi alguns " + RandomThings.GetRandomJob() + " dizerem";												break;
+					case 5:	who = "Meu amigo me contou";																						break;
 				}
-				return who + " that " + item + " may be " + locate + " within " + dungeon + " in " + world + ".";
+				return who + " que " + item + " pode estar " + locate + " dentro de " + dungeon + " em " + world + ".";
 			}
 
-			if ( world != "" ){ return "" + from + " has told you that " + item + " may be " + locate + " within " + dungeon + " in " + world + "."; }
+			if ( world != "" ){ return "" + from + " lhe contou que " + item + " pode estar " + locate + " dentro de " + dungeon + " em " + world + "."; }
 
 			return "";
 		}
@@ -573,7 +573,7 @@ namespace Server.Items
 						if ( book.QuestTomeGoals == 1 ){ relic = book.GoalItem2; }
 						else if ( book.QuestTomeGoals == 2 ){ relic = book.GoalItem3; }
 
-					player.LocalOverheadMessage(MessageType.Emote, 1150, true, "You found " + relic + ".");
+					player.LocalOverheadMessage(MessageType.Emote, 1150, true, "Você encontrou " + relic + ".");
 					player.SendSound( 0x5B4 );
 					book.QuestTomeCitizen = "";
 					book.QuestTomeDungeon = "";
@@ -585,7 +585,7 @@ namespace Server.Items
 				}
 				else
 				{
-					player.LocalOverheadMessage(MessageType.Emote, 1150, true, book.QuestTomeCitizen + " was either wrong or they lied.");
+					player.LocalOverheadMessage(MessageType.Emote, 1150, true, book.QuestTomeCitizen + " estava enganado ou mentiu.");
 					player.SendSound( 0x5B3 );
 					book.QuestTomeCitizen = "";
 					book.QuestTomeDungeon = "";
@@ -598,7 +598,7 @@ namespace Server.Items
 			else if ( chest != null && book.VillainName == chest.VillainName && book.VillainTitle == chest.VillainTitle && book.QuestTomeOwner == player && book.QuestTomeGoals >= 3 )
 			{
 				ApproachObsidian.TitanRiches( player );
-				player.LocalOverheadMessage(MessageType.Emote, 1150, true, "You found " + book.GoalItem4 + ".");
+				player.LocalOverheadMessage(MessageType.Emote, 1150, true, "Você encontrou " + book.GoalItem4 + ".");
 				book.QuestTomeGoals++;
 				return true;
 			}
