@@ -269,16 +269,16 @@ namespace Server.Items
 		{
 			int skills = scroll.CheetahPaws + scroll.Deception + scroll.EagleEye + scroll.Espionage + scroll.FerretFlee + scroll.MonkeyLeap + scroll.MysticShuriken + scroll.TigerStrength;
 
-			string text = "Ninjas are the exotic assassins, thieves, and spies of the land. They prefer stealth and sneak attacks above most other forms of conflict, and they have a series of mystical maneuvers they can perform. These abilities are the way of the shinobi. ";
+			string text = "Ninjas são os assassinos, ladrões e espiões exóticos da terra. Eles preferem furtividade e ataques sorrateiros acima da maioria das outras formas de conflito, e possuem uma série de manobras místicas que podem realizar. Essas habilidades são o caminho do shinobi. ";
 
 			if ( skills < 8 )
 			{
-				text = text + "To prove yourself of being worthy of these abilities, you will have to overcome a series of trials. Each ability will list the item you must seek and the place where it can be sought. The ninja has a choice of trial to undertake, as each ability provides two choices. One is in the land of Sosaria and the other is in the land of Lodoria. Slay the beasts and get the items. Place them on this scroll and the shinobi secrets will be revealed to you. ";
+				text = text + "Para provar que é digno dessas habilidades, você terá que superar uma série de provações. Cada habilidade listará o item que você deve buscar e o lugar onde pode ser procurado. O ninja tem a escolha da provação a ser realizada, pois cada habilidade oferece duas opções. Uma é na terra de Sosaria e a outra é na terra de Lodoria. Mate as bestas e obtenha os itens. Coloque-os neste pergaminho e os segredos shinobi serão revelados para você. ";
 			}
 
-			text = text + "<br><br>Each ability will display the description as well as the skill required, the tithing gold needed, along with the mana necessary. To tithe gold to the spirits, find a Shrine of Durama where you can select it and then offer the gold you wish to part with. You can usually find these shrines in a dojo, and some ninjas tithe gold to almost any other deity. There are choices for having a horizontal or vertical menu bar to use these abilities quickly, but you can also select the icon within this scroll to use the skill.";
+			text = text + "<br><br>Cada habilidade exibirá a descrição, bem como a habilidade necessária, o ouro de dízimo necessário, junto com a mana necessária. Para dizimar ouro aos espíritos, encontre um Santuário de Durama onde você pode selecioná-lo e então oferecer o ouro que deseja doar. Você geralmente pode encontrar esses santuários em um dojo, e alguns ninjas dizimam ouro para quase qualquer outra divindade. Existem opções para ter uma barra de menu horizontal ou vertical para usar essas habilidades rapidamente, mas você também pode selecionar o ícone dentro deste pergaminho para usar a habilidade.";
 
-			text = text + "<br><br>There are some commands you can type to use your shinobi abilities: <br><br>[CheetahPaws <br><br>[Deception <br><br>[EagleEye <br><br>[Espionage <br><br>[FerretFlee <br><br>[MonkeyLeap <br><br>[MysticShuriken <br><br>[TigerStrength <br><br>";
+			text = text + "<br><br>Há alguns comandos que você pode digitar para usar suas habilidades shinobi: <br><br>[CheetahPaws <br><br>[Deception <br><br>[EagleEye <br><br>[Espionage <br><br>[FerretFlee <br><br>[MonkeyLeap <br><br>[MysticShuriken <br><br>[TigerStrength <br><br>";
 
 			return text;
 		}
@@ -289,130 +289,130 @@ namespace Server.Items
 
 			if ( ability == 290 )
 			{
-				if ( type == "name" ){ 			str = "Cheetah Paws"; }
+				if ( type == "name" ){ 			str = "Patas de Guepardo"; }
 				else if ( type == "points" ){ 	str = "65"; }
 				else if ( type == "mana" ){ 	str = "60"; }
 				else if ( type == "skill" ){	str = "80"; }
 				else if ( type == "icon" ){ 	str = "10876"; }
-				else if ( type == "prize1" ){	str = "chest of suffering"; }
-				else if ( type == "prize2" ){	str = "egg of the harpy hen"; }
-				else if ( type == "where1" ){	str = "the Ancient Pyramid"; }
-				else if ( type == "where2" ){	str = "Dungeon Covetous"; }
+				else if ( type == "prize1" ){	str = "baú do sofrimento"; }
+				else if ( type == "prize2" ){	str = "ovo da galinha harpia"; }
+				else if ( type == "where1" ){	str = "a Pirâmide Antiga"; }
+				else if ( type == "where2" ){	str = "Masmorra da Cobiça"; }
 				else
 				{ 
-					str = "This increases the running speed of the Ninja for about 10-25 minutes, making them run as fast as a cheetah. This power cannot be called upon within certain areas and will often cease to function when entering those areas.";
+					str = "Isso aumenta a velocidade de corrida do Ninja por cerca de 10-25 minutos, fazendo-o correr tão rápido quanto um guepardo. Este poder não pode ser invocado em certas áreas e frequentemente deixará de funcionar ao entrar nessas áreas.";
 				}
 			}
 			else if ( ability == 291 )
 			{
-				if ( type == "name" ){ 			str = "Deception"; }
+				if ( type == "name" ){ 			str = "Engano"; }
 				else if ( type == "points" ){ 	str = "20"; }
 				else if ( type == "mana" ){ 	str = "15"; }
 				else if ( type == "skill" ){	str = "30"; }
 				else if ( type == "icon" ){ 	str = "10871"; }
-				else if ( type == "prize1" ){	str = "braclet of war"; }
-				else if ( type == "prize2" ){	str = "face of the ancient king"; }
-				else if ( type == "where1" ){	str = "Dungeon Clues"; }
-				else if ( type == "where2" ){	str = "the Lodoria Catacombs"; }
+				else if ( type == "prize1" ){	str = "bracelete de guerra"; }
+				else if ( type == "prize2" ){	str = "rosto do rei antigo"; }
+				else if ( type == "where1" ){	str = "Masmorra das Pistas"; }
+				else if ( type == "where2" ){	str = "as Catacumbas de Lodoria"; }
 				else
 				{ 
-					str = "The ninja can disguise themselves, where others would not recognize them and some guards may look the other way.";
+					str = "O ninja pode se disfarçar, onde outros não o reconheceriam e alguns guardas podem olhar para o outro lado.";
 				}
 			}
 			else if ( ability == 292 )
 			{
-				if ( type == "name" ){ 			str = "Eagle Eye"; }
+				if ( type == "name" ){ 			str = "Olho de Águia"; }
 				else if ( type == "points" ){ 	str = "55"; }
 				else if ( type == "mana" ){ 	str = "50"; }
 				else if ( type == "skill" ){	str = "70"; }
 				else if ( type == "icon" ){ 	str = "10872"; }
-				else if ( type == "prize1" ){	str = "stump of the ancients"; }
-				else if ( type == "prize2" ){	str = "wand of Talosh"; }
-				else if ( type == "where1" ){	str = "Dardin's Pit"; }
-				else if ( type == "where2" ){	str = "Dungeon Deceit"; }
+				else if ( type == "prize1" ){	str = "toco dos antigos"; }
+				else if ( type == "prize2" ){	str = "varinha de Talosh"; }
+				else if ( type == "where1" ){	str = "Poço de Dardin"; }
+				else if ( type == "where2" ){	str = "Masmorra do Engano"; }
 				else
 				{ 
-					str = "The eyes of the ninja are focused where they can perhaps spot hidden creatures, traps, or treasure.";
+					str = "Os olhos do ninja são focados onde podem talvez detectar criaturas ocultas, armadilhas ou tesouros.";
 				}
 			}
 			else if ( ability == 293 )
 			{
-				if ( type == "name" ){ 			str = "Espionage"; }
+				if ( type == "name" ){ 			str = "Espionagem"; }
 				else if ( type == "points" ){ 	str = "15"; }
 				else if ( type == "mana" ){ 	str = "10"; }
 				else if ( type == "skill" ){	str = "20"; }
 				else if ( type == "icon" ){ 	str = "10873"; }
-				else if ( type == "prize1" ){	str = "dark blood"; }
-				else if ( type == "prize2" ){	str = "head of Urg"; }
-				else if ( type == "where1" ){	str = "Dungeon Doom"; }
-				else if ( type == "where2" ){	str = "Dungeon Despise"; }
+				else if ( type == "prize1" ){	str = "sangue sombrio"; }
+				else if ( type == "prize2" ){	str = "cabeça de Urg"; }
+				else if ( type == "where1" ){	str = "Masmorra da Perdição"; }
+				else if ( type == "where2" ){	str = "Masmorra do Desprezo"; }
 				else
 				{ 
-					str = "Some of the more minor locks can be manipulated with this ability, but not all of them as master thieves can.";
+					str = "Algumas das fechaduras mais simples podem ser manipuladas com esta habilidade, mas não todas como ladrões mestres podem.";
 				}
 			}
 			else if ( ability == 294 )
 			{
-				if ( type == "name" ){ 			str = "Ferret Flee"; }
+				if ( type == "name" ){ 			str = "Fuga do Furão"; }
 				else if ( type == "points" ){ 	str = "35"; }
 				else if ( type == "mana" ){ 	str = "30"; }
 				else if ( type == "skill" ){	str = "50"; }
 				else if ( type == "icon" ){ 	str = "10874"; }
-				else if ( type == "prize1" ){	str = "firescale tooth"; }
-				else if ( type == "prize2" ){	str = "crown of Vorgol"; }
-				else if ( type == "where1" ){	str = "the Fires of Hell"; }
-				else if ( type == "where2" ){	str = "the City of Embers"; }
+				else if ( type == "prize1" ){	str = "dente de escama de fogo"; }
+				else if ( type == "prize2" ){	str = "coroa de Vorgol"; }
+				else if ( type == "where1" ){	str = "os Fogos do Inferno"; }
+				else if ( type == "where2" ){	str = "a Cidade das Brasas"; }
 				else
 				{ 
-					str = "If held in place by things such as paralysis magic, spider webbing, or nets the ninja can attempt to free themselves from such holds and escape.";
+					str = "Se contido por coisas como magia de paralisia, teias de aranha ou redes, o ninja pode tentar se libertar de tais contenções e escapar.";
 				}
 			}
 			else if ( ability == 295 )
 			{
-				if ( type == "name" ){ 			str = "Monkey Leap"; }
+				if ( type == "name" ){ 			str = "Salto do Macaco"; }
 				else if ( type == "points" ){ 	str = "25"; }
 				else if ( type == "mana" ){ 	str = "20"; }
 				else if ( type == "skill" ){	str = "40"; }
 				else if ( type == "icon" ){ 	str = "10875"; }
-				else if ( type == "prize1" ){	str = "ichor of Xthizx"; }
-				else if ( type == "prize2" ){	str = "claw of Saramon"; }
-				else if ( type == "where1" ){	str = "the Mines of Morinia"; }
-				else if ( type == "where2" ){	str = "Dungeon Hythloth"; }
+				else if ( type == "prize1" ){	str = "icor de Xthizx"; }
+				else if ( type == "prize2" ){	str = "garra de Saramon"; }
+				else if ( type == "where1" ){	str = "as Minas de Morinia"; }
+				else if ( type == "where2" ){	str = "Masmorra de Hythloth"; }
 				else
 				{ 
-					str = "Allows the ninja to leap toward or away from a location very quickly.";
+					str = "Permite que o ninja salte em direção ou para longe de um local muito rapidamente.";
 				}
 			}
 			else if ( ability == 296 )
 			{
-				if ( type == "name" ){ 			str = "Mystic Shuriken"; }
+				if ( type == "name" ){ 			str = "Shuriken Místico"; }
 				else if ( type == "points" ){ 	str = "45"; }
 				else if ( type == "mana" ){ 	str = "40"; }
 				else if ( type == "skill" ){	str = "60"; }
 				else if ( type == "icon" ){ 	str = "10877"; }
-				else if ( type == "prize1" ){	str = "heart of a vampire queen"; }
-				else if ( type == "prize2" ){	str = "horn of the frozen hells"; }
-				else if ( type == "where1" ){	str = "the Perinian Depths"; }
-				else if ( type == "where2" ){	str = "the Ice Fiend Lair"; }
+				else if ( type == "prize1" ){	str = "coração de uma rainha vampira"; }
+				else if ( type == "prize2" ){	str = "chifre dos infernos congelados"; }
+				else if ( type == "where1" ){	str = "as Profundezas Perinianas"; }
+				else if ( type == "where2" ){	str = "o Covil do Demônio de Gelo"; }
 				else
 				{ 
-					str = "Summons a shuriken out of thin air and hurdles it toward your opponent, causing much damage from afar.";
+					str = "Invoca um shuriken do nada e o arremessa em direção ao seu oponente, causando muito dano à distância.";
 				}
 			}
 			else if ( ability == 297 )
 			{
-				if ( type == "name" ){ 			str = "Tiger Strength"; }
+				if ( type == "name" ){ 			str = "Força do Tigre"; }
 				else if ( type == "points" ){	str = "75"; }
 				else if ( type == "mana" ){ 	str = "70"; }
 				else if ( type == "skill" ){	str = "90"; }
 				else if ( type == "icon" ){ 	str = "10878"; }
-				else if ( type == "prize1" ){	str = "hourglass of ages"; }
-				else if ( type == "prize2" ){	str = "elemental salt"; }
-				else if ( type == "where1" ){	str = "the Dungeon of Time Awaits"; }
-				else if ( type == "where2" ){	str = "Dungeon Shame"; }
+				else if ( type == "prize1" ){	str = "ampulheta das eras"; }
+				else if ( type == "prize2" ){	str = "sal elemental"; }
+				else if ( type == "where1" ){	str = "a Masmorra do Tempo Espera"; }
+				else if ( type == "where2" ){	str = "Masmorra da Vergonha"; }
 				else
 				{ 
-					str = "Calls forth a mystical tiger from the realm of Durama to fight with the ninja during their journey.";
+					str = "Invoca um tigre místico do reino de Durama para lutar com o ninja durante sua jornada.";
 				}
 			}
 
@@ -466,7 +466,7 @@ namespace Server.Items
 					else
 					{
 						AddImage(47, 57, Int32.Parse( Server.Items.ShinobiScroll.ShinobiInfo( ability, "icon" ) ));
-						clue = "To be worthy of this ability, you need to either get the " + ShinobiInfo( ability, "prize1" ) + " at " + ShinobiInfo( ability, "where1" ) + " in the Land of Sosaria or the " + ShinobiInfo( ability, "prize2" ) + " at " + ShinobiInfo( ability, "where2" ) + " in the Land of Lodoria.";
+						clue = "Para ser digno desta habilidade, você precisa obter o " + ShinobiInfo( ability, "prize1" ) + " em " + ShinobiInfo( ability, "where1" ) + " na Terra de Sosaria ou a " + ShinobiInfo( ability, "prize2" ) + " em " + ShinobiInfo( ability, "where2" ) + " na Terra de Lodoria.";
 					}
 
 					AddHtml( 56, 109, 414, 92, @"<BODY><BASEFONT Color=#111111><BIG>" + clue + "</BIG></BASEFONT></BODY>", (bool)false, (bool)false);

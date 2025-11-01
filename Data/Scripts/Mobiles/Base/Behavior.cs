@@ -3041,7 +3041,7 @@ namespace Server.Misc
 						c = "dela";
 					} 
 
-					string ScrollText = from.Name + ",<br><br>You have been given a task by " + RandomThings.GetRandomSociety() + ". You are to find " + killer.Name + " and make sure you kill " + a + " while " + b + " is in " + Server.Misc.Worlds.GetRegionName( from.Map, from.Location ) + ". When the deed is done, meet " + QuestCharacters.ParchmentWriter() + " in " + RandomThings.GetRandomCity() + " where you can collect your " + gold.ToString() + ",000 gold.<br><br> - " + QuestCharacters.ParchmentWriter();
+					string ScrollText = from.Name + ",<br><br>Você recebeu uma tarefa de " + RandomThings.GetRandomSociety() + ". Você deve encontrar " + killer.Name + " e garantir que mate " + a + " enquanto " + b + " estiver em " + Server.Misc.Worlds.GetRegionName( from.Map, from.Location ) + ". Quando o feito estiver concluído, encontre " + QuestCharacters.ParchmentWriter() + " em " + RandomThings.GetRandomCity() + " onde você pode coletar suas " + gold.ToString() + ".000 moedas de ouro.<br><br> - " + QuestCharacters.ParchmentWriter();
 
 					switch ( Utility.RandomMinMax( 0, 9 ) )
 					{
