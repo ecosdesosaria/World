@@ -1233,7 +1233,7 @@ namespace Server.Mobiles
 				{
 					int nGold = dropped.Amount * 3;
 
-					sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
+					string sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
 					from.AddToBackpack ( new Gold( nGold ) );
 
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
@@ -1245,7 +1245,7 @@ namespace Server.Mobiles
 				{
 					int nGold = dropped.Amount * 5;
 
-					sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
+					string sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
 					from.AddToBackpack ( new Gold( nGold ) );
 
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
@@ -1257,7 +1257,7 @@ namespace Server.Mobiles
 				{
 					int nGold = dropped.Amount * 2;
 
-					sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
+					string sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
 					from.AddToBackpack ( new Gold( nGold ) );
 
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
@@ -1269,7 +1269,7 @@ namespace Server.Mobiles
 				{
 					int nGold = dropped.Amount * 2;
 
-					sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
+					string sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
 					from.AddToBackpack ( new Gold( nGold ) );
 
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
@@ -1281,7 +1281,7 @@ namespace Server.Mobiles
 				{
 					int nGold = dropped.Amount;
 
-					sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
+					string sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
 					from.AddToBackpack ( new Gold( nGold ) );
 
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
