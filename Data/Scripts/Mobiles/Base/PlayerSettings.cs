@@ -1469,20 +1469,20 @@ namespace Server.Misc
 				{
 					m.PlaySound( 0x048 );
 
-					string sMessage = "You take some ";
+					string sMessage = "Você pega algumas ";
 
-					if ( foundCoins > 0 ){ sMessage = sMessage + "coins, "; }
-					if ( foundGems > 0 ){ sMessage = sMessage + "gems, "; }
-					if ( foundNuggets > 0 ){ sMessage = sMessage + "nuggets, "; }
-					if ( foundJewels > 0 ){ sMessage = sMessage + "jewels, "; }
-					if ( foundArrows > 0 ){ sMessage = sMessage +" arrows, "; }
-					if ( foundBolts > 0 ){ sMessage = sMessage + "bolts, "; }
-					if ( foundBandages > 0 ){ sMessage = sMessage + "bandages, "; }
-					if ( foundScrolls > 0 ){ sMessage = sMessage + "scrolls, "; }
-					if ( foundReagents > 0 ){ sMessage = sMessage + "reagents, "; }
-					if ( foundPotions > 0 ){ sMessage = sMessage + "potions, "; }
+					if ( foundCoins > 0 ){ sMessage = sMessage + "moedas, "; }
+					if ( foundGems > 0 ){ sMessage = sMessage + "gemas, "; }
+					if ( foundNuggets > 0 ){ sMessage = sMessage + "pepitas, "; }
+					if ( foundJewels > 0 ){ sMessage = sMessage + "joias, "; }
+					if ( foundArrows > 0 ){ sMessage = sMessage + "flechas, "; }
+					if ( foundBolts > 0 ){ sMessage = sMessage + "virotes, "; }
+					if ( foundBandages > 0 ){ sMessage = sMessage + "ataduras, "; }
+					if ( foundScrolls > 0 ){ sMessage = sMessage + "pergaminhos, "; }
+					if ( foundReagents > 0 ){ sMessage = sMessage + "reagentes, "; }
+					if ( foundPotions > 0 ){ sMessage = sMessage + "poções, "; }
 
-					sMessage = sMessage + "and put them in your pack.";
+					sMessage = sMessage + "e as coloca na sua mochila.";
 
 					m.SendMessage( sMessage );
 				}

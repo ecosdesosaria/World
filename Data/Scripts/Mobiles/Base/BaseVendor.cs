@@ -1168,7 +1168,7 @@ namespace Server.Mobiles
 					dropped.Delete();
 					carpet.Hue = dropped.Hue;
 					from.AddToBackpack( carpet );
-					SayTo(from, "I altered your magic carpet.");
+					SayTo(from, "Eu alterei seu tapete mágico.");
 					Effects.PlaySound(from.Location, from.Map, 0x248);
 				}
 				else if ( dropped is Gold && dropped.Amount == 1000 && ( this is Mapmaker || this is CartographersGuildmaster ) )
@@ -1192,7 +1192,7 @@ namespace Server.Mobiles
 
 					this.CoinPurse += 1000;
 					this.InvalidateProperties();
-					string sMessage = "Thank you. Here is your world map.";
+					string sMessage = "Obrigado. Aqui está seu mapa mundial.";
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
 					dropped.Delete();
 					return true;
@@ -1201,23 +1201,23 @@ namespace Server.Mobiles
 							( this is Minter || this is Banker )	)
 				{
 					int nRate = 5;
-					string sCoin = "silver";
-					if ( dropped is DDCopper ){ nRate = 10; sCoin = "copper";}
+					string sCoin = "prata";
+					if ( dropped is DDCopper ){ nRate = 10; sCoin = "cobre";}
 
 					int nCoins = dropped.Amount;
 					int nGold = (int)Math.Floor((decimal)(dropped.Amount / nRate));
 					int nChange = dropped.Amount - ( nGold * nRate );
 
-					string sMessage = "Sorry, you do not have enough here to exchange for even a single gold coin.";
+					string sMessage = "Desculpe, você não tem o suficiente aqui para trocar por uma única moeda de ouro.";
 
 					if ( ( nGold > 0 ) && ( nChange > 0 ) )
 					{
-						sMessage = "Here is " + nGold.ToString() + " gold for you, and " + nChange.ToString() + " " + sCoin + " back in change.";
+						sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você, e " + nChange.ToString() + " " + sCoin + " de troco.";
 						from.AddToBackpack ( new Gold( nGold ) );
 					}
 					else if ( nGold > 0 )
 					{
-						sMessage = "Here is " + nGold.ToString() + " gold for you.";
+						sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
 						from.AddToBackpack ( new Gold( nGold ) );
 					}
 
@@ -1233,7 +1233,7 @@ namespace Server.Mobiles
 				{
 					int nGold = dropped.Amount * 3;
 
-					string sMessage = "Here is " + nGold.ToString() + " gold for you.";
+					sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
 					from.AddToBackpack ( new Gold( nGold ) );
 
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
@@ -1245,7 +1245,7 @@ namespace Server.Mobiles
 				{
 					int nGold = dropped.Amount * 5;
 
-					string sMessage = "Here is " + nGold.ToString() + " gold for you.";
+					sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
 					from.AddToBackpack ( new Gold( nGold ) );
 
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
@@ -1257,7 +1257,7 @@ namespace Server.Mobiles
 				{
 					int nGold = dropped.Amount * 2;
 
-					string sMessage = "Here is " + nGold.ToString() + " gold for you.";
+					sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
 					from.AddToBackpack ( new Gold( nGold ) );
 
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
@@ -1269,7 +1269,7 @@ namespace Server.Mobiles
 				{
 					int nGold = dropped.Amount * 2;
 
-					string sMessage = "Here is " + nGold.ToString() + " gold for you.";
+					sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
 					from.AddToBackpack ( new Gold( nGold ) );
 
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
@@ -1281,7 +1281,7 @@ namespace Server.Mobiles
 				{
 					int nGold = dropped.Amount;
 
-					string sMessage = "Here is " + nGold.ToString() + " gold for you.";
+					sMessage = "Aqui estão " + nGold.ToString() + " de ouro para você.";
 					from.AddToBackpack ( new Gold( nGold ) );
 
 					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sMessage, from.NetState);
@@ -1357,7 +1357,7 @@ namespace Server.Mobiles
 						{
 							from.AddToBackpack ( item );
 						}
-					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "The curse has been lifted from the books.", from.NetState);
+					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "A maldição foi removida dos livros.", from.NetState);
 					dropped.Delete();
 					return true;
 				}

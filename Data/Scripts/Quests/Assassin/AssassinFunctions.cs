@@ -284,16 +284,16 @@ namespace Server.Misc
 					string sMessage = "";
 					switch ( Utility.RandomMinMax( 0, 9 ) )
 					{
-						case 0:	sMessage = "I assume the death was quick. Here is " + nAssassinFee.ToString() + " gold for you.";		break;
-						case 1:	sMessage = "I bet they never seen you coming. Here is " + nAssassinFee.ToString() + " gold for you.";		break;
-						case 2:	sMessage = "Was the death swift? Here is " + nAssassinFee.ToString() + " gold for you.";		break;
-						case 3:	sMessage = "Were there any witnesses? Here is " + nAssassinFee.ToString() + " gold for you.";		break;
-						case 4:	sMessage = "I am impressed. Here is " + nAssassinFee.ToString() + " gold for you.";		break;
-						case 5:	sMessage = "Word of your deed already reached my ears. Here is " + nAssassinFee.ToString() + " gold for you.";		break;
-						case 6:	sMessage = "How you did that one, I'll never know. Here is " + nAssassinFee.ToString() + " gold for you.";		break;
-						case 7:	sMessage = "You are one of my best. Here is " + nAssassinFee.ToString() + " gold for you.";		break;
-						case 8:	sMessage = "Did you leave the body behind? Here is " + nAssassinFee.ToString() + " gold for you.";		break;
-						case 9:	sMessage = "Next time, strike from the shadows. Here is " + nAssassinFee.ToString() + " gold for you.";		break;
+						case 0: sMessage = "Presumo que a morte foi rápida. Aqui estão " + nAssassinFee.ToString() + " de ouro para você."; break;
+						case 1: sMessage = "Aposto que eles nem te viram chegar. Aqui estão " + nAssassinFee.ToString() + " de ouro para você."; break;
+						case 2: sMessage = "A morte foi rápida? Aqui estão " + nAssassinFee.ToString() + " de ouro para você."; break;
+						case 3: sMessage = "Houve alguma testemunha? Aqui estão " + nAssassinFee.ToString() + " de ouro para você."; break;
+						case 4: sMessage = "Estou impressionado. Aqui estão " + nAssassinFee.ToString() + " de ouro para você."; break;
+						case 5: sMessage = "A notícia do seu feito já chegou aos meus ouvidos. Aqui estão " + nAssassinFee.ToString() + " de ouro para você."; break;
+						case 6: sMessage = "Como você fez isso, nunca saberei. Aqui estão " + nAssassinFee.ToString() + " de ouro para você."; break;
+						case 7: sMessage = "Você é um dos meus melhores. Aqui estão " + nAssassinFee.ToString() + " de ouro para você."; break;
+						case 8: sMessage = "Você deixou o corpo para trás? Aqui estão " + nAssassinFee.ToString() + " de ouro para você."; break;
+						case 9: sMessage = "Da próxima vez, ataque das sombras. Aqui estão " + nAssassinFee.ToString() + " de ouro para você."; break;
 					}
 					leader.Say( sMessage );
 

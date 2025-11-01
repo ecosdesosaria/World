@@ -63,20 +63,20 @@ namespace Server.Engines.Harvest
 
 			res = new HarvestResource[]
 			{
-				new HarvestResource( 000.0, 000.0, 150.0, "You put some bones in your backpack",				typeof( Bones ) ),
-				new HarvestResource( 000.0, 000.0, 150.0, "You put a rotted arm in your backpack",				typeof( LeftArm ) ),
-				new HarvestResource( 000.0, 000.0, 150.0, "You put a rotted arm in your backpack",				typeof( RightArm ) ),
-				new HarvestResource( 000.0, 000.0, 150.0, "You put a rotted torso in your backpack",			typeof( Torso ) ),
-				new HarvestResource( 000.0, 000.0, 150.0, "You put a rotted leg in your backpack",				typeof( LeftLeg ) ),
-				new HarvestResource( 000.0, 000.0, 150.0, "You put a rotted leg in your backpack",				typeof( RightLeg ) ),
-				new HarvestResource( 000.0, 000.0, 150.0, "You put a bone in your backpack",					typeof( Bone ) ),
-				new HarvestResource( 000.0, 000.0, 150.0, "You put a rib cage in your backpack",				typeof( RibCage ) ),
-				new HarvestResource( 000.0, 000.0, 150.0, "You put a pile of bones in your backpack",			typeof( BonePile ) ),
-				new HarvestResource( 020.0, 010.0, 150.0, "You put some grave dust in your backpack",			typeof( GraveDust ) ),
-				new HarvestResource( 020.0, 010.0, 150.0, "You put some dirt in your backpack",					typeof( FertileDirt ) ),
-				new HarvestResource( 050.0, 040.0, 150.0, "You put a potion in your backpack",					typeof( LesserCurePotion ) ),
-				new HarvestResource( 050.0, 040.0, 150.0, "You put some reagents in your backpack",				typeof( Brimstone ) ),
-				new HarvestResource( 050.0, 040.0, 150.0, "You put a scroll in your backpack",					typeof( HealScroll ) )
+				new HarvestResource( 000.0, 000.0, 150.0, "Você coloca alguns ossos na sua mochila", typeof( Bones ) ),
+				new HarvestResource( 000.0, 000.0, 150.0, "Você coloca um braço podre na sua mochila", typeof( LeftArm ) ),
+				new HarvestResource( 000.0, 000.0, 150.0, "Você coloca um braço podre na sua mochila", typeof( RightArm ) ),
+				new HarvestResource( 000.0, 000.0, 150.0, "Você coloca um torso podre na sua mochila", typeof( Torso ) ),
+				new HarvestResource( 000.0, 000.0, 150.0, "Você coloca uma perna podre na sua mochila", typeof( LeftLeg ) ),
+				new HarvestResource( 000.0, 000.0, 150.0, "Você coloca uma perna podre na sua mochila", typeof( RightLeg ) ),
+				new HarvestResource( 000.0, 000.0, 150.0, "Você coloca um osso na sua mochila", typeof( Bone ) ),
+				new HarvestResource( 000.0, 000.0, 150.0, "Você coloca uma caixa torácica na sua mochila", typeof( RibCage ) ),
+				new HarvestResource( 000.0, 000.0, 150.0, "Você coloca uma pilha de ossos na sua mochila", typeof( BonePile ) ),
+				new HarvestResource( 020.0, 010.0, 150.0, "Você coloca um pouco de pó de sepultura na sua mochila", typeof( GraveDust ) ),
+				new HarvestResource( 020.0, 010.0, 150.0, "Você coloca um pouco de terra na sua mochila", typeof( FertileDirt ) ),
+				new HarvestResource( 050.0, 040.0, 150.0, "Você coloca uma poção na sua mochila", typeof( LesserCurePotion ) ),
+				new HarvestResource( 050.0, 040.0, 150.0, "Você coloca alguns reagentes na sua mochila", typeof( Brimstone ) ),
+				new HarvestResource( 050.0, 040.0, 150.0, "Você coloca um pergaminho na sua mochila", typeof( HealScroll ) )
 			};
 
 			veins = new HarvestVein[]

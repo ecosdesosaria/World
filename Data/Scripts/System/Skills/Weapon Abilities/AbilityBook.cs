@@ -36,39 +36,39 @@ namespace Server.Items
 				AddPage(1);
 				AddButton( 401, 87, 0x89E, 0x89E, 18, GumpButtonType.Page, 2 );
 				AddButton( 129, 87, 0x89D, 0x89D, 19, GumpButtonType.Page, 63 );
-				AddHtml( 146, 111, 112, 75, @"<p align='center'>The Complete Book of Weapon Mastery", (bool)false, (bool)false);
+				AddHtml( 146, 111, 112, 75, @"<p align='center'>O Livro Completo da Maestria em Armas", (bool)false, (bool)false);
 				AddImage(166, 193, 21248);
-				AddHtml( 291, 108, 139, 163, @"Warriors have the ability to tap their Mana to perform devastating maneuvers with their weapons that can have a variety of unusual side-effects. Each weapon will have a", (bool)false, (bool)false);
+				AddHtml( 291, 108, 139, 163, @"Guerreiros têm a capacidade de usar sua Mana para executar manobras devastadoras com suas armas que podem ter uma variedade de efeitos colaterais incomuns. Cada arma terá uma", (bool)false, (bool)false);
 
 				AddPage(2);
 				AddButton( 401, 87, 0x89E, 0x89E, 18, GumpButtonType.Page, 3 );
 				AddButton( 129, 87, 0x89D, 0x89D, 19, GumpButtonType.Page, 1 );
-				AddHtml( 135, 108, 139, 163, @"unique combination of special moves. Warriors who have reached a 70 skill level in their weapon skill will be able to execute a weapon's primary special move. There can be five", (bool)false, (bool)false);
-				AddHtml( 291, 108, 139, 163, @"total special abilities for weapons, achieved at 80, 90, 100, and 110 in the weapon skill. The skill level required can even be achieved through use of skill enhancing items such as rings,", (bool)false, (bool)false);
+				AddHtml( 135, 108, 139, 163, @"combinação única de golpes especiais. Guerreiros que atingiram o nível 70 de habilidade em sua arma poderão executar o golpe especial primário da arma. Podem existir cinco", (bool)false, (bool)false);
+				AddHtml( 291, 108, 139, 163, @"habilidades especiais totais para armas, alcançadas nos níveis 80, 90, 100 e 110 da habilidade com a arma. O nível de habilidade necessário pode até ser alcançado através do uso de itens que aumentam", (bool)false, (bool)false);
 
 				AddPage(3);
 				AddButton( 401, 87, 0x89E, 0x89E, 18, GumpButtonType.Page, 4 );
 				AddButton( 129, 87, 0x89D, 0x89D, 19, GumpButtonType.Page, 2 );
-				AddHtml( 135, 108, 139, 163, @"bracelets, boots, robes, cloaks, belts, and earrings. In all cases another skill is required to perform these maneuvers. This is always tactics, however anatomy", (bool)false, (bool)false);
-				AddHtml( 291, 108, 139, 163, @"can sometimes help. Whenever you equip a weapon, you will get a display of buttons to select to initiate these special moves if your skill allows. To activate or deactivate a", (bool)false, (bool)false);
+				AddHtml( 135, 108, 139, 163, @"habilidades, como anéis, braceletes, botas, vestes, capas, cintos e brincos. Em todos os casos, outra habilidade é necessária para executar essas manobras. Esta é sempre tática, embora anatomia", (bool)false, (bool)false);
+				AddHtml( 291, 108, 139, 163, @"possa às vezes ajudar. Sempre que você equipar uma arma, verá uma display de botões para selecionar e iniciar esses golpes especiais se sua habilidade permitir. Para ativar ou desativar um", (bool)false, (bool)false);
 
 				AddPage(4);
 				AddButton( 401, 87, 0x89E, 0x89E, 18, GumpButtonType.Page, 5 );
 				AddButton( 129, 87, 0x89D, 0x89D, 19, GumpButtonType.Page, 3 );
-				AddHtml( 135, 108, 139, 163, @"special move, select the icon and the ribbon will turn red. At the next opportunity, the special move is performed, and the ribbon returns to its gray state. The Mana Cost of each special", (bool)false, (bool)false);
-				AddHtml( 291, 108, 139, 163, @"move can be reduced if the warrior's skills are high enough. Add up the skill points for Swords, Bludgeoning, Fencing, Marksmanship, Parrying, Fist Fighting, Lumberjacking, Stealth, Poisoning, Bushido and", (bool)false, (bool)false);
+				AddHtml( 135, 108, 139, 163, @"golpe especial, selecione o ícone e a fita ficará vermelha. Na primeira oportunidade, o golpe especial é executado e a fita retorna ao estado cinza. O Custo de Mana de cada golpe", (bool)false, (bool)false);
+				AddHtml( 291, 108, 139, 163, @"especial pode ser reduzido se as habilidades do guerreiro forem altas o suficiente. Some os pontos de habilidade para Espadas, Pancadas, Esgrima, Atirar, Aparar, Luta de Punhos, Lenhador, Furtividade, Envenenamento, Bushido e", (bool)false, (bool)false);
 
 				AddPage(5);
 				AddButton( 401, 87, 0x89E, 0x89E, 18, GumpButtonType.Page, 6 );
 				AddButton( 129, 87, 0x89D, 0x89D, 19, GumpButtonType.Page, 4 );
-				AddHtml( 135, 108, 139, 163, @"Ninjitsu. If the total lies between 200 and 299, subtract 5 from the Mana Cost. If the total is 300 or more, subtract 10 from the Mana Cost. Some items have a property called 'lower", (bool)false, (bool)false);
-				AddHtml( 291, 108, 139, 163, @"mana cost'. These items also reduce the Mana Cost of these Special Moves. If a special move is attempted within 3 seconds after another special move, the mana cost of that move will", (bool)false, (bool)false);
+				AddHtml( 135, 108, 139, 163, @"Ninjitsu. Se o total estiver entre 200 e 299, subtraia 5 do Custo de Mana. Se o total for 300 ou mais, subtraia 10 do Custo de Mana. Alguns itens têm uma propriedade chamada 'menor", (bool)false, (bool)false);
+				AddHtml( 291, 108, 139, 163, @"custo de mana'. Esses itens também reduzem o Custo de Mana desses Golpes Especiais. Se um golpe especial for tentado dentro de 3 segundos após outro golpe especial, o custo de mana desse golpe", (bool)false, (bool)false);
 
 				AddPage(6);
 				AddButton( 401, 87, 0x89E, 0x89E, 18, GumpButtonType.Page, 7 );
 				AddButton( 129, 87, 0x89D, 0x89D, 19, GumpButtonType.Page, 5 );
-				AddHtml( 135, 108, 139, 163, @"be doubled. The special move bar can have the names of the special moves to the right of the icons if you so choose. If you want to turn this feature on or off, simply type the", (bool)false, (bool)false);
-				AddHtml( 291, 108, 139, 163, @"command '[abilitynames' without the quotes.", (bool)false, (bool)false);
+				AddHtml( 135, 108, 139, 163, @"será dobrado. A barra de golpes especiais pode ter os nomes dos golpes especiais à direita dos ícones, se você assim desejar. Se quiser ativar ou desativar este recurso, simplesmente digite o", (bool)false, (bool)false);
+				AddHtml( 291, 108, 139, 163, @"comando '[abilitynames' sem as aspas.", (bool)false, (bool)false);
 
 				int counter = 0;
 				int pages = 55;
