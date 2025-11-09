@@ -212,15 +212,15 @@ namespace Server.Misc
 				}
 			} 
 
-			((PlayerMobile)m).CharacterWanted = m.Name + " is wanted for the murder of " + wTitle + " " + wName + ". The " + wTitle + " was attacked while " + wPron + " was visting " + RandomThings.GetRandomCity() + ". Citizens stated they seen " + m.Name + " leaving the area with a blood covered " + Server.Misc.RandomThings.GetRandomWeapon() + ". The guard captain " + QuestCharacters.ParchmentWriter() + " warns all citizen to be on the lookout for " + m.Name + " as they escaped their jail cell in Britain.";
+			((PlayerMobile)m).CharacterWanted = m.Name + " é procurado pelo assassinato de " + wTitle + " " + wName + ". O " + wTitle + " foi atacado enquanto " + wPron + " visitava " + RandomThings.GetRandomCity() + ". Cidadãos afirmaram ter visto " + m.Name + " deixando o local com uma " + Server.Misc.RandomThings.GetRandomWeapon() + " coberta de sangue. O capitão da guarda " + QuestCharacters.ParchmentWriter() + " adverte a todos os cidadãos para ficarem alertas quanto a " + m.Name + ", pois este fugiu de sua cela em Britain.";
 			int words = Utility.RandomMinMax( 1, 3 );
 			if ( words == 2 ) 
 			{
-				((PlayerMobile)m).CharacterWanted = m.Name + " is wanted for the murder of " + wTitle + " " + wName + ". The " + wTitle + " was attacked while " + wPron + " was visting " + RandomThings.GetRandomCity() + ". " + m.Name + " also stole " + Server.Misc.QuestCharacters.QuestItems( true ) + " that the " + wTitle + " had with them. The guard captain " + QuestCharacters.ParchmentWriter() + " warns all citizen to be on the lookout for " + m.Name + " as they escaped their jail cell in Britain.";
+				((PlayerMobile)m).CharacterWanted = m.Name + " é procurado pelo assassinato de " + wTitle + " " + wName + ". O " + wTitle + " foi atacado enquanto " + wPron + " visitava " + RandomThings.GetRandomCity() + ". " + m.Name + " também roubou " + Server.Misc.QuestCharacters.QuestItems( true ) + " que o " + wTitle + " portava consigo. O capitão da guarda " + QuestCharacters.ParchmentWriter() + " adverte a todos os cidadãos para ficarem alertas quanto a " + m.Name + ", pois este fugiu de sua cela em Britain.";
 			}
 			else if ( words == 3 ) 
 			{
-				((PlayerMobile)m).CharacterWanted = m.Name + " is wanted for the murder of " + wTitle + " " + wName + ". The " + wTitle + " was assassinated by orders from a group calling themselves " + RandomThings.GetRandomSociety() + ". " + m.Name + " was hired by them to carry out the deed, but their motivations remain unclear. The guard captain " + QuestCharacters.ParchmentWriter() + " warns all citizen to be on the lookout for " + m.Name + " as they escaped their jail cell in Britain.";
+				((PlayerMobile)m).CharacterWanted = m.Name + " é procurado pelo assassinato de " + wTitle + " " + wName + ". O " + wTitle + " foi assassinado por ordens de um grupo que se intitula " + RandomThings.GetRandomSociety() + ". " + m.Name + " foi contratado por eles para realizar o feito, mas suas motivações permanecem obscuras. O capitão da guarda " + QuestCharacters.ParchmentWriter() + " adverte a todos os cidadãos para ficarem alertas quanto a " + m.Name + ", pois este fugiu de sua cela em Britain.";
 			}
 
 			m.Profile = ((PlayerMobile)m).CharacterWanted;
