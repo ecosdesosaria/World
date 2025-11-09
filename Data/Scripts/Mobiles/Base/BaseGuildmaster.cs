@@ -30,7 +30,7 @@ namespace Server.Mobiles
 
 		public virtual void SayWelcomeTo( Mobile m )
 		{
-			SayTo( m, "Welcome to the guild! Thou shalt find it beneficial to your future endeavors." );
+			SayTo( m, "Bem-vindo à guilda! Acharás benéfico para teus futuros empreendimentos." );
 		}
 
 		public static void SayPriceTo( Mobile m, Mobile guildmaster )
