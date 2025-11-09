@@ -630,33 +630,33 @@ namespace Server.Misc
 			{
 				if ( ((PlayerMobile)m).Fugitive == 1 || m.Kills > 0 )
 				{
-					warning = warning + "You are wanted for your murderous deeds! ";
+					warning = warning + "És procurado por teus feitos assassinos! ";
 					umbra = false;
 				}
 				else if ( m.Criminal )
 				{
-					warning = warning + "You are being sought as a criminal right now. ";
+					warning = warning + "Estás a ser procurado como um criminoso neste momento. ";
 					umbra = false;
 				}
 				if ( m is PlayerMobile && ( m.Karma < 2500 || m.Fame < 2500 ) && Server.Items.BaseRace.IsEvil( m ) )
 				{
-					warning = warning + "You are considered by most to be a vile creature and not welcome in many settlements. ";
+					warning = warning + "És considerado pela maioria como uma criatura vil e não és bem-vindo em muitos assentamentos. ";
 				}
 				if ( m is PlayerMobile && m.Karma <= -5000 && m.Skills[SkillName.Knightship].Base >= 50 )
 				{
-					warning = warning + "You are a death knight, which is feared amongst the land. ";
+					warning = warning + "És um cavaleiro da morte, que é temido por toda a terra. ";
 				}
 				if ( m is PlayerMobile && m.Karma <= -5000 && m.Skills[SkillName.Psychology].Base >= 50 && Server.Misc.GetPlayerInfo.isSyth(m, false) )
 				{
-					warning = warning + "You are a syth, and are not welcome in most settlements. ";
+					warning = warning + "És um syth, e não és bem-vindo na maioria dos assentamentos. ";
 				}
 
 				if ( DisguiseTimers.IsDisguised( m ) && warning != "" )
-					warning = warning + "You could probably sneak into settlements, however, since you will not be recognized.";
+					warning = warning + "No entanto, provavelmente poderás infiltrar-te em assentamentos, pois não serás reconhecido.";
 				else if( !m.CanBeginAction( typeof( PolymorphSpell ) ) && warning != "" )
-					warning = warning + "You could probably sneak into settlements, however, since you will not be recognized.";
+					warning = warning + "No entanto, provavelmente poderás infiltrar-te em assentamentos, pois não serás reconhecido.";
 
-				safe = "<BR><BR>SAFE PLACES:<BR>";
+				safe = "<BR><BR>LOCAIS SEGUROS:<BR>";
 				safe = safe + "<BR>Anchor Rock Port";
 				safe = safe + "<BR>Bank";
 				safe = safe + "<BR>Black Magic Guild";
@@ -683,7 +683,7 @@ namespace Server.Misc
 				if ( warning != "" ){ warning = warning + safe; }
 			}
 
-			if ( warning == "" ){ warning = "You are not wanted for any crimes."; }
+			if ( warning == "" ){ warning = "Não és procurado por nenhum crime."; }
 
 			return warning;
 		}

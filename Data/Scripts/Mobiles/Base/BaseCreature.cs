@@ -5354,13 +5354,12 @@ namespace Server.Mobiles
 				int oldSpeechHue = this.SpeechHue;
 
 				this.SpeechHue = 0x23F;
-				SayTo( from, "Thou art giving me gold?" );
+				SayTo( from, "Estás a dar-me ouro?" );
 
 				if ( dropped.Amount >= 400 )
-					SayTo( from, "'Tis a noble gift." );
+					SayTo( from, "É uma oferta nobre." );
 				else
-					SayTo( from, "Money is always welcome." );
-
+					SayTo( from, "O dinheiro é sempre bem-vindo." );
 				this.SpeechHue = 0x3B2;
 				SayTo( from, 501548 ); // I thank thee.
 

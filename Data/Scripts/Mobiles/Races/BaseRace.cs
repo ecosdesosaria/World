@@ -37,10 +37,10 @@ namespace Server.Items
 		{
             base.AddNameProperties(list);
 
-			if ( NoFood( SpeciesID ) ){ list.Add( 1070722, "Does not need to eat"); }
-			else if ( NoFoodOrDrink( SpeciesID ) ){ list.Add( 1070722, "Does not need to eat or drink"); }
-			else if ( BloodDrinker( SpeciesID ) ){ list.Add( 1070722, "Needs to consume fresh blood"); }
-			else if ( BrainEater( SpeciesID ) ){ list.Add( 1070722, "Needs to consume fresh brains"); }
+			if ( NoFood( SpeciesID ) ){ list.Add( 1070722, "Não precisa comer"); }
+			else if ( NoFoodOrDrink( SpeciesID ) ){ list.Add( 1070722, "Não precisa comer ou beber"); }
+			else if ( BloodDrinker( SpeciesID ) ){ list.Add( 1070722, "Precisa consumir sangue fresco"); }
+			else if ( BrainEater( SpeciesID ) ){ list.Add( 1070722, "Precisa consumir cérebros frescos"); }
         }
 
 		public static void ConfigureCostume( int race, BaseRace costume )
@@ -209,44 +209,44 @@ namespace Server.Items
 			{
 				if ( IsEvilSeaCreature( m ) )
 				{
-					safe = " You may be best served finding the pirate port of Anchor Rock, on an island you can reach through the magic gateway, where those docked there are more tolerable of the unsavory.";
-					if ( world == "the Land of Lodoria" ){ safe = " You may be best served finding the pirate port of Kraken Reef, on an island you can reach through the magic gateway, where those docked there are more tolerable of the unsavory."; }
+					safe = " Podes ser melhor servido encontrando o porto pirata de Anchor Rock, numa ilha que podes alcançar através do portal mágico, onde aqueles ancorados são mais tolerantes com os indesejáveis.";
+					if ( world == "the Land of Lodoria" ){ safe = " Podes ser melhor servido encontrando o porto pirata de Kraken Reef, numa ilha que podes alcançar através do portal mágico, onde aqueles ancorados são mais tolerantes com os indesejáveis."; }
 				}
 				else if ( IsEvilDemonCreature( m ) )
 				{
-					safe = " You may be best served finding the City of Furnace, in a land you can reach through the magic gateway, where others are similar to you and would not shun you away.";
+					safe = " Podes ser melhor servido encontrando a Cidade de Furnace, numa terra que podes alcançar através do portal mágico, onde outros são semelhantes a ti e não te rejeitariam.";
 				}
 				else if ( IsEvilDeadCreature( m ) )
 				{
-					safe = " You may be best served finding the Undercity of Umbra, deep within a cave you can reach through the magic gateway, where you would be left alone by the citizens there.";
-					if ( world == "the Land of Lodoria" ){ safe = " You may be best served finding the Village of Ravendark, on an island you can reach through the magic gateway, where you would be left alone by the citizens there."; }
+					safe = " Podes ser melhor servido encontrando a Cidade Subterrânea de Umbra, no fundo de uma caverna que podes alcançar através do portal mágico, onde serias deixado em paz pelos cidadãos de lá.";
+					if ( world == "the Land of Lodoria" ){ safe = " Podes ser melhor servido encontrando a Vila de Ravendark, numa ilha que podes alcançar através do portal mágico, onde serias deixado em paz pelos cidadãos de lá."; }
 				}
 			}
 
 			string cave = Server.Items.BaseRace.StartName( m.RaceID );
-			string zone = ", where a mystical portal suddenly appeared before you. A voice deep within your mind told you that this portal led to a life beyond what you know. Into a world inhabited by the likes of men. A land of mystery, adventure, and riches to be discovered.";
+			string zone = ", onde um portal místico subitamente apareceu diante de ti. Uma voz no fundo da tua mente disse-te que este portal levava a uma vida além do que conheces. Para um mundo habitado por seres como os homens. Uma terra de mistério, aventura e riquezas a serem descobertas.";
 			string dead = "";
 				if ( rLand == "sea" && rRace != "zombi" )
 				{
-					dead = " Others from the sea dared not enter this magical portal, as it would allow you to join the surface world, but rob you of your ability to survive under the waves as you once did.";
+					dead = " Outros do mar não ousaram entrar neste portal mágico, pois ele permitiria que te juntasses ao mundo da superfície, mas roubar-te-ia a tua capacidade de sobreviver sob as ondas como outrora.";
 				}
 				else if ( rRace == "mummy" || rRace == "zombi" || rRace == "skeleton" || rRace == "revenant" )
 				{
-					dead = " Unlike other undead that you can remember, you somehow feel different, even though you cannot remoember who you were or how you met your end. It is as if you have retained your soul of your former life.";
+					dead = " Ao contrário de outros mortos-vivos que podes recordar, sentes-te de alguma forma diferente, embora não consigas lembrar quem eras ou como encontraste teu fim. É como se tivesses retido a alma da tua vida anterior.";
 				}
 				else if ( rRace == "vampyre" )
 				{
-					dead = " Unlike vampires that you can remember, you somehow feel different, even though you cannot remoember who you were or how you met your end. Although you have the thirst for blood, it is as if you have retained your soul of your former life, which sages refer to as vampyres. This is good as it will help you walk the lands during the daytime, without burning away.";
+					dead = " Ao contrário de vampiros que podes recordar, sentes-te de alguma forma diferente, embora não consigas lembrar quem eras ou como encontraste teu fim. Embora tenhas a sede de sangue, é como se tivesses retido a alma da tua vida anterior, a que os sábios se referem como vampyres. Isto é bom pois ajudará a percorrer as terras durante o dia, sem te queimares.";
 				}
-			string path = " You decided to enter this magical vortex, and either live in peace or seek fame, riches, and power. You knew that once you went down this road, others of your kind would perhaps turn their backs on you, maybe attacking you on sight." + dead;
+			string path = " Decidiste entrar neste vórtice mágico, e viver em paz ou buscar fama, riquezas e poder. Sabias que uma vez que seguisses este caminho, outros da tua espécie talvez virariam as costas para ti, talvez atacando-te à vista." + dead;
 			string evil = "";
-				if ( rType == "evil" ){ evil = " Because of who you are, and how the likes of men look upon creatures like yourself, you knew that you would have to prove yourself in their eyes. To become more famous, and to have good deeds widely spoken of, before you can be welcome in the villages and cities of the land. Though there are a few places that men look the other way, and care very little of who you are."; }
+				if ( rType == "evil" ){ evil = " Por causa de quem és, e de como os seres como os homens olham para criaturas como tu, sabias que terias de te provar aos seus olhos. Tornar-te mais famoso, e ter boas ações amplamente faladas, antes de seres bem-vindo nas vilas e cidades da terra. Embora haja alguns lugares onde os homens desviam o olhar, e pouco se importam com quem és."; }
 			if ( m is PlayerMobile )
 			{
 				if ( ((PlayerMobile)m).Fugitive > 0 )
 				{
-					path = " You decided to enter this magical vortex, and gather wealth and power to have your enemies bow before you. You knew that once you went down this road, others of your kind would surely loathe you, perhaps attacking you on sight." + dead;
-					evil = " Because of who you are, and that you are looked upon as a murderous creature that must be vanquished, you will not be welcome in the villages and cities of the land. Though there are some rare places that men look the other way, and care very little of who you are.";
+					path = " Decidiste entrar neste vórtice mágico, e reunir riqueza e poder para ter teus inimigos curvando-se diante de ti. Sabias que uma vez que seguisses este caminho, outros da tua espécie certamente te odiariam, talvez atacando-te à vista." + dead;
+					evil = " Por causa de quem és, e de seres visto como uma criatura assassina que deve ser vencida, não serás bem-vindo nas vilas e cidades da terra. Embora haja alguns lugares raros onde os homens desviam o olhar, e pouco se importam com quem és.";
 				}
 			}
 
@@ -255,50 +255,50 @@ namespace Server.Items
 			if ( cave == "The Cave" )
 			{
 				if ( rRace == "illithid" )
-					zone = "deep within the underdark of " + world + zone + path + "";
+					zone = "no fundo do substerro de " + world + zone + path + "";
 				else
-					zone = "deep within a cave in " + world + zone + path + "";
+					zone = "no fundo de uma caverna em " + world + zone + path + "";
 			}
 			else if ( cave == "The Tundra" )
 			{
 				if ( rRace == "devil" || rRace == "daemon" )
-					zone = "in the frozen wastes of " + world + zone + path + "";
+					zone = "nos resíduos congelados de " + world + zone + path + "";
 				else
-					zone = "in the winterlands of " + world + zone + path + "";
+					zone = "nas terras de inverno de " + world + zone + path + "";
 			}
 			else if ( cave == "The Pits" )
 			{
 				if ( rRace == "gargoyle" )
-					zone = "in the pits, deep below " + world + zone + path + "";
+					zone = "nas covas, bem abaixo de " + world + zone + path + "";
 				else if ( rName == "Fire Giant" || rRace == "naga" || rRace == "salamander" )
-					zone = "in the volcanic caves of " + world + zone + path + "";
+					zone = "nas cavernas vulcânicas de " + world + zone + path + "";
 				else if ( rName == "Abysmal Giant" )
-					zone = "in the underdark of " + world + zone + path + "";
+					zone = "no substerro de " + world + zone + path + "";
 				else
-					zone = "in the hellish pits, deep below " + world + zone + path + "";
+					zone = "nas covas infernais, bem abaixo de " + world + zone + path + "";
 			}
 			else if ( cave == "The Desert" )
 			{
 				if ( rRace == "mummy" )
-					zone = "where you awoke in a tomb, not knowing who you were or how you met your end. You seem to be in a desert in " + world + zone + path + "";
+					zone = "onde acordaste num túmulo, sem saber quem eras ou como encontraste teu fim. Pareces estar num deserto em " + world + zone + path + "";
 				else
-					zone = "in the hot deserts of " + world + zone + path + "";
+					zone = "nos desertos quentes de " + world + zone + path + "";
 			}
-			else if ( cave == "The Sea" ){ zone = "under the seas of " + world + zone + path + ""; }
-			else if ( cave == "The Mountains" ){ zone = "on the high mountains of " + world + zone + path + ""; }
-			else if ( cave == "The Swamp" ){ zone = "in the putrid swamps of " + world + zone + path + ""; }
+			else if ( cave == "The Sea" ){ zone = "sob os mares de " + world + zone + path + ""; }
+			else if ( cave == "The Mountains" ){ zone = "nas altas montanhas de " + world + zone + path + ""; }
+			else if ( cave == "The Swamp" ){ zone = "nos pântanos pútridos de " + world + zone + path + ""; }
 			else if ( cave == "The Tomb" )
 			{
 				if ( rRace == "golem" )
-					zone = "where you awoke in a tomb, not knowing who you were or how you met your end. Whoever stitched you together seems to be gone now, nor can you recall where the various body parts came from that now make your body whole. You do remember, however, that you are in " + world + zone + path + "";
+					zone = "onde acordaste num túmulo, sem saber quem eras ou como encontraste teu fim. Quem quer que te tenha costurado parece ter desaparecido agora, nem consegues recordar de onde vieram as várias partes do corpo que agora formam teu corpo completo. No entanto, lembras-te que estás em " + world + zone + path + "";
 				else
-					zone = "within a lost tomb in " + world + zone + path + "";
+					zone = "dentro de um túmulo perdido em " + world + zone + path + "";
 			}
-			else if ( cave == "The Woods" ){ zone = "in the forests of " + world + zone + path + ""; }
+			else if ( cave == "The Woods" ){ zone = "nas florestas de " + world + zone + path + ""; }
 
-			zone = zone + " This is where the rest of your life began, and its ending is uncertain.";
+			zone = zone + " Isto é onde o resto da tua vida começou, e seu fim é incerto.";
 
-			string text = "Your journey began " + zone;
+			string text = "Tua jornada começou " + zone;
 
 			return text;
 		}
