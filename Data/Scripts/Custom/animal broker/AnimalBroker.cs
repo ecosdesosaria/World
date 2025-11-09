@@ -349,7 +349,7 @@ namespace Server.Mobiles
 
     			    if (cooldown > TimeSpan.Zero)
     			    {
-				     m_Giver.Say(String.Format("I'll have another contract for you in  {0} hour{1} and {2} minute{3}.",
+				     m_Giver.Say(String.Format("Eu terei outro contrato para ti em {0} hora{1} e {2} minuto{3}.",
   					 cooldown.Hours, cooldown.Hours == 1 ? "" : "s",
   					 cooldown.Minutes, cooldown.Minutes == 1 ? "" : "s"));
     			        return;
@@ -358,7 +358,7 @@ namespace Server.Mobiles
 				
 				if(mobile.Skills[SkillName.Taming].Value +  mobile.Skills[SkillName.Druidism].Value < 50.0)
 				{
-					m_Giver.Say( "Sorry, I don't think you have the skills to help me. Come back when you have learned more about the art of animal taming!" );
+					m_Giver.Say( "Perdoa, mas acho que não tens as habilidades para me auxiliar. Retorna quando tiveres aprendido mais sobre a arte da domesticação de animais!" );
 				}
 				else if(CanGetContract(mobile))
 				{

@@ -164,14 +164,14 @@ namespace Server.Items
 				AddPage(62);
 				AddButton( 401, 87, 0x89E, 0x89E, 18, GumpButtonType.Page, 63 );
 				AddButton( 129, 87, 0x89D, 0x89D, 19, GumpButtonType.Page, 61 );
-				AddHtml( 135, 108, 139, 163, @"There are some other ways to use these the command '[sad' will open the toolbar, in case you close the toolbar yourself. Of course it will reopen if", (bool)false, (bool)false);
-				AddHtml( 291, 108, 139, 163, @"you simply un-equip and re-equip the weapon again. If you want to create macros to initiate these abilities, you will simply need to use the '[set1', '[set2',", (bool)false, (bool)false);
+				AddHtml( 135, 108, 139, 163, @"Há outras maneiras de usar estes comandos: '[sad' abrirá a barra de ferramentas, caso a feches tu mesmo. Claro que ela reabrirá se", (bool)false, (bool)false);
+				AddHtml( 291, 108, 139, 163, @"simplesmente desequipares e reequipares a arma novamente. Se desejas criar macros para iniciar estas habilidades, precisarás apenas usar os comandos '[set1', '[set2',", (bool)false, (bool)false);
 
 				AddPage(63);
 				AddButton( 401, 87, 0x89E, 0x89E, 18, GumpButtonType.Page, 1 );
 				AddButton( 129, 87, 0x89D, 0x89D, 19, GumpButtonType.Page, 62 );
-				AddHtml( 135, 108, 139, 163, @"'[set3', '[set4', or '[set5' commands...depending on which ability you want to use. This book is also for reference only, and you do not need to carry it to use these", (bool)false, (bool)false);
-				AddHtml( 291, 108, 139, 163, @"special abilities.", (bool)false, (bool)false);
+				AddHtml( 135, 108, 139, 163, @"'[set3', '[set4', ou '[set5'... dependendo de qual habilidade desejas usar. Este livro é apenas para referência, e não precisas carregá-lo para usar estas", (bool)false, (bool)false);
+				AddHtml( 291, 108, 139, 163, @"habilidades especiais.", (bool)false, (bool)false);
 			}
 		}
 
