@@ -518,7 +518,7 @@ namespace Server
 
 	// If false, then vendors will not buy things from player characters. Merchant crates will also be disabled and act as normal containers.
 
-		public static bool S_VendorsBuyStuff = false;
+		public static bool S_VendorsBuyStuff = true;
 
 	// The settings below control how much gold a merchant has in order to participate in commerce. The first setting determines whether a
 	// merchant is rich (true) and has no limits to buying, or is not rich (false) and has a limited budget. The second setting determines
