@@ -222,7 +222,7 @@ namespace Server.Items
 			Ele espera.<br>
 			Ele tem fome.<br>
 			Ele canta.<br><br>
-			";
+			";}
 		}
 	}
 }
