@@ -116,7 +116,7 @@ namespace Server.Mobiles
 
 					string sMessage = "Obrigado. Aqui estão " + reward + " de ouro pela sua bravura.";
 
-					if ( reward >= 1000 && from.Karma >= 2500 && from.Skills[SkillName.Spiritualism].Base > 0 && from.Skills[SkillName.Healing].Base > 0 )
+					if ( reward >= 250 && from.Karma >= 2500 && from.Skills[SkillName.Spiritualism].Base > 0 && from.Skills[SkillName.Healing].Base > 0 )
 					{
 						foreach ( Item item in World.Items.Values )
 						{

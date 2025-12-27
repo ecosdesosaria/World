@@ -1637,7 +1637,30 @@ namespace Server.Engines.Help
 			{
 				quests = quests + "-Você construiu uma Gema da Imortalidade.<br><br>";
 			}
-
+			if(PlayerSettings.GetKeys ( from, "Soveliss"))
+			{
+				quests = quests + "-Você deu a Pedra do Sonho a Soveliss, e ele lhe presenteou com o Flagelo do Dragão.<br><br>";
+			}
+			if(PlayerSettings.GetKeys ( from, "Mitru"))
+			{
+				quests = quests + "-Você deu a Pedra do Sonho a Mitru, e ele lhe presenteou com a Dançarina da Lua.<br><br>";
+			}
+			if(PlayerSettings.GetKeys ( from, "Kongor"))
+			{
+				quests = quests + "-Você deu a Pedra do Sonho a Kongor, e ele lhe presenteou com a Fúria Imortal de Kongor.<br><br>";
+			}
+			if(PlayerSettings.GetKeys ( from, "Masamune"))
+			{
+				quests = quests + "-Você deu a Pedra do Sonho a Melchior, e ele forjou para você a Masamune.<br><br>";
+			}
+			if(PlayerSettings.GetKeys ( from, "DreamstoneUsed"))
+			{
+				quests = quests + "-Você usou sua Pedra do Sonho.<br><br>";
+			}
+			if ( PlayerSettings.GetKeys( from, "Dreamstone" ) )
+			{
+				quests = quests + "-Você encontrou a Pedra do Sonho.<br><br>";
+			}
 			if ( PlayerSettings.GetKeys( from, "Museums" ) )
 			{
 				quests = quests + "-Você encontrou todas as antiguidades para o Museu.<br><br>";

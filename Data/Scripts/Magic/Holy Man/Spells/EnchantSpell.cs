@@ -42,6 +42,7 @@ namespace Server.Spells.HolyMan
 				if ( Caster.Backpack.FindItemByType( typeof ( EnchantSpellStone ) ) != null )
 				{
 					DoFizzle();
+					Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
 				}
 				else if (!Caster.CanSee(weapon))
 				{
@@ -53,7 +54,7 @@ namespace Server.Spells.HolyMan
 				}
 				else if ( !weapon.IsChildOf( Caster.Backpack ) )
 				{
-					Caster.SendMessage( "The weapon must be in your pack to enchant." );
+					Caster.SendMessage( "A arma deve estar em sua mochila para ser encantada." );
 				}
 				else if (CheckSequence())
 				{
@@ -91,12 +92,11 @@ namespace Server.Spells.HolyMan
 					BuffInfo.RemoveBuff( Caster, BuffIcon.Enchant );
 					BuffInfo.AddBuff( Caster, new BuffInfo( BuffIcon.Enchant, 1063542, TimeSpan.FromMinutes( val ), Caster ) );
 
-					DrainSoulsInSymbol( Caster, RequiredTithing );
 				}
 			}
 			else
 			{
-				Caster.SendMessage( "You can only enchant weapons with this spell." );
+				Caster.SendMessage( "Você só pode encantar armas com esta magia." );
 			}
             FinishSequence();
         }
@@ -118,7 +118,7 @@ namespace Server.Spells.HolyMan
                 }
                 else
                 {
-                    from.SendMessage("That cannot be enchanted.");
+                    from.SendMessage("Isso não pode ser encantado.");
                 }
             }
 
