@@ -17,7 +17,7 @@ namespace Server.Spells.HolyMan
 			);
 
 		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 3 ); } }
-		public override int RequiredTithing{ get{ return 60; } }
+		public override int RequiredTithing{ get{ return 120; } }
 		public override double RequiredSkill{ get{ return 60.0; } }
 		public override int RequiredMana{ get{ return 30; } }
 
@@ -43,54 +43,55 @@ namespace Server.Spells.HolyMan
             }
             else if (m is PlayerMobile)
             {
-                Caster.SendMessage("Your prayers cannot banish that!");
+                Caster.SendMessage("Suas preces não podem banir isto!");
             }
-			else if (!undead.Slays(m) && !exorcism.Slays(m))
-			{
-                Caster.SendMessage("Your prayers cannot banish such a creature!");
-            }
-			else if( bc.IsBonded )
-			{
-                Caster.SendMessage("Your prayers cannot banish such a creature!");
-			}
-			else if ( exorcism.Slays(m) && !bc.IsDispellable )
-			{
-				m.Say("Your pitiful prayers are heard by no one, mortal!");
-				double damage;
-				damage = GetNewAosDamage(48, 1, 5, Caster);
-				m.FixedParticles(0x3709, 10, 30, 5052, 0x480, 0, EffectLayer.LeftFoot);
-				m.PlaySound(0x208);
-				SpellHelper.Damage(this, m, damage, 0, 100, 0, 0, 0);
-				DrainSoulsInSymbol( Caster, RequiredTithing );
-			}
-			else if ( m.Fame >= 23000 )
-			{
-				m.Say("Your pitiful prayers are heard by no one, mortal!");
-				double damage;
-				damage = GetNewAosDamage(48, 1, 5, Caster);
-				m.FixedParticles(0x3709, 10, 30, 5052, 0x480, 0, EffectLayer.LeftFoot);
-				m.PlaySound(0x208);
-				SpellHelper.Damage(this, m, damage, 0, 100, 0, 0, 0);
-				DrainSoulsInSymbol( Caster, RequiredTithing );
-			}
-            else if (CheckHSequence(m))
+            else if (!undead.Slays(m) && !exorcism.Slays(m))
             {
-                SpellHelper.Turn(Caster, m);
+                Caster.SendMessage("Suas preces não podem banir tal criatura!");
+            }
+            else if( bc.IsBonded )
+            {
+                Caster.SendMessage("Suas preces não podem banir tal criatura!");
+            }
+			else if (CheckHSequence( m ) )
+            {
+                if ( exorcism.Slays(m) && !bc.IsDispellable )
+                {
+                    m.Say("Suas preces insignificantes não são ouvidas por ninguém, mortal!");
+                    double damage;
+                    damage = GetNewAosDamage(48, 1, 5, Caster);
+                    m.FixedParticles(0x3709, 10, 30, 5052, 0x480, 0, EffectLayer.LeftFoot);
+                    m.PlaySound(0x208);
+                    SpellHelper.Damage(this, m, damage, 0, 100, 0, 0, 0);
+                }
+                else if ( m.Fame >= 23000 )
+                {
+                    m.Say("Suas preces insignificantes não são ouvidas por ninguém, mortal!");
+                    double damage;
+                    damage = GetNewAosDamage(48, 1, 5, Caster);
+                    m.FixedParticles(0x3709, 10, 30, 5052, 0x480, 0, EffectLayer.LeftFoot);
+                    m.PlaySound(0x208);
+                    SpellHelper.Damage(this, m, damage, 0, 100, 0, 0, 0);
+                }
 
-                m.FixedParticles(0x3709, 10, 30, 5052, 0x480, 0, EffectLayer.LeftFoot);
-                m.PlaySound(0x208);
-				DrainSoulsInSymbol( Caster, RequiredTithing );
-
-				if (undead.Slays(m))
+                else
 				{
-					m.Say("No! You cannot banish me! I will return from the Underworld!");
-				}
-				else
-				{
-					m.Say("No! You cannot kill that which is dead! I will return!");
+					SpellHelper.Turn(Caster, m);
+                    m.FixedParticles(0x3709, 10, 30, 5052, 0x480, 0, EffectLayer.LeftFoot);
+					m.PlaySound(0x208);
+
+					if (undead.Slays(m))
+                    {
+                        m.Say("Não! Você não pode me banir! Voltarei do Submundo!");
+                    }
+                    else
+                    {
+                        m.Say("Você não pode matar o que já está morto! Eu voltarei!");
+                    }
+
+					new InternalTimer(m).Start();
 				}
 
-                new InternalTimer(m).Start();
             }
 
             FinishSequence();

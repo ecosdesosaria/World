@@ -59,11 +59,11 @@ namespace Server.Spells.HolyMan
 						targ.PlaySound( 0x1E3 );
 
 						BuffInfo.AddBuff( targ, new BuffInfo( BuffIcon.NightSight, 1075643 ) );	//Night Sight/You ignore lighting effects
-						DrainSoulsInSymbol( from, GetTithing( from, (HolyManSpell)m_Spell ) );
+						
 					}
 					else
 					{
-						from.SendMessage( "{0} already have nightsight.", from == targ ? "You" : "They" );
+						from.SendMessage( "{0} já possui visão noturna.", from == targ ? "You" : "They" );
 					}
 				}
 

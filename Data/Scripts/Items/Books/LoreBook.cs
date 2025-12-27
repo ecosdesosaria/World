@@ -20,7 +20,7 @@ namespace Server.Items
 
 			if ( BookTrue > 0 ){} else
 			{
-				writeBook( Utility.RandomMinMax( 0, 46 ) );
+				writeBook( Utility.RandomMinMax( 0, 47 ) );
 			}
 		}
 
@@ -84,6 +84,8 @@ namespace Server.Items
 				case 44: BookTitle = "The Rule of One"; BookAuthor = "Asajj Ventress the Syth Lord"; SetBookCover( 78, this ); ItemID = 0x4CDF; Light = LightType.Circle225; break;
 				case 45: BookTitle = "Antiquities"; BookAuthor = "Daran the Collector"; SetBookCover( 7, this ); break;
 				case 46: BookTitle = "The Jedi Order"; BookAuthor = "Zoda the Jedi Master"; SetBookCover( 16, this ); ItemID = 0x543C; Light = LightType.Circle225; break;
+				case 47: BookTitle = "The Dreamstone"; BookAuthor = "Melchior the Guru of Life"; SetBookCover( 78, this ); break;
+				case 48: BookTitle = "The Ballad of the Prince of Darkness"; BookAuthor = "Zakk the Wild"; SetBookCover(78,this);break;
 			}
 
 			GetText( this );
@@ -163,6 +165,64 @@ namespace Server.Items
 			else if ( book.BookTitle == "The Rule of One" ){ book.BookText = "Nossa missão era simples. Obter os planos daquela nova estação espacial que está sendo construída para que pudéssemos encontrar uma fraqueza e desferir um golpe devastador para os Syth. Dois de nós conseguimos infiltrar-se no navio do Capitão Gadberry e baixar os dados, mas seu navio caiu aqui neste planeta. Após o acidente, a teoria que percorria os conveses era que um estranho tirou muito combustível das reservas principais do navio. Isso supostamente causou a decadência da órbita. Fomos logo descobertos pela segurança e o Mestre Malak e eu fugimos dos destroços e conseguimos evitar a perseguição na floresta. Instalamos um sinalizador para evacuação, mas tememos estar muito longe na galáxia para que o sinal seja captado por nossa ordem.<br><br>Passamos muitos anos explorando a terra e aprendendo as culturas. Algumas dessas pessoas, frequentemente chamadas de magos, parecem ter um poder semelhante ao nosso. A maneira como o convocam, no entanto, é mais ritualística do que as forças psíquicas puras que comandamos. Eles usam uma série de ervas e bugigangas, junto com palavras e gestos para liberar essas forças. Embora diferentes, eles têm efeitos semelhantes e frequentemente igualam nossa própria força de vontade. Procuramos itens de poder semelhante, na esperança de que um possa nos tirar desta rocha. Nunca encontramos tal item.<br><br>Foi decidido aumentar nossas fileiras neste planeta, encontrando aqueles que têm o talento para se tornar um Syth. Se não podemos ir embora, então talvez devêssemos governar. Malak decidiu cultivar um relacionamento com um grupo de cavaleiros da morte. Dez foram admitidos na ordem Syth, pois tinham metodologias semelhantes às nossas, então ensiná-los os caminhos Syth foi de pouca dificuldade. Éramos uma doença desencadeada na terra e trouxemos os mais poderosos de joelhos. Isso, no entanto, trouxe novos dilemas.<br><br>Os cavaleiros da morte ficaram famintos por poder. Tanto que começaram a nos trair, assim como uns aos outros. Sua ganância foi o que matou meu mestre e fraturou o coletivo. Logo os cavaleiros sagrados da terra os caçaram e mataram cada um por vez. Os dez seguidores estão mortos agora, enterrados em tumbas por todas as terras. Coloquei Malak para descansar nos Fogos do Inferno e construí uma estátua em sua homenagem. Eu o enterrei com seu datacron, que poderia conter o conhecimento dos Syth se alguém o procurasse. Depois de serem mortos pelos cavaleiros da morte, cada um dos dez levou um pedaço do conhecimento de Malak com eles. Então seu datacron agora contém muito pouca informação e não tenho desejo de restaurá-lo. Está trancado, no entanto, e preciso apenas falar as palavras 'Anakasu Arrii Venaal' para liberá-lo de seu local de descanso se eu mudar de ideia.<br><br>Então agora eu permaneço, o último Syth neste planeta primitivo. Gadberry nunca consertou seu navio e ele foi abandonado da última vez que fui ao local do acidente. Os registros do navio mostraram que os sobreviventes foram se estabelecer na terra e viver suas vidas. Estou cansado e velho, mas encontrei um aprendiz para passar meu conhecimento. Vou incutir a regra do um, onde apenas um Syth deve existir. Mais de um poderia levar à destruição da ordem em sua totalidade, pois a ganância e o poder nos farão matar uns aos outros para ser o governante supremo. Uma vez que eu sentir que eles estão prontos, eles me ajudarão a terminar minha vida e perseguir sua própria agenda até que precisem passar seu conhecimento para outro. Eles precisarão começar a aprender os conceitos de psicologia (pelo menos 10 pontos) e ter karma negativo se quiserem reivindicar o datacron de Malak. Eles então precisariam dominar as habilidades de espadas e táticas se quisessem ter o máximo poder à sua disposição. Vou descansar agora e verei como eles se saem."; }
 			else if ( book.BookTitle == "Antiquities" ){ book.BookText = "Itens raros são um objetivo para a maioria dos colecionadores da terra, pois eu mesmo poderia pagar bastante ouro por algo único. Meus dias de explorar as masmorras temíveis já passaram, mas outras almas corajosas conseguem trazer de volta itens há muito esquecidos nos corredores sombrios das moradias abandonadas onde o mal comumente espreita. Pode-se encontrar alguma arma ou armadura incomum que não é mais utilizável, mas pode ser decorativa para uma casa ou castelo rico. Outros itens raros podem ser encontrados na forma de couro, peles, tecido, licores, reagentes, joias ou itens místicos de magos há muito mortos. Outros podem ser relógios decorativos, vasos, estátuas ou pinturas de pessoas e paisagens de muito tempo atrás. Esses itens são frequentemente mantidos por aventureiros como troféus de suas aventuras. Outros preferem negociá-los por ouro. Alguém que é bom em lore de itens geralmente pode determinar o valor de tais itens e quem nos assentamentos pode querer os itens. Aqueles que não são bons em lore de itens ou identificação geralmente podem adivinhar quem pode querer o item. Esses itens não podem ser simplesmente vendidos para esses colecionadores, mas instead alguém apenas daria o item e o cidadão lhes daria uma quantidade apropriada de ouro. Normalmente, aqueles com habilidade em mercantilismo conseguirão mais ouro do que o aventureiro médio, mas o valor ainda pode ser grande. Então, se alguém deseja carregar tais tesouros, pode certamente aumentar sua riqueza apenas com as moedas que podem acumular."; }
 			else if ( book.BookTitle == "The Jedi Order" ){ book.BookText = "Este mundo não é meu lar. Este fica longe, no sistema Corusant, do Quadrante Zeta, entre as estrelas. Quando a nave de Gadberry caiu, fiquei preso aqui junto com todos os outros. No entanto, não estávamos sozinhos naquela nave. Os Syth embarcaram em algum momento e estavam tentando roubar dados críticos do sistema de computador. Embora tenham tido sucesso em seus esforços, acabou sendo inútil, pois eles não podiam escapar mais do que eu. Os Syth fugiram da nave e a tripulação buscou meu conselho sobre este culto vil de psíquicos. Persegui-os neste mundo estranho, mas nunca encontrei um vestígio deles. Prometi nunca voltar para a nave até encontrar os Syth e lidar com sua traição. Conforme os anos passavam, aprendi mais e mais sobre este mundo. As criaturas estranhas e os humanoides com poderes semelhantes aos meus tornaram-se algo normal para mim.<br><br>Ainda acreditava que os Syth estavam por aí, conspirando. Decidi ensinar o caminho Jedi para aqueles que têm o potencial psíquico de psicologia nos outros. Alguns aprenderam rapidamente, enquanto outros não conseguiam entender totalmente os ensinamentos. Aqueles que se juntaram à ordem travaram batalhas contra os Syth, mas eles eram Syth deste mundo e não daqueles que caíram aqui comigo. Isso significa que eles estavam reunindo seguidores. Esta guerra secreta continuou e começamos a ver cada vez menos Syth na terra. Podemos tê-los derrotado, neste planeta pelo menos.<br><br>Conforme a paz se estabelecia, grande parte de nossa nova ordem lentamente se juntava à civilização. Embora eu os conheça por seus nomes Jedi, eles adotaram novos nomes para si mesmos e se tornaram padres nas muitas aldeias do reino. Aprovei esta vida, pois era um fim nobre para suas vidas. Estes dez Jedi eram guardiões de um holocron de sabedoria para um poder Jedi em particular. Se o tempo os alcançasse, pedi apenas que levassem seu holocron para seu local de descanso final. Qualquer um que se apresentar para aprender o caminho Jedi, aprenderá esses segredos do meu local de descanso. Escolhi uma caverna longe a leste de Britain, onde Jacen é instruído a me colocar para descansar. Se alguém for digno deste caminho, precisa apenas falar 'Oh Beh Wahn' no meu túmulo e receberá a sabedoria que passarei para começar sua jornada. Se os Syth retornarem, então os Jedi também devem retornar."; }
+			else if (book.BookTitle == "The Dreamstone") {book.BookText = "Sou um estranho nesta terra, assim como fui para o espaço sem nome que me trouxe aqui. Guerra, sempre guerra. Forjei lâminas para reis e mendigos, e todos eles tinham sede da mesma coisa - sangue. Antigamente, pensava que o canto da bigorna e o sopro da forja eram a voz da própria criação. Agora ouço apenas ver os ecos da vida terminando no cinzas mornas da forja.<br><br>" + 
+			"O aço tem uma memória amarga. Cada lâmina que fiz tem uma sombra em minha alma, e não consigo esquecer os gritos daqueles que caíram sob seu brilho. Há um cansaço sobre mim que nenhum descanso pode diminuir.<br><br>" + 
+			"Era uma vez um metal diferente de qualquer outro, uma lenda sussurrada através das línguas dos anões e dos dragões. A Pedra dos Sonhos. Ela brilhava não com mera luz, mas com memórias - cores que nenhum homem poderia nomear, reflexos de mundos que poderiam ter existido. Dizem que ela caiu dos céus na primeira era, quando os dragões dominavam o céu e moldavam montanhas com seu fogo.<br><br>" + 
+			"Eu o vi uma vez, há muito tempo, no oco do tesouro de um dragão. Ele cantou para mim uma melodia de saudade e promessa. Dizem que o maior dos anciãos guardava a Pedra dos Sonhos, cobiçando sua beleza assim como cobiçavam seu domínio sobre uma terra devastada. Não é um metal que possa ser extraído ou comprado. Deve ser conquistado ou retirado dos sonhos dos deuses.<br><br>" + 
+			"Dizem que aqueles que possuem a Pedra dos Sonhos forjam armas que desafiam o corpo mortal, lâminas que lembram seu portador e obedecem à sua vontade. No entanto, tais presentes têm um custo. O metal se liga à alma de quem o empunha. Sua essência e a lâmina se tornam uma só - e quando o portador vacila, a arma também falha.<br><br>" + 
+			"Já vi muita morte para perseguir tal beleza novamente. Mas para aqueles que a procuram... cuidado. Escuros são os sonhos daqueles que aprisionam avidamente tal metal, e terríveis serão as medidas que eles tomarão para mantê-lo. Há outros que o procuram - eu conheci um elfo de um reino esquecido em uma busca por ele, e um rei de um povo nobre que em épocas passadas usou a Pedra dos Sonhos como seu direito e herança, e tenho certeza que há outros com intenções mais ou menos nobre. Se alguém os procurasse com a pedra dos sonhos, tenho certeza de que as recompensas seriam grandes, assim como os requisitos para ganhar sua confiança. Tudo o que quero é fazer uma lâmina final, usada por aquele que deseja ver o fim da violência que nos cerca. Tudo o que quero é fazer uma lâmina final, usada por quem deseja ver o fim da violência que nos rodeia. Uma guerreira habilidosa com o coração que minha rainha há muito perdida já teve e só encontrou quando não importava mais.";}
+			else if ( book.BookTitle == "A Balada do Príncipe das Trevas") {book.BookText = book.BookText = @" 
+			O que segue abaixo é a última música gravada pelo único sobrevivente da 9ª expedição ao submundo.<br><br> 
+
+			...E assim eu vi o que é mais vil,<br> 
+			Sobre um trono congelado de crânios gritando,<br> 
+			Coroado em um halo de fogo sombrio,<br> 
+			Revestido com o mais negro dos metais.<br> 
+			Ele se deleitava com a carne de feras aladas,<br> 
+			Bebendo profundamente sua alma desvanecida,<br> 
+			Como se o ato em si fosse ritual,<br> 
+			Um sacramento em ode ao seu próprio funeral sem fim.<br><br> 
+			E quando finalmente seu olhar caiu sobre mim,<br> 
+			Ele sorriu - um crescente irregular de loucura,<br> 
+			Pois em seus olhos dançava uma tempestade sem piedade,<br> 
+			Selvagem como as marés de loucura que o geraram.<br><br> 
+			Então veio sua voz...<br> 
+			Ó deuses acima e abaixo, aquela voz—<br> 
+			Um canto fúnebre estrondoso, rachado e quebrado,<br> 
+			Ainda assim, vivo com um poder terrível e irresistível.<br><br> 
+			Uivava sobre impérios afogados em veneno,<br> 
+			De estrelas devoradas pelo desespero,<br> 
+			De uma vida passada vagando pelas trincheiras<br> 
+			de guerras ímpias e odiosas.<br><br> 
+			Cantava sobre batalhas travadas com lâminas e feitiços,<br> 
+			De triunfo contra as corroídas do inferno;<br> 
+			Da perda sofrida através da fúria e do fogo,<br> 
+			E os fracassos são abraçados com desejo imprudente.<br><br> 
+			Pois tal é o Príncipe das Trevas—<br> 
+			Uma criatura de glória e decadência,<br> 
+			Orgulho e tragédia entrelaçados como algemas e correntes,<br> 
+			Um senhor dos excessos, um tolo, uma lenda de tudo que é vão.<br><br> 
+			E quando ele se levantou de seu trono arruinado,<br> 
+			Sua sombra se espalhou como asas pela caverna sem teto,<br> 
+			E as pedras sob meus pés tremeram de medo,<br> 
+			O peso de sua terrível fama permanecia próximo.<br><br> 
+			Ele falou então, naquela canção que revolucionou o mundo:<br> 
+			Uma promessa de carnificina ainda por vir,<br> 
+			Uma convocação para aqueles ousados ou estúpidos o suficiente<br> 
+			Para desafiar seu domínio sobre tudo o que brilhava.<br><br> 
+			E eu fugi —<br> 
+			Pois nenhum coração mortal pode resistir a esse hino,<br> 
+			Nenhuma mente sã pode enfrentar esse sorriso ruinoso<br> 
+			No entanto, ainda ouço isso nas horas tranquilas...<br> 
+			Aquela voz, aquela voz terrível,<br> 
+			Chamando dos lugares mais profundos do mundo,<br> 
+			Convidando-nos a lembrar—<br> 
+			E tema-o.<br><br> 
+			Pois o Príncipe das Trevas não desaparece.<br>
+			Ele espera.<br>
+			Ele tem fome.<br>
+			Ele canta.<br><br>
+			";
 		}
 	}
 }

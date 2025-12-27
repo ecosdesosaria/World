@@ -29,12 +29,12 @@ namespace Server.Spells.Jester
 
 			if ( Server.Items.BagOfTricks.GetPranks( Caster ) < RequiredTithing )
 			{
-				Caster.SendMessage( "You must have at least " + RequiredTithing.ToString() + " pranks to use this ability." );
+				Caster.SendMessage( "Você precisa ter pelo menos " + RequiredTithing.ToString() + " travessuras para usar esta habilidade." );
 				return false;
 			}
 			else if ( !Server.Misc.GetPlayerInfo.isJester( Caster ) )
 			{
-				Caster.SendMessage( "You are not a jester!" );
+				Caster.SendMessage( "Você não é um bobo da corte!" );
 				return false;
 			}
 			else if ( Caster.Mana < mana )
@@ -57,12 +57,12 @@ namespace Server.Spells.Jester
 
 			if ( Server.Items.BagOfTricks.GetPranks( Caster ) < requiredTithing )
 			{
-				Caster.SendMessage( "You must have at least " + RequiredTithing.ToString() + " pranks to use this ability." );
+				Caster.SendMessage( "Você precisa ter pelo menos " + RequiredTithing.ToString() + " travessuras para usar esta habilidade." );
 				return false;
 			}
 			else if ( !Server.Misc.GetPlayerInfo.isJester( Caster ) )
 			{
-				Caster.SendMessage( "You are not a jester!" );
+				Caster.SendMessage( "Você não é um bobo da corte!" );
 				return false;
 			}
 			else if ( Caster.Mana < mana )
@@ -73,12 +73,7 @@ namespace Server.Spells.Jester
 
 			Server.Items.BagOfTricks.UsePranks( Caster, requiredTithing );
 
-			if ( !base.CheckFizzle() )
-				return false;
-
-			Caster.Mana -= mana;
-
-			return true;
+			return base.CheckFizzle();
 		}
 
 		public override void SayMantra()
@@ -128,7 +123,7 @@ namespace Server.Spells.Jester
 
 		public override int GetMana()
 		{
-			return 0;
+			return RequiredMana;
 		}
 
 		public static int Buff( Mobile m, string category )
