@@ -19,8 +19,6 @@ namespace Server.Custom.DefenderOfTheRealm
             m_From = from;
             m_Info = info;
             m_Type = type;
-            string currencyType = m_IsDefender ? "Marks of Honor" : "Marks of the Scourge";
-            int hue = 0;
             switch (m_Type)
             {
                 case 1:
