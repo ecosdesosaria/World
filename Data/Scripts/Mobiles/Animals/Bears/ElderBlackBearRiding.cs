@@ -4,7 +4,7 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "a bear corpse" )]
+	[CorpseName( "um cadáver de urso" )]
 	public class ElderBlackBearRiding : BaseMount
 	{
 		public override WeaponAbility GetWeaponAbility()
@@ -13,7 +13,7 @@ namespace Server.Mobiles
 		}
 
 		[Constructable]
-		public ElderBlackBearRiding() : this( "an elder black bear" )
+		public ElderBlackBearRiding() : this( "um urso preto ancião" )
 		{
 		}
 
