@@ -49,7 +49,7 @@ namespace Server.Mobiles
 			}
 			else
 			{
-				Name = "a panther";
+				Name = "uma pantera";
 				Body = 0xD6;
 				Hue = 0x901;
 				BaseSoundID = 0x462;
