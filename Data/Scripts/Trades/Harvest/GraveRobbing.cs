@@ -133,12 +133,12 @@ namespace Server.Engines.Harvest
 
 			if ( from.Mounted )
 			{
-				from.SendMessage("You cannot dig graves while riding.");
+				from.SendMessage("Você não pode cavar sepulturas enquanto estiver montado.");
 				return false;
 			}
 			else if ( from.IsBodyMod && !from.Body.IsHuman && from.RaceID < 1 )
 			{
-				from.SendMessage("You cannot dig graves while polymorphed.");
+				from.SendMessage("Você não pode cavar sepulturas enquanto estiver polimorfado.");
 				return false;
 			}
 
@@ -152,12 +152,12 @@ namespace Server.Engines.Harvest
 
 			else if ( from.Mounted )
 			{
-				from.SendMessage("You cannot dig graves while riding.");
+				from.SendMessage("Você não pode cavar sepulturas enquanto estiver montado.");
 				return false;
 			}
 			else if ( from.IsBodyMod && !from.Body.IsHuman && from.RaceID < 1 )
 			{
-				from.SendMessage("You cannot dig graves while polymorphed.");
+				from.SendMessage("Você não pode cavar sepulturas enquanto estiver polimorfado.");
 				return false;
 			}
 
@@ -169,13 +169,13 @@ namespace Server.Engines.Harvest
 			if ( !base.BeginHarvesting( from, tool ) )
 				return false;
 
-			from.SendMessage("Which grave do you want to dig up?");
+			from.SendMessage("Qual sepultura você quer escavar?");
 			return true;
 		}
 
 		public override void OnBadHarvestTarget( Mobile from, Item tool, object toHarvest )
 		{
-			from.SendMessage( "You cannot dig there." );
+			from.SendMessage( "Você não pode cavar ali." );
 		}
 
 		public override void OnHarvestStarted( Mobile from, Item tool, HarvestDefinition def, object toHarvest )
@@ -216,13 +216,13 @@ namespace Server.Engines.Harvest
 						int caught = 1;
 						if ( from.Skills[SkillName.Hiding].Value >= 30 )
 						{
-							from.SendMessage( "Someone passed by, but your stealthiness has avoided you from being seen." );
+							from.SendMessage( "Alguém passou por aqui, mas sua furtividade o protegeu de ser visto." );
 							if ( from.CheckSkill( SkillName.Stealth, 0, 100 ) ){ caught = 0; }
 						}
 						if ( caught > 0 )
 						{
-							from.PrivateOverheadMessage(MessageType.Regular, 1150, false, "Someone has spotted you in the distance!", from.NetState);
-							from.SendMessage( "You have been reported as a criminal!" );
+							from.PrivateOverheadMessage(MessageType.Regular, 1150, false, "Alguém te viu à distância!", from.NetState);
+							from.SendMessage( "Você foi denunciado como criminoso!" );
 							from.Criminal = true;
 							Server.Items.DisguiseTimers.RemoveDisguise( from );
 						}
@@ -264,15 +264,15 @@ namespace Server.Engines.Harvest
 					string sSaying = "";
 					switch ( Utility.Random( 9 ))
 					{
-						case 0: sSaying = "Who has disturbed me!"; break;
-						case 1: sSaying = "You dare steal from my grave?"; break;
-						case 2: sSaying = "Those that take from me will join me!"; break;
-						case 3: sSaying = "Your soul is now mine for the taking!"; break;
-						case 4: sSaying = "Who dares waken me?"; break;
-						case 5: sSaying = "Your life will be extinguished!"; break;
-						case 6: sSaying = "Do you have no respect for the dead?"; break;
-						case 7: sSaying = "I have been waiting to feast off the living!"; break;
-						case 8: sSaying = "Soon you will join my legion of the dead!"; break;
+						case 0: sSaying = "Quem me perturbou!"; break;
+						case 1: sSaying = "Você ousa roubar de minha sepultura?"; break;
+						case 2: sSaying = "Aqueles que tomam de mim se juntarão a mim!"; break;
+						case 3: sSaying = "Sua alma agora é minha para ser tomada!"; break;
+						case 4: sSaying = "Quem ousa me despertar?"; break;
+						case 5: sSaying = "Sua vida será extinguida!"; break;
+						case 6: sSaying = "Você não tem respeito pelos mortos?"; break;
+						case 7: sSaying = "Estive esperando para me banquetear com os vivos!"; break;
+						case 8: sSaying = "Logo você se juntará à minha legião dos mortos!"; break;
 					}
 
 					if ( ( spawned != null ) && ( Utility.Random( 100 ) > (nSpiritualism + 85) ) ) // 10% chance you will get a grave raiser
@@ -357,7 +357,7 @@ namespace Server.Engines.Harvest
 							if ( chest != null )
 							{
 								chest.MoveToWorld( loc, map );
-								from.SendMessage( "you dig up a graveyard chest." );
+								from.SendMessage( "Você escava um baú de cemitério." );
 							}
 						}
 					}
