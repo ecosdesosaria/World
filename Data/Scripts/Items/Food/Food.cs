@@ -11,7 +11,7 @@ namespace Server.Items
 {
 	public abstract class Food : Item
 	{
-		public override string DefaultDescription{ get{ return "Food can be used to satisfy your hunger. It can also be used in various cooking recipes. There are some single click menus available. If you are hungry, you can 'Eat' it, but if you want to eat as much of it as you can, you can always 'Eat Up'."; } }
+		public override string DefaultDescription{ get{ return "Comida pode ser usada para saciar sua fome. Também pode ser usada em várias receitas de culinária. Existem alguns menus de clique único disponíveis. Se estiver com fome, pode 'Comer', mas se quiser comer o máximo possível, sempre pode 'Comer Tudo'."; } }
 
 		private Mobile m_Poisoner;
 		private Poison m_Poison;
@@ -69,7 +69,7 @@ namespace Server.Items
 				else if ( Poison == Poison.Deadly ) { target.ApplyPoison( from, PoisonImpl.Deadly ); }
 				else { target.ApplyPoison( from, PoisonImpl.Lethal ); }
 
-				target.Say( "Poison!");
+				target.Say( "Veneno!");
 
 				target.PlaySound( target.Female ? 813 : 1087 );
 				if ( !target.Mounted ) 
@@ -83,12 +83,12 @@ namespace Server.Items
 			else if ( target.Body == 0x191 || target.Body == 0x190 || target.Body == 606 || target.Body == 605 )
 			{
 				from.AddToBackpack ( this );
-				target.Say( "That doesn't look good.");
+				target.Say( "Isso não parece bom.");
 			}
 			else
 			{
 				from.AddToBackpack ( this );
-				from.PrivateOverheadMessage(MessageType.Regular, 1150, false, "They don't seem to want that.", from.NetState);
+				from.PrivateOverheadMessage(MessageType.Regular, 1150, false, "Eles não parecem querer isso.", from.NetState);
 			}
 
 			return true;
@@ -227,7 +227,7 @@ namespace Server.Items
 			}
 			else if ( Server.Items.BaseRace.BloodDrinker( from.RaceID ) || Server.Items.BaseRace.BrainEater( from.RaceID ) )
 			{
-				from.SendMessage( "This does not look very good to you." );
+				from.SendMessage( "Isso não parece muito bom para você." );
 				return false;
 			}
 
