@@ -1854,12 +1854,12 @@ namespace Server.Items
 		{
 			if ( !drink.IsChildOf( from.Backpack ) ) 
 			{
-				from.SendMessage( "This must be in your backpack to drink." );
+				from.SendMessage( "Isso deve estar em sua mochila para beber." );
 				return;
 			}
 			else if ( Server.Items.BaseRace.BloodDrinker( from.RaceID ) || Server.Items.BaseRace.BrainEater( from.RaceID ) )
 			{
-				from.SendMessage( "This does not look very good to you." );
+				from.SendMessage( "Isso não parece muito bom para você." );
 				return;
 			}
 			else
@@ -1871,13 +1871,13 @@ namespace Server.Items
 					// Send message to character about their current thirst value
 					int iThirst = from.Thirst;
 					if ( iThirst < 5 )
-						from.SendMessage( "You drink the liquid but are still extremely thirsty" );
+						from.SendMessage( "Você bebe o líquido mas ainda está extremamente sedento" );
 					else if ( iThirst < 10 )
-						from.SendMessage( "You drink the liquid and feel less thirsty" );
+						from.SendMessage( "Você bebe o líquido e se sente menos sedento" );
 					else if ( iThirst < 15 )
-						from.SendMessage( "You drink the liquid and feel much less thirsty" ); 
+						from.SendMessage( "Você bebe o líquido e se sente muito menos sedento" ); 
 					else
-						from.SendMessage( "You drink the liquid and are no longer thirsty" );
+						from.SendMessage( "Você bebe o líquido e não está mais sedento" );
 
 					if ( drink is RomulanAle )
 					{
@@ -1898,7 +1898,7 @@ namespace Server.Items
 				}
 				else
 				{
-					from.SendMessage( "You are simply too quenched to drink anymore" );
+					from.SendMessage( "Você está simplesmente muito hidratado para beber mais" );
 					from.Thirst = 20;
 				}
 			}

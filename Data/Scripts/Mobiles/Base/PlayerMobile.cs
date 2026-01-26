@@ -119,14 +119,14 @@ namespace Server.Mobiles
 			PlayerMobile pm = (PlayerMobile)from;
 
 			if ( pm.CraftSuccess > 1 )
-				pm.SendMessage( "You created " + pm.CraftSuccess + " items." );
+				pm.SendMessage( "Você criou " + pm.CraftSuccess + " itens." );
 			else if ( pm.CraftSuccess == 1 )
-				pm.SendMessage( "You created 1 item." );
+				pm.SendMessage( "Você criou 1 item." );
 
 			if ( pm.CraftExceptional > 1 )
-				pm.SendMessage( "You created " + pm.CraftExceptional + " exceptional items." );
+				pm.SendMessage( "Você criou " + pm.CraftExceptional + " itens excepcionais." );
 			else if ( pm.CraftExceptional == 1)
-				pm.SendMessage( "You created 1 exceptional item." );
+				pm.SendMessage( "Você criou 1 item excepcional." );
 
 			pm.PlaySound( CraftSound );
 
@@ -2295,13 +2295,13 @@ namespace Server.Mobiles
 
 			switch( Utility.Random( 7 ) )
 			{
-				case 0: LoggingFunctions.LogStandard( this, "has returned from the realm of the dead" );		break;
-				case 1: LoggingFunctions.LogStandard( this, "was brought back to the world of the living" );	break;
-				case 2: LoggingFunctions.LogStandard( this, "has been restored to life" );					break;
-				case 3: LoggingFunctions.LogStandard( this, "has been brought back from the grave" );		break;
-				case 4: LoggingFunctions.LogStandard( this, "has been resurrected to this world" );			break;
-				case 5: LoggingFunctions.LogStandard( this, "has returned to life after death" );			break;
-				case 6: LoggingFunctions.LogStandard( this, "was resurrected for another chance at life" );	break;
+				case 0: LoggingFunctions.LogStandard( this, "retornou do reino dos mortos" );        break;
+				case 1: LoggingFunctions.LogStandard( this, "foi trazido de volta ao mundo dos vivos" ); break;
+				case 2: LoggingFunctions.LogStandard( this, "foi restaurado à vida" );                 break;
+				case 3: LoggingFunctions.LogStandard( this, "foi trazido de volta da sepultura" );     break;
+				case 4: LoggingFunctions.LogStandard( this, "foi ressuscitado para este mundo" );      break;
+				case 5: LoggingFunctions.LogStandard( this, "retornou à vida após a morte" );          break;
+				case 6: LoggingFunctions.LogStandard( this, "foi ressuscitado para outra chance de vida" ); break;
 			}
 
 			if ( this.QuestArrow != null ){ this.QuestArrow.Stop(); }
@@ -2406,7 +2406,7 @@ namespace Server.Mobiles
 					sJail = "Cimmeran Prison";
 				}
 
-				this.SendMessage("You have been sent to the " + sJail + "!"); 
+				this.SendMessage("Você foi enviado para a " + sJail + "!"); 
 				Server.Mobiles.BaseCreature.TeleportPets( this, p, map );
 				this.MoveToWorld( p, map );
 				LoggingFunctions.LogPrison( this, sJail );

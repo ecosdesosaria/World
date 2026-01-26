@@ -13,7 +13,7 @@ using Server.Regions;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "Arachnar's corpse" )]
+	[CorpseName( "Cadáver de Arachnar" )]
 	public class Arachnar : BaseCreature
 	{
 		public override int BreathPhysicalDamage{ get{ return 50; } }
@@ -32,7 +32,7 @@ namespace Server.Mobiles
 		public Arachnar() : base( AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4 )
 		{
 			Name = "Arachnar";
-			Title = "the deep crawler";
+			Title = "o rastejador profundo";
 			Body = 459;
 			BaseSoundID = 0x388;
 

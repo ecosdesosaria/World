@@ -7,13 +7,13 @@ using Server.Misc;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "an ettin corpse" )]
+	[CorpseName( "um cadáver de ettin" )]
 	public class EttinShaman : BaseCreature
 	{
 		[Constructable]
 		public EttinShaman() : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4 )
 		{
-			Name = "an ettin shaman";
+			Name = "um ettin shaman";
 			Body = 316;
 			BaseSoundID = 367;
 

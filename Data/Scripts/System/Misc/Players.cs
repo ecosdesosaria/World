@@ -1451,16 +1451,16 @@ namespace Server.Gumps
 			AddHtml( 61, 406, 100, 20, @"<BODY><BASEFONT Color=" + warnColor + ">" + warnMsg + "</BASEFONT></BODY>", (bool)false, (bool)false);
 
 			string colA = "";
-			colA = colA + "Strength<BR><BR>";
-			colA = colA + "Dexterity<BR><BR>";
-			colA = colA + "Intelligence<BR><BR>";
-			colA = colA + "Fame<BR><BR>";
+			colA = colA + "Força<BR><BR>";
+			colA = colA + "Destreza<BR><BR>";
+			colA = colA + "Inteligência<BR><BR>";
+			colA = colA + "Fama<BR><BR>";
 			colA = colA + "Karma<BR><BR>";
-			colA = colA + "Tithe<BR><BR>";
-			colA = colA + "Hunger<BR><BR>";
-			colA = colA + "Thirst<BR><BR>";
-			colA = colA + "Potion Enhance<BR><BR>";
-			colA = colA + "Bank Gold<BR><BR>";
+			colA = colA + "Dízimo<BR><BR>";
+			colA = colA + "Fome<BR><BR>";
+			colA = colA + "Sede<BR><BR>";
+			colA = colA + "Aprimoramento de Poção<BR><BR>";
+			colA = colA + "Ouro no Banco<BR><BR>";
 
 			string colB = "";
 			colB = colB + "" + String.Format(" {0} + {1}", from.RawStr, from.Str - from.RawStr ) + "<BR><BR>";
@@ -1480,17 +1480,17 @@ namespace Server.Gumps
 			///////////////////////////////////////////////////////////////////////////////////
 
 			string colC = "";
-			colC = colC + "Level<BR><BR>";
+			colC = colC + "Nível<BR><BR>";
 			colC = colC + "Hits<BR><BR>";
 			colC = colC + "Stamina<BR><BR>";
 			colC = colC + "Mana<BR><BR>";
 			colC = colC + "Hits Regen<BR><BR>";
 			colC = colC + "Stamina Regen<BR><BR>";
 			colC = colC + "Mana Regen<BR><BR>";
-			if ( MyServerSettings.LowerReg() > 0 ){ colC = colC + "Low Reagent<BR><BR>"; }
-			if ( MyServerSettings.LowerMana() > 0 ){ colC = colC + "Low Mana<BR><BR>"; }
-			colC = colC + "Resurrect Cost<BR><BR>";
-			colC = colC + "Murders<BR><BR>";
+			if ( MyServerSettings.LowerReg() > 0 ){ colC = colC + "Redução de Reagente<BR><BR>"; }
+			if ( MyServerSettings.LowerMana() > 0 ){ colC = colC + "Redução de Mana<BR><BR>"; }
+			colC = colC + "Custo de Ressurect<BR><BR>";
+			colC = colC + "Assassinatos<BR><BR>";
 
 			string colD = "";
 			colD = colD + "" + String.Format(" {0}", CharacterLevel ) + "<BR><BR>";
@@ -1511,17 +1511,17 @@ namespace Server.Gumps
 			///////////////////////////////////////////////////////////////////////////////////
 
 			string colE = "";
-			colE = colE + "Hit Chance<BR><BR>";
-			colE = colE + "Defend Chance<BR><BR>";
-			colE = colE + "Swing Speed<BR><BR>";
-			colE = colE + "Swing Speed +<BR><BR>";
-			colE = colE + "Bandage Speed<BR><BR>";
-			colE = colE + "Damage Increase<BR><BR>";
-			colE = colE + "Reflect Damage<BR><BR>";
-			colE = colE + "Fast Cast<BR><BR>";
-			colE = colE + "Cast Recovery<BR><BR>";
-			colE = colE + "Spell Damage +<BR><BR>";
-			colE = colE + "Magic/Melee Absorb<BR><BR>";
+			colE = colE + "Chance de Acerto<BR><BR>";
+			colE = colE + "Chance de Defesa<BR><BR>";
+			colE = colE + "Velocidade de Ataque<BR><BR>";
+			colE = colE + "Velocidade de Ataque +<BR><BR>";
+			colE = colE + "Velocidade de Bandagem<BR><BR>";
+			colE = colE + "Aumento de Dano<BR><BR>";
+			colE = colE + "Reflexão de Dano<BR><BR>";
+			colE = colE + "Conjuração Rápida<BR><BR>";
+			colE = colE + "Recuperação de Conjuração<BR><BR>";
+			colE = colE + "Dano Mágico +<BR><BR>";
+			colE = colE + "Absorção Mágica/Corporal<BR><BR>";
 
 			string colF = "";
 			colF = colF + "" + String.Format(" {0}<BASEFONT Color=" + colordim + ">/{1}%</BASEFONT>", HCI, HCICap ) + "<BR><BR>";
