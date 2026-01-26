@@ -1519,9 +1519,9 @@ namespace Server.Gumps
 			colE = colE + "Aumento de Dano<BR><BR>";
 			colE = colE + "Reflexão de Dano<BR><BR>";
 			colE = colE + "Conjuração Rápida<BR><BR>";
-			colE = colE + "Recuperação de Conjuração<BR><BR>";
+			colE = colE + "Cast Recovery<BR><BR>";
 			colE = colE + "Dano Mágico +<BR><BR>";
-			colE = colE + "Absorção Mágica/Corporal<BR><BR>";
+			colE = colE + "Magic/Melee Absorb<BR><BR>";
 
 			string colF = "";
 			colF = colF + "" + String.Format(" {0}<BASEFONT Color=" + colordim + ">/{1}%</BASEFONT>", HCI, HCICap ) + "<BR><BR>";
