@@ -35,8 +35,8 @@ namespace Server
 	// button will simply say Website. When players select the button, it should open their browser to that site.
 	// EXAMPLE: https://google.com
 
-		public static string S_WebsiteLink = "";
-		public static string S_WebsiteName = "";
+		public static string S_WebsiteLink = "https://ecosdesosaria.com";
+		public static string S_WebsiteName = "Ecos de Sosaria";
 
 	// The game saves itself after this many minutes in decimal format between 10 and 240 minutes.
 
@@ -296,7 +296,7 @@ namespace Server
 
 	// The amount of minutes before you can take a sage artifact quest after finishing one.
 
-		public static int S_GetTimeBetweenArtifactQuests = 1440;
+		public static int S_GetTimeBetweenArtifactQuests = 10080;
 
 	// The percent of gold you get from creatures, treasure, cargo, museum searches, shoppes, and some quests
 	// between 5 (low) to 100 (high).
@@ -437,7 +437,7 @@ namespace Server
 	// occurs if the enemy can pass the various checks to even determine that they can dispel the summoned creature.
 	// If set to zero, this check does not occur as per default. Valid values are between 10 and 90.
 
-		public static int S_DispelFailure = 0;
+		public static int S_DispelFailure = 15;
 
 	// Increasing this number will only increase the hit points of all creatures that percentage, so setting this
 	// to 100 will double the hit points of creatures (adding an additional 100% on top of their normal hit points).
@@ -577,7 +577,7 @@ namespace Server
 	// regular stocking schedule. The resources items are made of will be land specific. EXAMPLE: If you can only 
 	// get obsidian metal in the Serpent Island, then you will may only find obsidian items in that land.
 
-		public static bool S_BlackMarket = false;
+		public static bool S_BlackMarket = true;
 
 	// If true, then the custom merchant is enabled. After a [buildworld command, these merchants will appear in
 	// the various settlements with their wagon. They will sell any custom items you set in the Info/Scripts folder.
@@ -597,7 +597,7 @@ namespace Server
 	// then specify this dual ownership when choosing an item security level. The default setting is false, where
 	// co-owners have much more limited permissions as the standard game allows.
 
-		public static bool S_HouseOwners = false;
+		public static bool S_HouseOwners = true;
 
 	// When true (default setting), characters can use lawn tools (from architects) to add items to the outside
 	// of their home like trees, shrubs, fences, lave, water, and other items. Lawn tools require an amount of
@@ -605,7 +605,7 @@ namespace Server
 	// false, the lawn items will refund the gold back to the character's bank box and the lawn tools will be
 	// removed from the game.
 
-		public static bool S_LawnsAllowed = false;
+		public static bool S_LawnsAllowed = true;
 
 	// When true (default setting), characters can use remodeling tools (from architects) to add items to their
 	// home like walls, doors, tiles, and other items. Remodeling tools require an amount of gold to place items.
@@ -613,7 +613,7 @@ namespace Server
 	// remodeling items will refund the gold back to the character's bank box and the remodeling tools will be
 	// removed from the game.
 
-		public static bool S_ShantysAllowed = false;
+		public static bool S_ShantysAllowed = true;
 
 	// The number of days, no less than 5.0 (decimal format), that a boat or magic carpet will decay if on
 	// the sea not used.
@@ -700,7 +700,7 @@ namespace Server
 
 	// If true, then followers will not stack on top of each other but instead spread out a bit.
 
-		public static bool S_FriendsAvoidHeels = false;
+		public static bool S_FriendsAvoidHeels = true;
 
 	// If true, then followers will not only guard you when commanded, but guard the other
 	// followers in your group.
