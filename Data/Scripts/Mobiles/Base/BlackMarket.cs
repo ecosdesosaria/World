@@ -154,7 +154,7 @@ namespace Server
 				{
 					m_Item = null;
 					m_ID = 0;
-					m_Merchant.SayTo( m_From, "Sorry, but that item was already sold.");
+					m_Merchant.SayTo( m_From, "Desculpe, mas esse item já foi vendido.");
 				}
 				else
 				{

@@ -11,7 +11,7 @@ using Server.Regions;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "a sea serpents corpse" )]
+	[CorpseName( "um cadáver de serpente do mar" )]
 	public class Jormungandr : BaseCreature
 	{
 		public override int BreathPhysicalDamage{ get{ return 0; } }
@@ -30,7 +30,7 @@ namespace Server.Mobiles
 		public Jormungandr() : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4 )
 		{
 			Name = "Jormungandr";
-			Title = "the Midgard Serpent";
+			Title = "a Serpente de Midgard";
 			Body = 874;
 			Hue = 0xBAB;
 			BaseSoundID = 447;

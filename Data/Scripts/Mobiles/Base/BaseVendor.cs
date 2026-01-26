@@ -810,7 +810,7 @@ namespace Server.Mobiles
 
 			if ( !CheckVendorAccess( from ) )
 			{
-				this.Say( "I have no business with you." );
+				this.Say( "Não tenho negócios com você." );
 				return;
 			}
 
@@ -949,13 +949,13 @@ namespace Server.Mobiles
 				}
 
 				if ( this is Sage )
-					SayTo( from, "Have a look, but you cannot buy the priceless research items!" );
+					SayTo( from, "Dê uma olhada, mas não pode comprar os itens de pesquisa inestimáveis!" );
 				else
 					SayTo( from, 500186 ); // Greetings.  Have a look around.
 			}
 
 			if ( inventory < 1 )
-				SayTo( from, "Sorry, but I have nothing for sale right now." );
+				SayTo( from, "Desculpe, mas não tenho nada à venda no momento." );
 		}
 
 		public virtual void SendPacksTo( Mobile from )
@@ -1008,7 +1008,7 @@ namespace Server.Mobiles
 			if ( !CheckVendorAccess( from ) )
 			{
 				//Say( 501522 ); // I shall not treat with scum like thee!
-				this.Say( "I have no business with you." );
+				this.Say( "Não tenho negócios com você." );
 				return;
 			}
 
@@ -1065,7 +1065,7 @@ namespace Server.Mobiles
 				}
 				else
 				{
-					Say( true, "You have nothing I would be interested in." );
+					Say( true, "Você não tem nada que eu esteja interessado." );
 				}
 			}
 		}
@@ -1074,13 +1074,13 @@ namespace Server.Mobiles
 		{
 			if ( from.Blessed )
 			{
-				string sSay = "I cannot deal with you while you are in that state.";
+				string sSay = "Não posso negociar com você enquanto estiver nesse estado.";
 				this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sSay, from.NetState);
 				return false;
 			}
 			else if ( IntelligentAction.GetMyEnemies( from, this, false ) )
 			{
-				string sSay = "I don't think I should accept that from you.";
+				string sSay = "Não acho que deveria aceitar isso de você.";
 				this.PrivateOverheadMessage(MessageType.Regular, 1153, false, sSay, from.NetState);
 				return false;
 			}
@@ -1099,7 +1099,7 @@ namespace Server.Mobiles
 						dropped.ItemID = 0x5770;
 					}
 
-					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "Let me fix that quiver for you.", from.NetState);
+					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "Deixe-me consertar essa aljava para você.", from.NetState);
 					Effects.PlaySound(from.Location, from.Map, 0x55);
 					return false;
 				}
@@ -1375,7 +1375,7 @@ namespace Server.Mobiles
 						}
 					string curseName = dropped.Name;
 						if ( curseName == ""){ curseName = "item"; }
-					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "The curse has been lifted from the " + curseName + ".", from.NetState);
+					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "A maldição foi removida do(a) " + curseName + ".", from.NetState);
 					dropped.Delete();
 					return true;
 				}
@@ -1391,7 +1391,7 @@ namespace Server.Mobiles
 						{
 							from.AddToBackpack ( item );
 						}
-					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "The item has been cleaned.", from.NetState);
+					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "O item foi limpo.", from.NetState);
 					dropped.Delete();
 					return true;
 				}
@@ -1407,7 +1407,7 @@ namespace Server.Mobiles
 						{
 							from.AddToBackpack ( item );
 						}
-					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "The weeds have been removed.", from.NetState);
+					this.PrivateOverheadMessage(MessageType.Regular, 1153, false, "As ervas daninhas foram removidas.", from.NetState);
 					dropped.Delete();
 					return true;
 				}
@@ -1602,7 +1602,7 @@ namespace Server.Mobiles
 		
 		if (!IsActiveSeller || !buyer.CheckAlive() || !CheckVendorAccess(buyer))
 		{
-			Say("I have no business with you.");
+			Say("Não tenho negócios com você.");
 			return false;
 		}
 
@@ -1676,7 +1676,7 @@ namespace Server.Mobiles
 
 		if (tryGettingArty)
 		{
-			SayTo(buyer, true, "No! Those are research items and not actual artifacts!");
+			SayTo(buyer, true, "Não! Esses são itens de pesquisa e não artefatos reais!");
 			PlaySound(Female ? 802 : 1074);
 			return false;
 		}
@@ -1879,7 +1879,7 @@ namespace Server.Mobiles
 
 			if ( !CheckVendorAccess( seller ) )
 			{
-				this.Say( "I have no business with you." );
+				this.Say( "Não tenho negócios com você." );
 				return false;
 			}
 
@@ -1915,12 +1915,12 @@ namespace Server.Mobiles
 
 			if ( Sold > MaxSell )
 			{
-				SayTo( seller, true, "You may only sell {0} items at a time!", MaxSell );
+				SayTo( seller, true, "Você pode vender apenas {0} itens por vez!", MaxSell );
 				return false;
 			}
 			else if ( !MySettings.S_RichMerchants && SoldPrice > this.CoinPurse && !MySettings.S_UseRemainingGold )
 			{
-				SayTo( seller, true, "Sorry, but I only have {0} gold to barter with.", this.CoinPurse );
+				SayTo( seller, true, "Desculpe, mas só tenho {0} de ouro para negociar.", this.CoinPurse );
 				return false;
 			}
 			else if ( Sold == 0 )
@@ -1935,7 +1935,7 @@ namespace Server.Mobiles
 			if ( !MySettings.S_RichMerchants && SoldPrice > this.CoinPurse && MySettings.S_UseRemainingGold )
 			{
 				maxAffordableGold = this.CoinPurse;
-				SayTo( seller, true, "I give you my remaining {0} gold.", this.CoinPurse );
+				SayTo( seller, true, "Eu lhe dou meu {0} de ouro restante.", this.CoinPurse );
 			}
 
 			bool isBegging = BeggingPose(seller) > 0 && !(typeof( PlayerVendor ) == this.GetType()) && !(typeof( PlayerBarkeeper ) == this.GetType());
@@ -2426,7 +2426,7 @@ namespace Server.Mobiles
 				( item is BaseInstrument && ((BaseInstrument)item).UsesRemaining >= ((BaseInstrument)item).InitMinUses ) 
 			)
 			{
-				m.SayTo( from, "That does not need to be repaired." );
+				m.SayTo( from, "Isso não precisa de reparos." );
 				return false;
 			}
 
@@ -2473,7 +2473,7 @@ namespace Server.Mobiles
 				repair = true;
 
 			if ( !repair )
-				m.SayTo( from, "I cannot repair that." );
+				m.SayTo( from, "Não posso consertar isso." );
 
 			return repair;
 		}

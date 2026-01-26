@@ -6,7 +6,7 @@ using Server.Misc;
 
 namespace Server.Mobiles
 {
-	[CorpseName( "a kobold corpse" )]
+	[CorpseName( "um cadáver de kobold" )]
 	public class Kobold : BaseCreature
 	{
 		public override InhumanSpeech SpeechType{ get{ return InhumanSpeech.Ratman; } }
@@ -14,7 +14,7 @@ namespace Server.Mobiles
 		[Constructable]
 		public Kobold() : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4 )
 		{
-			Name = "a kobold";
+			Name = "um kobold";
 			Body = 245;
 			BaseSoundID = 0x543;
 
