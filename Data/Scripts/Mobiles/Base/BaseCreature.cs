@@ -4469,7 +4469,7 @@ namespace Server.Mobiles
 						case ClothType.Fiendish:     	corpse.AddCarvedItem( new FiendishFabric( cloth ), from ); break;
 					}
 
-					from.SendMessage( "You cut away some furs and they are on the corpse." );
+					from.SendMessage( "Você corta algumas peles e elas estão no cadáver." );
 				}
 
 				if ( hides != 0 )
@@ -4494,7 +4494,7 @@ namespace Server.Mobiles
 						case HideType.Alien:     	corpse.AddCarvedItem( new AlienLeather( hides ), from ); break;
 					}
 
-					from.SendMessage( "You cut away some leather and they are on the corpse." );
+					from.SendMessage( "Você corta alguns couros e eles estão no cadáver." );
 				}
 
 				if ( wood != 0 )
@@ -4522,7 +4522,7 @@ namespace Server.Mobiles
 						case WoodType.Elven:     	corpse.AddCarvedItem( new ElvenLog( wood ), from ); break;
 					}
 
-					from.SendMessage( "You cut away some leather and they are on the corpse." );
+					from.SendMessage( "Você corta alguns couros e eles estão no cadáver." );
 				}
 
 				if ( granite != 0 )
@@ -4550,7 +4550,7 @@ namespace Server.Mobiles
 						case GraniteType.Steel:     	corpse.AddCarvedItem( new SteelGranite( granite ), from ); break;
 						case GraniteType.Brass:     	corpse.AddCarvedItem( new BrassGranite( granite ), from ); break;
 					}
-					from.SendMessage( "You chisel away some granite and it is on the corpse." );
+					from.SendMessage( "Você talha um pouco de granito e ele está no cadáver." );
 				}
 
 				if ( skins != 0 )
@@ -4571,7 +4571,7 @@ namespace Server.Mobiles
 						case SkinType.Dead:     	corpse.AddCarvedItem( new DeadSkins( skins ), from ); break;
 					}
 
-					from.SendMessage( "You cut away some skins and they are on the corpse." );
+					from.SendMessage( "Você corta alguns couros e eles estão no cadáver." );
 				}
 
 				if ( rocks != 0 )
@@ -4672,7 +4672,7 @@ namespace Server.Mobiles
 						}
 					}
 
-					from.SendMessage( "You chip away some stones and they are on the corpse." );
+					from.SendMessage( "Você talha alguns pedras e elas estão no cadáver." );
 				}
 
 				if ( metal != 0 )
@@ -4724,7 +4724,7 @@ namespace Server.Mobiles
 						}
 					}
 
-					from.SendMessage( "You chip away some metal and it is on the corpse." );
+					from.SendMessage( "Você talha um pouco de metal e ele está no cadáver." );
 				}
 
 				if ( scales != 0 )
@@ -4759,7 +4759,7 @@ namespace Server.Mobiles
 						}
 					}
 
-					from.SendMessage( "You cut away some scales and they are on the corpse." );
+					from.SendMessage( "Você corta algumas escamas e elas estão no cadáver." );
 				}
 
 				if ( skeletal != 0 )
@@ -4836,7 +4836,7 @@ namespace Server.Mobiles
 						}
 					}
 
-					from.SendMessage( "You cut away some bones and they are on the corpse." );
+					from.SendMessage( "Você corta alguns ossos e eles estão no cadáver." );
 				}
 
 				corpse.Carved = true;

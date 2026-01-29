@@ -404,7 +404,7 @@ namespace Server
 
 	// If false, characters will get a CAPTCHA windows occasionally to avoid unattended resource gathering with macros.
 
-		public static bool S_AllowMacroResources = false;
+		public static bool S_AllowMacroResources = true;
 
 	// If false, then characters will need to have the appropriate tool equipped to craft.
 		
@@ -577,7 +577,7 @@ namespace Server
 	// regular stocking schedule. The resources items are made of will be land specific. EXAMPLE: If you can only 
 	// get obsidian metal in the Serpent Island, then you will may only find obsidian items in that land.
 
-		public static bool S_BlackMarket = true;
+		public static bool S_BlackMarket = false;
 
 	// If true, then the custom merchant is enabled. After a [buildworld command, these merchants will appear in
 	// the various settlements with their wagon. They will sell any custom items you set in the Info/Scripts folder.
@@ -630,7 +630,7 @@ namespace Server
 
 	// The amount of houses an account's characters may own. A -1 setting will be unlimited.
 
-		public static int S_HousesPerAccount = 1;
+		public static int S_HousesPerAccount = 2;
 
 	// If true, this means that the players can dye construction contracts so their pre-designed home is
 	// entirely in that same color.

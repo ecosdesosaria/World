@@ -1065,7 +1065,7 @@ namespace Server.Mobiles
 				}
 				else
 				{
-					Say( true, "Você não tem nada que eu esteja interessado." );
+					Say( true, "Voce nao tem nada que eu esteja interessado." );
 				}
 			}
 		}
