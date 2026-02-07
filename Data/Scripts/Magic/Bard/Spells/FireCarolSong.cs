@@ -18,7 +18,7 @@ namespace Server.Spells.Song
 				-1
 			);
 
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 5 ); } }
+		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 3 ); } }
 		public override double RequiredSkill{ get{ return 50.0; } }
 		public override int RequiredMana{ get{ return 12; } }
 		
@@ -54,7 +54,7 @@ namespace Server.Spells.Song
 					if ( ( amount + m.FireResistance ) > MySettings.S_MaxResistance )
 						amount = MySettings.S_MaxResistance - m.FireResistance;
 
-					m.SendMessage( "Your resistance to fire has increased." );
+					m.SendMessage( "Sua resistência ao fogo aumentou." );
 					ResistanceMod mod1 = new ResistanceMod( ResistanceType.Fire, + amount );
 						
 					m.AddResistanceMod( mod1 );
@@ -97,7 +97,7 @@ namespace Server.Spells.Song
 			{
 				if ( m_Mobile != null )
 				{
-					m_Mobile.SendMessage( "The effect of the fire carol wears off." );
+					m_Mobile.SendMessage( "O efeito do fire carol desaparece." );
 					DoExpire();
 				}
 			}
