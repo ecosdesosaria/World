@@ -18,7 +18,7 @@ namespace Server.Spells.Song
 		{
 		}
 
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 5 ); } }
+		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 3 ); } }
 		public override double RequiredSkill{ get{ return 70.0; } }
 		public override int RequiredMana{ get{ return 25; } }
 
@@ -74,7 +74,7 @@ namespace Server.Spells.Song
 					duration = TimeSpan.FromSeconds( (double)(MusicSkill( Caster ) * 2) );
 				}
 
-				m.SendMessage( "Your resistance to fire has decreased." );
+				m.SendMessage( "Sua resistência ao fogo diminuiu." );
 				ResistanceMod mod1 = new ResistanceMod( ResistanceType.Fire, - amount );
 				
 				m.FixedParticles( 0x374A, 10, 30, 5013, 0x489, 2, EffectLayer.Waist );
@@ -116,7 +116,7 @@ namespace Server.Spells.Song
 			{
 				if ( m_Mobile != null )
 				{
-					m_Mobile.SendMessage( "The effect of the fire threnody wears off." );
+					m_Mobile.SendMessage( "O efeito do fire threnody desaparece." );
 					DoExpire();
 				}
 			}

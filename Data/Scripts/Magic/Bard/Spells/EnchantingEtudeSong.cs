@@ -50,6 +50,17 @@ namespace Server.Spells.Song
 					
                     int amount = MyServerSettings.PlayerLevelMod( (int)(MusicSkill( Caster ) / 16), Caster );
 					string intt = "int";
+
+					if ( m is PlayerMobile )
+					{
+						int currentInt = m.RawInt;
+
+						if ( currentInt >= 150 )
+							continue;
+
+						if ( currentInt + amount > 150 )
+							amount = 150 - currentInt;
+					}
 						
 					double duration = (double)(MusicSkill( Caster ) * 2);
 						

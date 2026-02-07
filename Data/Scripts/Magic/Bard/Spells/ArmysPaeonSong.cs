@@ -18,7 +18,7 @@ namespace Server.Spells.Song
 			-1
 			);
 	
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 5 ); } }
+		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 3 ); } }
 		public override double RequiredSkill{ get{ return 55.0; } }
 		public override int RequiredMana{ get{ return 15; } }
 		
@@ -97,7 +97,7 @@ namespace Server.Spells.Song
 					
 					if ( m_Round >= m_Totalrounds )
 					{
-						m_Mobile.SendMessage( "The effect of the army's paeon wears off." );
+						m_Mobile.SendMessage( "O efeito do army's paeon desaparece." );
 						BuffInfo.RemoveBuff( m_Mobile, BuffIcon.ArmysPaeon );
 					}
 					else
@@ -132,7 +132,7 @@ namespace Server.Spells.Song
 
                     if (m_Round >= m_Totalrounds)
                     {
-                        m_Mobile.SendMessage("The effect of the army's paeon wears off.");
+                        m_Mobile.SendMessage("O efeito do army's paeon desaparece.");
 						BuffInfo.RemoveBuff( m_Mobile, BuffIcon.ArmysPaeon );
                     }
                     else
@@ -167,7 +167,7 @@ namespace Server.Spells.Song
 
                     if (m_Round >= m_Totalrounds)
                     {
-                        m_Mobile.SendMessage("The effect of the army's paeon wears off.");
+                        m_Mobile.SendMessage("O efeito do army's paeon desaparece.");
 						BuffInfo.RemoveBuff( m_Mobile, BuffIcon.ArmysPaeon );
                     }
                     else
@@ -202,7 +202,7 @@ namespace Server.Spells.Song
 
                     if (m_Round >= m_Totalrounds)
                     {
-                        m_Mobile.SendMessage("The effect of the army's paeon wears off.");
+                        m_Mobile.SendMessage("O efeito do army's paeon desaparece.");
 						BuffInfo.RemoveBuff( m_Mobile, BuffIcon.ArmysPaeon );
                     }
                     else
@@ -237,7 +237,7 @@ namespace Server.Spells.Song
 
                     if (m_Round >= m_Totalrounds)
                     {
-                        m_Mobile.SendMessage("The effect of the army's paeon wears off.");
+                        m_Mobile.SendMessage("O efeito do army's paeon desaparece.");
 						BuffInfo.RemoveBuff( m_Mobile, BuffIcon.ArmysPaeon );
                     }
                     else

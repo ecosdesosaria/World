@@ -18,7 +18,7 @@ namespace Server.Spells.Song
 				-1
 			);
 
-		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 5 ); } }
+		public override TimeSpan CastDelayBase { get { return TimeSpan.FromSeconds( 3 ); } }
 		public override double RequiredSkill{ get{ return 50.0; } }
 		public override int RequiredMana{ get{ return 12; } }
 		
@@ -56,7 +56,7 @@ namespace Server.Spells.Song
 					if ( ( amount + m.PoisonResistance ) > MySettings.S_MaxResistance )
 						amount = MySettings.S_MaxResistance - m.PoisonResistance;
 
-					m.SendMessage( "Your resistance to poison has increased." );
+					m.SendMessage( "Sua resistência a veneno aumentou." );
 					ResistanceMod mod1 = new ResistanceMod( ResistanceType.Poison, + amount );
 						
 					m.AddResistanceMod( mod1 );
@@ -98,7 +98,7 @@ namespace Server.Spells.Song
 			{
 				if ( m_Mobile != null )
 				{
-					m_Mobile.SendMessage( "The effect of the poison carol wears off." );
+					m_Mobile.SendMessage( "O efeito da poison carol desaparece." );
 					DoExpire();
 				}
 			}

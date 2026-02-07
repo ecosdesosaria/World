@@ -1212,15 +1212,15 @@ namespace Server.Misc
 					}
 					else
 					{
-						string privateEnemy = "an opponent";
+						string privateEnemy = "um oponente";
 						switch ( Utility.Random( 6 ) )
 						{
-							case 0: privateEnemy = "an opponent"; break;
-							case 1: privateEnemy = "an enemy"; break;
-							case 2: privateEnemy = "another"; break;
-							case 3: privateEnemy = "an adversary"; break;
-							case 4: privateEnemy = "a foe"; break;
-							case 5: privateEnemy = "a rival"; break;
+							case 0: privateEnemy = "um oponente"; break;
+							case 1: privateEnemy = "um inimigo"; break;
+							case 2: privateEnemy = "um outro"; break;
+							case 3: privateEnemy = "um adversário"; break;
+							case 4: privateEnemy = "um inimigo"; break;
+							case 5: privateEnemy = "um rival"; break;
 						}
 
 						if ( ( mob == m ) && ( mob != null ) )
