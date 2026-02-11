@@ -85,7 +85,7 @@ namespace Server.Items
 
 				int x = 194;
 				int y = 337;
-				int p = 173;
+				int p = 175;
 
 				int race = 79999+page;
 				int btn = 0;
@@ -144,7 +144,7 @@ namespace Server.Items
 
 					gc++; AddButton(gx, gy, 2447, 2447, 123456789, GumpButtonType.Reply, 0); AddHtml( gx+18, gy-4, 98, 20, @"<BODY><BASEFONT Color=" + color + ">Human</BASEFONT></BODY>", (bool)false, (bool)false); gy=gy+gm;
 
-					while ( g < 44 )
+					while ( g < 45 )
 					{
 						g++;
 
@@ -194,6 +194,7 @@ namespace Server.Items
 						else if ( g == 42 && go >= 1 ){ gc++; AddButton(gx, gy, 2447, 2447, g+gb, GumpButtonType.Reply, 0); AddHtml( gx+18, gy-4, 98, 20, @"<BODY><BASEFONT Color=" + color + ">Troll</BASEFONT></BODY>", (bool)false, (bool)false); gy=gy+gm; }
 						else if ( g == 43 && go >= 1 ){ gc++; AddButton(gx, gy, 2447, 2447, g+gb, GumpButtonType.Reply, 0); AddHtml( gx+18, gy-4, 98, 20, @"<BODY><BASEFONT Color=" + color + ">Vampyre</BASEFONT></BODY>", (bool)false, (bool)false); gy=gy+gm; }
 						else if ( g == 44 && go >= 1 ){ gc++; AddButton(gx, gy, 2447, 2447, g+gb, GumpButtonType.Reply, 0); AddHtml( gx+18, gy-4, 98, 20, @"<BODY><BASEFONT Color=" + color + ">Zombi</BASEFONT></BODY>", (bool)false, (bool)false); gy=gy+gm; }
+						else if ( g == 45 && go >= 1 ){ gc++; AddButton(gx, gy, 2447, 2447, g+gb, GumpButtonType.Reply, 0); AddHtml( gx+18, gy-4, 98, 20, @"<BODY><BASEFONT Color=" + color + ">Drow</BASEFONT></BODY>", (bool)false, (bool)false); gy=gy+gm; }
 					}
 
 					AddButton(1125, 10, 4017, 4017, 0, GumpButtonType.Reply, 0);	// CLOSE
@@ -334,6 +335,7 @@ namespace Server.Items
 					else if ( quick == 42 ){ move = 157; }
 					else if ( quick == 43 ){ move = 163; }
 					else if ( quick == 44 ){ move = 166; }
+					else if ( quick == 45 ){ move = 173; }
 
 					from.RaceSection = move+1;
 					from.SendGump( new RacePotionsGump( from, m_Tavern ) );
@@ -347,6 +349,7 @@ namespace Server.Items
 				}
 				else if ( info.ButtonID > 0 && info.ButtonID < 180 )
 				{
+					
 					from.RaceSection = info.ButtonID;
 					from.SendGump( new RacePotionsGump( from, m_Tavern ) );
 					from.SendSound( 0x4A ); 

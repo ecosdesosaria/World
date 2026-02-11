@@ -511,7 +511,7 @@ namespace Server.Gumps
 				{
 					stuff.Delete();
 				}
-				Server.Items.BaseRace.RemoveMyClothes( m );
+				//Server.Items.BaseRace.RemoveMyClothes( m );
 
 				m.AddToBackpack( new Gold( MyServerSettings.StartingGold() ) );
 
