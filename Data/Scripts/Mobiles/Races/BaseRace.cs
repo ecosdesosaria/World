@@ -8,6 +8,15 @@ namespace Server.Items
 {
 	public class BaseRace : Item
 	{
+		private int m_OriginalHue = 0;
+		private int m_OriginalHairHue = 0;
+		
+		[CommandProperty( AccessLevel.GameMaster )]
+		public int OriginalHue { get{ return m_OriginalHue; } set{ m_OriginalHue = value; } }
+		
+		[CommandProperty( AccessLevel.GameMaster )]
+		public int OriginalHairHue { get{ return m_OriginalHairHue; } set{ m_OriginalHairHue = value; } }
+
 		[Constructable]
 		public BaseRace() : base( 0x4047 )
 		{
@@ -691,6 +700,8 @@ namespace Server.Items
 			else if ( raceID == 307 ){ id = 170; }
 			else if ( raceID == 728 ){ id = 171; }
 			else if ( raceID == 810 ){ id = 172; }
+			else if ( raceID == 605 ){ id = 173; }
+			else if ( raceID == 606 ){ id = 174; }
 
 			return id;
 		}
@@ -871,10 +882,13 @@ namespace Server.Items
 			else if ( id == 170 ){ race = 307; }
 			else if ( id == 171 ){ race = 728; }
 			else if ( id == 172 ){ race = 810; }
+			else if ( id == 173 ){ race = 605; } // Define o corpo 605 como padrão para o ID 173
+			else if ( id == 174 ){ race = 606; } // Define o corpo 606 como padrão para o ID 174
 
 			return race;
 		}
 
+		
 		public static void CreateRace( Mobile m, int id, bool makeOne )
 		{
 			if ( m.Alive && m is PlayerMobile )
@@ -883,26 +897,35 @@ namespace Server.Items
 				{
 					if ( m.FindItemOnLayer( Layer.Special ) is BaseRace )
 					{
-						// THEY ALREADY HAVE ONE
-
+						// THEY ALREADY HAVE ONE - switching between races
 						BaseRace skin = (BaseRace)(m.FindItemOnLayer( Layer.Special ));
-
 						skin.Owner = m;
-						m.BodyMod = skin.SpeciesID;
-						m.HueMod = 0;
-						m.RaceID = skin.SpeciesID;
-						m.RaceAngerSound = skin.SpeciesAngerSound;
-						m.RaceIdleSound = skin.SpeciesIdleSound;
-						m.RaceDeathSound = skin.SpeciesDeathSound;
-						m.RaceAttackSound = skin.SpeciesAttackSound;
-						m.RaceHurtSound = skin.SpeciesHurtSound;
-
-						Mobiles.IMount mt = m.Mount;
-						if ( mt != null )
+						
+						int originalHue = skin.OriginalHue;
+						int originalHairHue = skin.OriginalHairHue;
+						
+						skin.Delete();
+						
+						Item race = GetCostume( id );
+						BaseRace raceItem = (BaseRace)race;
+						raceItem.OriginalHue = originalHue;
+						raceItem.OriginalHairHue = originalHairHue;
+						
+						// Set Drow hue if needed
+						if ( id == 605 || id == 606 )
 						{
-							Server.Mobiles.EtherealMount.EthyDismount( m );
-							mt.Rider = null;
+							raceItem.Hue = 1316;
+							m.Hue = 1316;
+							m.HueMod = 1316;
+							m.HairHue = 1150;
 						}
+						
+						m.AddToBackpack( race );
+						m.EquipItem( race );
+						
+						// Done, return early
+						m.InvalidateProperties();
+						return;
 					}
 					else
 						makeOne = true;
@@ -912,10 +935,24 @@ namespace Server.Items
 
 				if ( makeOne )
 				{
+					// FIRST TIME transforming from human to race
 					Item race = GetCostume( id );
-
-					if ( m.FindItemOnLayer( Layer.Special ) != null ){ (m.FindItemOnLayer( Layer.Special )).Delete(); }
-
+					BaseRace raceItem = (BaseRace)race;
+					
+					// Save CURRENT human appearance as true original
+					raceItem.OriginalHue = m.Hue;
+					raceItem.OriginalHairHue = m.HairHue;
+					
+					// Set Drow hue if needed
+					if ( id == 605 || id == 606 )
+					{
+						raceItem.Hue = 1316;
+						m.Hue = 1316;
+						m.HueMod = 1316;
+						m.HairHue = 1150;
+					}
+					
+					// Delete any existing race items
 					ArrayList costume = new ArrayList();
 					foreach ( Item item in World.Items.Values )
 					{
@@ -974,21 +1011,59 @@ namespace Server.Items
 
 		public static void BackToHuman( Mobile m )
 		{
-      		if ( m.RaceID > 0 )
-      		{
-				if ( m.FindItemOnLayer( Layer.Special ) != null ){ (m.FindItemOnLayer( Layer.Special )).Delete(); }
+			Item raceItem = m.FindItemOnLayer( Layer.Special );
+			
+			int originalHue = 0;
+			int originalHairHue = 0;
+			
+			if ( raceItem is BaseRace )
+			{
+				BaseRace race = (BaseRace)raceItem;
+				
+				// Get original appearance from race item
+				originalHue = race.OriginalHue;
+				originalHairHue = race.OriginalHairHue;				
+				
+				raceItem.Delete();
+			}
 
-				m.BodyMod = 0;
-				m.HueMod = -1;
-				m.RaceID = 0;
-				m.RaceAngerSound = 0;
-				m.RaceIdleSound = 0;
-				m.RaceDeathSound = 0;
-				m.RaceAttackSound = 0;
-				m.RaceHurtSound = 0;
-				m.RaceHomeLand = 0;
-				m.Female = m.RaceWasFemale;
-      		}
+			m.BodyMod = 0;
+			
+			// Restore original appearance
+			if ( originalHue != 0 )
+				m.Hue = originalHue;
+			else
+				m.Hue = 0;
+				
+			if ( originalHairHue != 0 )
+				m.HairHue = originalHairHue;
+			else
+				m.HairHue = 0;
+				
+			m.HueMod = -1;
+			m.RaceID = 0;
+			m.RaceSection = 0; // Importante para o Gump de poções resetar a página
+			
+			m.RaceAngerSound = 0;
+			m.RaceIdleSound = 0;
+			m.RaceDeathSound = 0;
+			m.RaceAttackSound = 0;
+			m.RaceHurtSound = 0;
+			m.RaceHomeLand = 0;
+
+			// Restore original gender
+			if ( m.RaceWasFemale )
+				m.Female = true;
+			else
+				m.Female = false;
+
+			// Garante que o corpo volte ao humano baseado no sexo
+			if ( m.Female )
+				m.Body = 401;
+			else
+				m.Body = 400;
+
+			m.SendMessage("Você retornou à forma humana.");
 		}
 
 		public BaseRace( Serial serial ) : base( serial )
@@ -1539,6 +1614,13 @@ namespace Server.Items
 				case 170: race = "Wight,170,25782,739,307,2849,47,61,471,zombi,evil,tomb,1,0,0,0,1,0,0,1,0,1,0,0,0,1,0,1,0,2,0,0,0,0,0,0,0,0,1,0,19,32,4,0"; break;
 				case 171: race = "Zombi,171,25778,735,728,2850,33,76,471,zombi,evil,tomb,1,0,0,0,1,0,0,1,0,1,0,0,0,1,0,1,0,2,0,0,0,0,0,0,0,0,1,0,1,30,4,0"; break;
 				case 172: race = "Zombi,172,25783,797,810,2851,39,73,471,zombi,evil,tomb,1,0,0,0,1,0,0,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,49,30,4,0"; break;
+				case 173: race = "Elfo Negro,173,14,-49986,605,605,39,73,0,drow,neutral,cave,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,14,0,0"; break;
+				case 174: race = "Elfa Negra,174,15,-49987,606,606,93,140,0,drow,neutral,cave,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,14,0,1"; break;			
+				case 175: race = "Elfo,175,14,-49986,744,745,39,73,0,elf,neutral,woods,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,-14,-22,-2"; break;
+				case 176: race = "Elfa,176,15,-49987,744,745,93,140,0,elf,neutral,woods,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,-14,-22,-2"; break;			
+				
+				// Name,Index,ItemID,Gump,Body,Icon,x,y,Sound,Species,Alignment,Start,Size,Phy,Fir,Cld,Poi,Eny,Str,Dex,Int,Hits,Stam,Mana,RegHits,RegStam,RegMana,Night,Attack%,Defend%,CastRecover,CastSpd,Potions,LowMana,LowReg,Luck,Reflect,SpellDmg,WepDmg,WepSpeed,Skill1,Skill2,Food,Gender - 44 fields
+				
 			}
 
 			return race;
@@ -1633,7 +1715,7 @@ namespace Server.Items
 		public override void Serialize( GenericWriter writer )
 		{
 			base.Serialize( writer );
-			writer.Write( (int) 0 );
+			writer.Write( (int) 1 );
 			m_AosAttributes.Serialize( writer );
 			m_AosResistances.Serialize( writer );
 			m_AosSkillBonuses.Serialize( writer );
@@ -1656,6 +1738,9 @@ namespace Server.Items
 			writer.Write( SpeciesLevel );
 			writer.Write( SpeciesFood );
 			writer.Write( SpeciesFemale );
+			
+			writer.Write( m_OriginalHue );
+			writer.Write( m_OriginalHairHue );
 		}
 
 		public override void Deserialize( GenericReader reader )
@@ -1663,56 +1748,74 @@ namespace Server.Items
 			base.Deserialize( reader );
 
 			int version = reader.ReadInt();
+			
+			// Initialize with defaults
+			m_OriginalHue = 0;
+			m_OriginalHairHue = 0;
 
-			m_AosAttributes = new AosAttributes( this, reader );
-			m_AosResistances = new AosElementAttributes( this, reader );
-			m_AosSkillBonuses = new AosSkillBonuses( this, reader );
-
-			if ( Parent is Mobile )
-				m_AosSkillBonuses.AddTo( (Mobile)Parent );
-
-			int strBonus = m_AosAttributes.BonusStr;
-			int dexBonus = m_AosAttributes.BonusDex;
-			int intBonus = m_AosAttributes.BonusInt;
-
-			if ( Parent is Mobile && (strBonus != 0 || dexBonus != 0 || intBonus != 0) )
+			try
 			{
-				Mobile m = (Mobile)Parent;
+				m_AosAttributes = new AosAttributes( this, reader );
+				m_AosResistances = new AosElementAttributes( this, reader );
+				m_AosSkillBonuses = new AosSkillBonuses( this, reader );
 
-				string modName = Serial.ToString();
+				if ( Parent is Mobile )
+					m_AosSkillBonuses.AddTo( (Mobile)Parent );
 
-				if ( strBonus != 0 )
-					m.AddStatMod( new StatMod( StatType.Str, modName + "Str", strBonus, TimeSpan.Zero ) );
+				int strBonus = m_AosAttributes.BonusStr;
+				int dexBonus = m_AosAttributes.BonusDex;
+				int intBonus = m_AosAttributes.BonusInt;
 
-				if ( dexBonus != 0 )
-					m.AddStatMod( new StatMod( StatType.Dex, modName + "Dex", dexBonus, TimeSpan.Zero ) );
+				if ( Parent is Mobile && (strBonus != 0 || dexBonus != 0 || intBonus != 0) )
+				{
+					Mobile m = (Mobile)Parent;
 
-				if ( intBonus != 0 )
-					m.AddStatMod( new StatMod( StatType.Int, modName + "Int", intBonus, TimeSpan.Zero ) );
+					string modName = Serial.ToString();
+
+					if ( strBonus != 0 )
+						m.AddStatMod( new StatMod( StatType.Str, modName + "Str", strBonus, TimeSpan.Zero ) );
+
+					if ( dexBonus != 0 )
+						m.AddStatMod( new StatMod( StatType.Dex, modName + "Dex", dexBonus, TimeSpan.Zero ) );
+
+					if ( intBonus != 0 )
+						m.AddStatMod( new StatMod( StatType.Int, modName + "Int", intBonus, TimeSpan.Zero ) );
+				}
+
+				if ( Parent is Mobile )
+					((Mobile)Parent).CheckStatTimers();
+
+				Owner = reader.ReadMobile();
+				SpeciesIndex = reader.ReadInt();
+				SpeciesID = reader.ReadInt(); if ( SpeciesID == 1031 ){ SpeciesID = 185; }
+				SpeciesGump = reader.ReadInt();
+				SpeciesIcon = reader.ReadInt();
+				SpeciesWide = reader.ReadInt();
+				SpeciesHigh = reader.ReadInt();
+				SpeciesFamily = reader.ReadString();
+				SpeciesAlignment = reader.ReadString();
+				SpeciesStart = reader.ReadString();
+				SpeciesSize = reader.ReadInt();
+				SpeciesAngerSound = reader.ReadInt();
+				SpeciesIdleSound = reader.ReadInt();
+				SpeciesDeathSound = reader.ReadInt();
+				SpeciesAttackSound = reader.ReadInt();
+				SpeciesHurtSound = reader.ReadInt();
+				SpeciesLevel = reader.ReadInt();
+				SpeciesFood = reader.ReadInt();
+				SpeciesFemale = reader.ReadInt();
+				
+				if ( version >= 1 )
+				{
+					m_OriginalHue = reader.ReadInt();
+					m_OriginalHairHue = reader.ReadInt();
+				}
 			}
-
-			if ( Parent is Mobile )
-				((Mobile)Parent).CheckStatTimers();
-
-			Owner = reader.ReadMobile();
-			SpeciesIndex = reader.ReadInt();
-			SpeciesID = reader.ReadInt(); if ( SpeciesID == 1031 ){ SpeciesID = 185; }
-			SpeciesGump = reader.ReadInt();
-			SpeciesIcon = reader.ReadInt();
-			SpeciesWide = reader.ReadInt();
-			SpeciesHigh = reader.ReadInt();
-			SpeciesFamily = reader.ReadString();
-			SpeciesAlignment = reader.ReadString();
-			SpeciesStart = reader.ReadString();
-			SpeciesSize = reader.ReadInt();
-			SpeciesAngerSound = reader.ReadInt();
-			SpeciesIdleSound = reader.ReadInt();
-			SpeciesDeathSound = reader.ReadInt();
-			SpeciesAttackSound = reader.ReadInt();
-			SpeciesHurtSound = reader.ReadInt();
-			SpeciesLevel = reader.ReadInt();
-			SpeciesFood = reader.ReadInt();
-			SpeciesFemale = reader.ReadInt();
+			catch ( Exception e )
+			{
+				Console.WriteLine("ERROR deserializing BaseRace: " + e.Message);
+				Timer.DelayCall( TimeSpan.FromSeconds( 1.0 ), new TimerCallback( Delete ) );
+			}
 
 			Layer = Layer.Special;
 
@@ -1794,22 +1897,32 @@ namespace Server.Items
 
 		public override bool OnEquip( Mobile m )
 		{
-			if ( Owner == null )
-				Owner = m;
-
-      		if( base.OnEquip( m ) )
-      		{
+			if( base.OnEquip( m ) )
+			{
 				if ( m.RaceID == 0 )
+				{
 					m.RaceWasFemale = m.Female;
+				}
 
 				m.BodyMod = SpeciesID;
 				m.HueMod = 0;
 				m.RaceID = SpeciesID;
+				
+				// DROW
+				if ( SpeciesID == 605 || SpeciesID == 606 )
+				{
+					this.Hue = 1316;
+					m.Hue = 1316;
+					m.HueMod = 1316;
+					m.HairHue = 1150;
+				}
+				
 				m.RaceAngerSound = SpeciesAngerSound;
 				m.RaceIdleSound = SpeciesIdleSound;
 				m.RaceDeathSound = SpeciesDeathSound;
 				m.RaceAttackSound = SpeciesAttackSound;
 				m.RaceHurtSound = SpeciesHurtSound;
+				
 				if ( SpeciesFemale == 1 )
 					m.Female = true;
 				else
@@ -1821,7 +1934,7 @@ namespace Server.Items
 					Server.Mobiles.EtherealMount.EthyDismount( m );
 					mt.Rider = null;
 				}
-      		}
+			}
 			return base.OnEquip( m );
 		}
 

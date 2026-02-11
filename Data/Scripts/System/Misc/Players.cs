@@ -1459,7 +1459,7 @@ namespace Server.Gumps
 			colA = colA + "Dízimo<BR><BR>";
 			colA = colA + "Fome<BR><BR>";
 			colA = colA + "Sede<BR><BR>";
-			colA = colA + "Aprimoramento de Poção<BR><BR>";
+			colA = colA + "Melhoria Poção<BR><BR>";
 			colA = colA + "Ouro no Banco<BR><BR>";
 
 			string colB = "";
