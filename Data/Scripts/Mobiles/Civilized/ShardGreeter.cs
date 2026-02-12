@@ -211,26 +211,52 @@ namespace Server.Gumps
 
 		public int pageShow( Mobile from, int page, bool forward )
 		{
+			bool isDrow = false;
+			if ( from.RaceID > 0 && from.FindItemOnLayer(Layer.Special) is BaseRace )
+			{
+				BaseRace race = (BaseRace)from.FindItemOnLayer(Layer.Special);
+				isDrow = (race.SpeciesFamily == "drow");
+			}
+
 			if ( from.RaceID > 0 )
 			{
-				if ( forward )
+				if ( isDrow )
 				{
-					page++;
-
-					if ( Server.Items.BaseRace.IsGood( from ) && page == 2 ){ page++; }
-					if ( !visitLodor( from ) && page == 3 ){ page++; }
-					if ( ( Server.Items.BaseRace.IsGood( from ) || !visitLodor( from ) ) && page == 4 ){ page++; }
-					if ( page > 4 ){ page = 20; }
-
+					if ( forward )
+					{
+						page++;
+						if ( page > 6 ) page = 5;
+					}
+					else
+					{
+						page--;
+						if ( page < 5 ) page = 6;
+					}
+					return page;
 				}
 				else
 				{
-					page--;
+					if ( forward )
+					{
+						page++;
 
-					if ( ( Server.Items.BaseRace.IsGood( from ) || !visitLodor( from ) ) && page == 4 ){ page--; }
-					if ( !visitLodor( from ) && page == 3 ){ page--; }
-					if ( Server.Items.BaseRace.IsGood( from ) && page == 2 ){ page--; }
-					if ( page < 1 ){ page = 20; }
+						if ( Server.Items.BaseRace.IsGood( from ) && page == 2 ){ page++; }
+						if ( !visitLodor( from ) && page == 3 ){ page++; }
+						if ( ( Server.Items.BaseRace.IsGood( from ) || !visitLodor( from ) ) && page == 4 ){ page++; }
+						
+						if ( page > 4 ){ page = 20; }
+					}
+					else
+					{
+						page--;
+
+						if ( ( Server.Items.BaseRace.IsGood( from ) || !visitLodor( from ) ) && page == 4 ){ page--; }
+						if ( !visitLodor( from ) && page == 3 ){ page--; }
+						if ( Server.Items.BaseRace.IsGood( from ) && page == 2 ){ page--; }
+						
+						if ( page < 1 ){ page = 20; }
+					}
+					return page;
 				}
 			}
 			else
@@ -244,7 +270,6 @@ namespace Server.Gumps
 					if ( !visitSavage( from ) && page == 12 ){ page++; }
 					if ( !MySettings.S_AllowAlienChoice && page == 13 && from.RaceID == 0 ){ page++; }
 					if ( page > 13 ){ page = 20; }
-
 				}
 				else
 				{
@@ -256,8 +281,8 @@ namespace Server.Gumps
 					if ( !visitLodor( from ) && page == 10 ){ page--; }
 					if ( page < 1 ){ page = 20; }
 				}
+				return page;
 			}
-			return page;
 		}
 
 		public static string GypsySpeech( Mobile from )
@@ -289,15 +314,15 @@ namespace Server.Gumps
 				int prev = pageShow( from, page, false );
 				int next = pageShow( from, page, true );
 
-				AddImage(640, 8, cardGraphic( page, from.RaceID ));
+				AddImage(640, 8, cardGraphic( page, from ));
 
 				AddItem(269, 349, 4775);
 				AddItem(586, 349, 4776);
 				AddButton(317, 375, 4014, 4014, prev, GumpButtonType.Reply, 0);
 				AddButton(552, 375, 4005, 4005, next, GumpButtonType.Reply, 0);
 
-				AddHtml( 269, 12, 240, 20, @"<BODY><BASEFONT Color=#DEC6DE>" + cardText( page, 1, from.RaceID ) + "</BASEFONT></BODY>", (bool)false, (bool)false);
-				AddHtml( 271, 47, 356, 297, @"<BODY><BASEFONT Color=#DEC6DE>" + cardText( page, 2, from.RaceID ) + "<BR><BR>" + cardText( page, 3, from.RaceID ) + "</BASEFONT></BODY>", (bool)false, scrollBar( page, from.RaceID ));
+				AddHtml( 269, 12, 240, 20, @"<BODY><BASEFONT Color=#DEC6DE>" + cardText( page, 1, from ) + "</BASEFONT></BODY>", (bool)false, (bool)false);
+				AddHtml( 271, 47, 356, 297, @"<BODY><BASEFONT Color=#DEC6DE>" + cardText( page, 2, from ) + "<BR><BR>" + cardText( page, 3, from ) + "</BASEFONT></BODY>", (bool)false, scrollBar( page, from ));
 
 				AddItem(566, 12, 4777);
 				AddItem(580, 26, 4779);
@@ -311,23 +336,52 @@ namespace Server.Gumps
 				AddImage(271, 13, header, 2813);
 
 				AddHtml( 278, 73, 604, 320, @"<BODY><BASEFONT Color=#DEC6DE>" + GypsySpeech( from ) + "</BASEFONT></BODY>", (bool)false, (bool)true);
-				AddButton(819, 14, 4011, 4011, 99, GumpButtonType.Reply, 0);
+				
+				int nextPage = 1;
+				if ( from.RaceID > 0 && from.FindItemOnLayer(Layer.Special) is BaseRace )
+				{
+					BaseRace race = (BaseRace)from.FindItemOnLayer(Layer.Special);
+					if ( race.SpeciesFamily == "drow" )
+					{
+						nextPage = 5;
+					}
+				}
+				
+				AddButton(819, 14, 4011, 4011, nextPage, GumpButtonType.Reply, 0);
 				AddItem(851, 11, 4773);
 			}
 		}
 
-		public int cardGraphic( int page, int creature )
+		public int cardGraphic( int page, Mobile from )
 		{
 			int val = 0;
 
-			if ( creature > 0 )
+			if ( from.RaceID > 0 )
 			{
-				switch ( page )
+				bool isDrow = false;
+				if ( from.FindItemOnLayer(Layer.Special) is BaseRace )
 				{
-					case 1: val = 1340; break;
-					case 2: val = 1341; break;
-					case 3: val = 1342; break;
-					case 4: val = 1343; break;
+					BaseRace race = (BaseRace)from.FindItemOnLayer(Layer.Special);
+					isDrow = (race.SpeciesFamily == "drow");
+				}
+
+				if ( isDrow )
+				{
+					switch ( page )
+					{
+						case 5: val = 1112; break;
+						case 6: val = 1109; break;
+					}
+				}
+				else
+				{
+					switch ( page )
+					{
+						case 1: val = 1340; break;
+						case 2: val = 1341; break;
+						case 3: val = 1342; break;
+						case 4: val = 1343; break;
+					}
 				}
 			}
 			else 
@@ -352,21 +406,35 @@ namespace Server.Gumps
 			return val;
 		}
 
-		public bool scrollBar( int page, int creature )
+		public bool scrollBar( int page, Mobile from )
 		{
 			bool scroll = false;
 
-			if ( creature > 0 )
+			if ( from.RaceID > 0 )
 			{
-				switch ( page )
+				bool isDrow = false;
+				if ( from.FindItemOnLayer(Layer.Special) is BaseRace )
 				{
-					case 1: scroll = false; break;
-					case 2: scroll = true; break;
-					case 3: scroll = false; break;
-					case 4: scroll = true; break;
+					BaseRace race = (BaseRace)from.FindItemOnLayer(Layer.Special);
+					isDrow = (race.SpeciesFamily == "drow");
 				}
-				if ( Server.Items.BaseRace.GetUndead( creature ) )
+
+				if ( isDrow )
+				{
 					scroll = true;
+				}
+				else
+				{
+					switch ( page )
+					{
+						case 1: scroll = false; break;
+						case 2: scroll = true; break;
+						case 3: scroll = false; break;
+						case 4: scroll = true; break;
+					}
+					if ( Server.Items.BaseRace.GetUndead( from.RaceID ) )
+						scroll = true;
+				}
 			}
 			else 
 			{
@@ -390,7 +458,7 @@ namespace Server.Gumps
 			return scroll;
 		}
 
-		public string cardText( int page, int section, int creature )
+		public string cardText( int page, int section, Mobile from )
 		{
 			string card = "";
 			string town = "";
@@ -425,23 +493,51 @@ namespace Server.Gumps
 
 			fate = fate + begin;
 
-			if ( creature > 0 )
+			if ( from.RaceID > 0 )
 			{
-				town = Server.Items.BaseRace.StartName( creature );
-				string undead = "";
-				if ( Server.Items.BaseRace.GetUndead( creature ) ){ undead = " Embora você não se lembre de sua vida passada, você se sente diferente dos outros mortos-vivos. Você parece ter retido sua alma, o que certamente será notado por outros mortos-vivos. Isso significa que eles provavelmente o atacarão como fazem com os vivos."; }
-
-				if ( Server.Items.BaseRace.BloodDrinker( creature ) ){ undead = undead + " Ter uma alma, no entanto, significa que você pode caminhar com segurança pela terra durante a luz do dia."; }
-
-				switch ( page )
+				bool isDrow = false;
+				if ( from.FindItemOnLayer(Layer.Special) is BaseRace )
 				{
-					case 1: card = "O DIA"; text = fate + " " + Server.Items.BaseRace.StartSentence( town ) + " de Sosaria." + undead + " Este mundo sofreu três eras das trevas, onde um estranho veio de uma terra distante para trazer luz a cada um desses eventos. Depois que Mondain, Minax e Exodus foram frustrados em seus planos malignos, Sosaria atingiu um nível de paz e prosperidade. Embora a maioria queira levar uma vida humilde como simples aldeões, há alguns que buscam explorar as antigas masmorras, tumbas, ruínas e criptas do mundo. Este caminho o levará a se juntar aos caminhos do homem civilizado, mas fazê-lo certamente fará com que seus parentes o baniquem de sua presença. Isso importa pouco para você, pois você prefere buscar fama e fortuna neste mundo livre dos males mais poderosos que já viu."; break;
+					BaseRace race = (BaseRace)from.FindItemOnLayer(Layer.Special);
+					isDrow = (race.SpeciesFamily == "drow");
+				}
 
-					case 2: card = "A NOITE"; text = fate + " " + Server.Items.BaseRace.StartSentence( town ) + " de Sosaria." + undead + " Este destino em Sosaria tem uma vida mais desafiadora, onde você talvez tenha deixado outros da sua espécie, mas decidiu abraçar seus caminhos monstruosos e buscar poder para si mesmo. Você será capaz de se tornar grão-mestre em " + MyServerSettings.SkillGypsy( "fugitive" ) + " habilidades diferentes em vez das " + MyServerSettings.SkillGypsy( "default" ) + " normalmente realizadas. Os tributos para ressurreição custarão o dobro, talvez forçando-o a ressuscitar com penalidades. Você não terá permissão para entrar em nenhuma área civilizada, a menos que talvez encontre uma maneira de se disfarçar. As exceções são algumas áreas públicas como estalagens, tavernas e bancos. Os guardas o atacarão à vista, os comerciantes tentarão expulsá-lo e você não poderá se juntar a nenhuma guilda local, exceto as guildas de Assassinos, Ladrões e Magia Negra. A razão para isso é que você é visto como uma besta assassina. Tudo que você precisa pode ser encontrado pelo mundo, no entanto, então você pode seguir em sua jornada."; break;
+				string undead = "";
+				if ( Server.Items.BaseRace.GetUndead( from.RaceID ) ){ undead = " Embora você não se lembre de sua vida passada, você se sente diferente dos outros mortos-vivos. Você parece ter retido sua alma, o que certamente será notado por outros mortos-vivos. Isso significa que eles provavelmente o atacarão como fazem com os vivos."; }
 
-					case 3: card = "A LUZ"; text = fate + " " + Server.Items.BaseRace.StartSentence( town ) + " de Lodoria." + undead + " Este mundo já foi governado por anões, mas agora suas cidades estão em ruínas e os elfos surgiram como a principal raça civilizada da terra. Empurrando os drow de volta para seus covis profundos no subsolo, muitos buscam explorar este mundo. Embora a maioria queira levar uma vida humilde como simples aldeões, há alguns que buscam explorar as antigas masmorras, tumbas, ruínas e criptas do mundo. Este caminho o levará a se juntar aos caminhos da civilização dentro da terra dos elfos. Onde você pode buscar glória e riquezas além de seus sonhos mais selvagens."; break;
+				if ( Server.Items.BaseRace.BloodDrinker( from.RaceID ) ){ undead = undead + " Ter uma alma, no entanto, significa que você pode caminhar com segurança pela terra durante a luz do dia."; }
 
-					case 4: card = "A ESCURIDÃO"; text = fate + " " + Server.Items.BaseRace.StartSentence( town ) + " de Lodoria." + undead + " Este destino em Lodoria tem uma vida mais desafiadora, onde você talvez tenha deixado outros da sua espécie, mas decidiu abraçar seus caminhos monstruosos e buscar poder para si mesmo. Você será capaz de se tornar grão-mestre em " + MyServerSettings.SkillGypsy( "fugitive" ) + " habilidades diferentes em vez das " + MyServerSettings.SkillGypsy( "default" ) + " normalmente realizadas. Os tributos para ressurreição custarão o dobro, talvez forçando-o a ressuscitar com penalidades. Você não terá permissão para entrar em nenhuma área civilizada, a menos que talvez encontre uma maneira de se disfarçar. As exceções são algumas áreas públicas como estalagens, tavernas e bancos. Os guardas o atacarão à vista, os comerciantes tentarão expulsá-lo e você não poderá se juntar a nenhuma guilda local, exceto as guildas de Assassinos, Ladrões e Magia Negra. A razão para isso é que você é visto como uma besta assassina. Tudo que você precisa pode ser encontrado pelo mundo, no entanto, então você pode seguir em sua jornada."; break;
+				if ( isDrow )
+				{
+					switch ( page )
+					{
+						case 5: 
+							card = "A MORTE"; 
+							town = "A Subcidade de Umbra";
+							text = fate + " no fundo da Subcidade de Umbra, um refúgio para aqueles que praticam as artes necróticas. No fundo das montanhas, a sudeste de Britain, os salões e cavernas sombrios têm uma sensação assustadora, mas os necromantes providenciam para si mesmos lojas para fornecer itens necessários. A caverna fora da cidade é uma das mais altas já vistas. Alguns dizem que é alta o suficiente para até construir um castelo longe da luz do sol. A tumba de um cavaleiro da morte também foi construída nas proximidades, e as Fogueiras do Inferno estão a apenas uma caminhada de distância." + undead; 
+							break;
+							
+						case 6: 
+							card = "O ENFORCADO"; 
+							town = "As Masmorras de Britain";
+							text = "Você pode escolher um destino neste mundo que tem uma vida mais desafiadora, onde você é um fugitivo da justiça. Se você escolher este caminho, você será capaz de se tornar grão-mestre em " + MyServerSettings.SkillGypsy( "fugitive" ) + " habilidades diferentes em vez das " + MyServerSettings.SkillGypsy( "default" ) + " normalmente realizadas. Isso se deve a você confiar em si mesmo para sobreviver. Os tributos para ressurreição custarão o dobro, talvez forçando-o a ressuscitar com penalidades. Você não terá permissão para entrar em nenhuma área civilizada a menos que talvez encontre uma maneira de se disfarçar. As exceções são algumas áreas públicas como estalagens, tavernas e bancos. Os guardas o atacarão à vista, os comerciantes tentarão expulsá-lo e você não poderá se juntar a nenhuma guilda local, exceto as guildas de Assassinos, Ladrões e Magia Negra. A razão para isso é que você é procurado por assassinato. Você pode ter realmente cometido o ato, ou pode ter simplesmente sido incriminado. O assassinato foi contra uma figura muito poderosa, então muitas terras nunca perdoarão o feito. Seja verdade ou falsidade, cabe a você contar. Faça com sua vida o que quiser. Você pode viver uma vida de buscas criminosas, ou pode destruir o mal que espreita nos lugares mais sombrios da terra. Se você deseja escolher tal vida, você estará por conta própria, e deve primeiro escapar de sua cela de prisão. De lá, é melhor você ir para Stonewall a noroeste, mas você pode ir para onde quiser. Tudo que você precisa pode ser encontrado pelo mundo." + undead;
+							break;
+					}
+				}
+				else
+				{
+					town = Server.Items.BaseRace.StartName( from.RaceID );
+					
+					switch ( page )
+					{
+						case 1: card = "O DIA"; text = fate + " " + Server.Items.BaseRace.StartSentence( town ) + " de Sosaria." + undead + " Este mundo sofreu três eras das trevas, onde um estranho veio de uma terra distante para trazer luz a cada um desses eventos. Depois que Mondain, Minax e Exodus foram frustrados em seus planos malignos, Sosaria atingiu um nível de paz e prosperidade. Embora a maioria queira levar uma vida humilde como simples aldeões, há alguns que buscam explorar as antigas masmorras, tumbas, ruínas e criptas do mundo. Este caminho o levará a se juntar aos caminhos do homem civilizado, mas fazê-lo certamente fará com que seus parentes o baniquem de sua presença. Isso importa pouco para você, pois você prefere buscar fama e fortuna neste mundo livre dos males mais poderosos que já viu."; break;
+
+						case 2: card = "A NOITE"; text = fate + " " + Server.Items.BaseRace.StartSentence( town ) + " de Sosaria." + undead + " Este destino em Sosaria tem uma vida mais desafiadora, onde você talvez tenha deixado outros da sua espécie, mas decidiu abraçar seus caminhos monstruosos e buscar poder para si mesmo. Você será capaz de se tornar grão-mestre em " + MyServerSettings.SkillGypsy( "fugitive" ) + " habilidades diferentes em vez das " + MyServerSettings.SkillGypsy( "default" ) + " normalmente realizadas. Os tributos para ressurreição custarão o dobro, talvez forçando-o a ressuscitar com penalidades. Você não terá permissão para entrar em nenhuma área civilizada, a menos que talvez encontre uma maneira de se disfarçar. As exceções são algumas áreas públicas como estalagens, tavernas e bancos. Os guardas o atacarão à vista, os comerciantes tentarão expulsá-lo e você não poderá se juntar a nenhuma guilda local, exceto as guildas de Assassinos, Ladrões e Magia Negra. A razão para isso é que você é visto como uma besta assassina. Tudo que você precisa pode ser encontrado pelo mundo, no entanto, então você pode seguir em sua jornada."; break;
+
+						case 3: card = "A LUZ"; text = fate + " " + Server.Items.BaseRace.StartSentence( town ) + " de Lodoria." + undead + " Este mundo já foi governado por anões, mas agora suas cidades estão em ruínas e os elfos surgiram como a principal raça civilizada da terra. Empurrando os drow de volta para seus covis profundos no subsolo, muitos buscam explorar este mundo. Embora a maioria queira levar uma vida humilde como simples aldeões, há alguns que buscam explorar as antigas masmorras, tumbas, ruínas e criptas do mundo. Este caminho o levará a se juntar aos caminhos da civilização dentro da terra dos elfos. Onde você pode buscar glória e riquezas além de seus sonhos mais selvagens."; break;
+
+						case 4: card = "A ESCURIDÃO"; text = fate + " " + Server.Items.BaseRace.StartSentence( town ) + " de Lodoria." + undead + " Este destino em Lodoria tem uma vida mais desafiadora, onde você talvez tenha deixado outros da sua espécie, mas decidiu abraçar seus caminhos monstruosos e buscar poder para si mesmo. Você será capaz de se tornar grão-mestre em " + MyServerSettings.SkillGypsy( "fugitive" ) + " habilidades diferentes em vez das " + MyServerSettings.SkillGypsy( "default" ) + " normalmente realizadas. Os tributos para ressurreição custarão o dobro, talvez forçando-o a ressuscitar com penalidades. Você não terá permissão para entrar em nenhuma área civilizada, a menos que talvez encontre uma maneira de se disfarçar. As exceções são algumas áreas públicas como estalagens, tavernas e bancos. Os guardas o atacarão à vista, os comerciantes tentarão expulsá-lo e você não poderá se juntar a nenhuma guilda local, exceto as guildas de Assassinos, Ladrões e Magia Negra. A razão para isso é que você é visto como uma besta assassina. Tudo que você precisa pode ser encontrado pelo mundo, no entanto, então você pode seguir em sua jornada."; break;
+					}
 				}
 			}
 			else
@@ -460,7 +556,7 @@ namespace Server.Gumps
 
 					case 6: card = "O TOLO"; town = "A Cidade de Mountain Crest"; text = fate + " em algumas pequenas ilhas em Sosaria, que tem uma paisagem invernal rigorosa que outros acreditam ser tola de habitar. Junto com esta cidade, também há assentamentos a oeste e leste. Existem várias cavernas e masmorras dentro das montanhas, e uma torre incomum construída por um mago há muito tempo. Este lugar é uma das áreas mais difíceis de se viver, mas uma região nevada pode ser seu destino se você a escolher."; break;
 
-					case 7: card = "A MORTE"; town = "A Subcidade de Umbra"; text = fate + " em um lugar que muitas pessoas não conhecem, pois foi construído como um refúgio para aqueles que praticam as artes necróticas. No fundo das montanhas, a sudeste de Britain, os salões e cavernas sombrios têm uma sensação assustadora, mas os necromantes providenciam para si mesmos lojas para fornecer itens necessários. A caverna fora da cidade é uma das mais altas já vistas. Alguns dizem que é alta o suficiente para até construir um castelo longe da luz do sol. A tumba de um cavaleiro da morte também foi construída nas proximidades, e as Fogueiras do Inferno estão a apenas uma caminhada de distância."; break;
+					case 7: card = "A MORTE"; town = "A Subcidade de Umbra"; text = fate + " em um lugar que muitas pessoas não conhecem, pois foi construído como um refúgio para aqueles que praticam as artes necróticas. Sendo o lar dos Drows, você viverá como um escravo dos drows caso escolha esse caminho. No fundo das montanhas, a sudeste de Britain, os salões e cavernas sombrios têm uma sensação assustadora, mas os drows providenciam para si mesmos lojas para fornecer itens necessários. A caverna fora da cidade é uma das mais altas já vistas. Alguns dizem que é alta o suficiente para até construir um castelo longe da luz do sol. A tumba de um cavaleiro da morte também foi construída nas proximidades, e as Fogueiras do Inferno estão a apenas uma caminhada de distância."; break;
 
 					case 8: card = "O SOL"; town = "A Vila de Yew"; text = fate + " em um vale de floresta densa, a oeste de Britain e leste de Moon, onde o sol cultiva as maiores árvores de Sosaria. Yew é um dos principais comércios de madeira da terra. Durante a Terceira Era das Trevas, o Estranho visitou Yew e aprendeu os segredos da Grande Serpente da Terra. Isso permitiu que o Estranho libertasse a serpente que estava bloqueando seu navio de alcançar o Castelo de Exodus na Ilha do Fogo. Alguns dizem que libertar a serpente causou um desequilíbrio no cosmos, mas isso podem ser magos bêbados contando histórias. Você pode minerar em uma caverna próxima, mas os mineiros descobriram algo no lado sul da cordilheira que eles não ousam entrar."; break;
 
@@ -491,17 +587,47 @@ namespace Server.Gumps
 				string start = Server.Items.BaseRace.StartArea( m.RaceID );
 				string world = "the Land of Sosaria";
 
-				if ( start == "cave" ){ 		loc = new Point3D(497, 4066, 0); }
-				else if ( start == "ice" ){ 	loc = new Point3D(625, 3224, 0); }
-				else if ( start == "pits" ){ 	loc = new Point3D(180, 4075, 0); }
-				else if ( start == "sand" ){ 	loc = new Point3D(91, 3244, 0); }
-				else if ( start == "sea" ){ 	loc = new Point3D(27, 4077, 0); }
-				else if ( start == "sky" ){ 	loc = new Point3D(289, 3222, 20); }
-				else if ( start == "swamp" ){ 	loc = new Point3D(92, 3978, 0); }
-				else if ( start == "tomb" ){ 	loc = new Point3D(362, 3966, 0); }
-				else if ( start == "water" ){ 	loc = new Point3D(27, 4077, 0); }
-				else if ( start == "woods" ){ 	loc = new Point3D(357, 4057, 0); }
+				bool isDrow = false;
+				if ( m.FindItemOnLayer(Layer.Special) is BaseRace )
+				{
+					BaseRace race = (BaseRace)m.FindItemOnLayer(Layer.Special);
+					isDrow = (race.SpeciesFamily == "drow");
+				}
 
+				if ( isDrow && (page == 5 || page == 6) )
+				{
+					if ( page == 5 )
+					{
+						loc = new Point3D(2666, 3325, 0);
+						map = Map.Sosaria;
+						start = "umbra";
+					}
+					else if ( page == 6 )
+					{
+						loc = new Point3D(4104, 3232, 0);
+						map = Map.Sosaria;
+						start = "cave";
+						
+						PlayerSettings.SetBardsTaleQuest( m, "BardsTaleWin", true );
+						MyServerSettings.SkillBegin( "fugitive", (PlayerMobile)m );
+						m.Kills = 1;
+						((PlayerMobile)m).Fugitive = 1;
+					}
+				}
+				else
+				{
+
+					if ( start == "cave" ){ 		loc = new Point3D(497, 4066, 0); }
+					else if ( start == "ice" ){ 	loc = new Point3D(625, 3224, 0); }
+					else if ( start == "pits" ){ 	loc = new Point3D(180, 4075, 0); }
+					else if ( start == "sand" ){ 	loc = new Point3D(91, 3244, 0); }
+					else if ( start == "sea" ){ 	loc = new Point3D(27, 4077, 0); }
+					else if ( start == "sky" ){ 	loc = new Point3D(289, 3222, 20); }
+					else if ( start == "swamp" ){ 	loc = new Point3D(92, 3978, 0); }
+					else if ( start == "tomb" ){ 	loc = new Point3D(362, 3966, 0); }
+					else if ( start == "water" ){ 	loc = new Point3D(27, 4077, 0); }
+					else if ( start == "woods" ){ 	loc = new Point3D(357, 4057, 0); }
+				}
 				List<Item> belongings = new List<Item>();
 				foreach( Item i in m.Backpack.Items )
 				{
@@ -594,6 +720,20 @@ namespace Server.Gumps
 					m.Kills = 1;
 					((PlayerMobile)m).Fugitive = 1;
 					world = "the Land of Lodoria";
+				}
+				else if ( page == 5 ) 
+				{
+					PlayerSettings.SetDiscovered( m, "the Land of Sosaria", true );
+					world = "the Land of Sosaria";
+				}
+				else if ( page == 6 )
+				{
+					PlayerSettings.SetDiscovered( m, "the Land of Sosaria", true );
+					PlayerSettings.SetBardsTaleQuest( m, "BardsTaleWin", true );
+					MyServerSettings.SkillBegin( "fugitive", (PlayerMobile)m );
+					m.Kills = 1;
+					((PlayerMobile)m).Fugitive = 1;
+					world = "the Land of Sosaria";
 				}
 				m.Profile = Server.Items.BaseRace.BeginStory( m, world );
 
