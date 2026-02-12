@@ -503,6 +503,7 @@ namespace Server.Items
 			else if ( start == "swamp" ){ zone = "The Swamp"; }
 			else if ( start == "tomb" ){ zone = "The Tomb"; }
 			else if ( start == "woods" ){ zone = "The Woods"; }
+			else if ( start == "umbra" ){ zone = "The Subcity of Umbra"; }
 
 			return zone;
 		}
@@ -520,6 +521,7 @@ namespace Server.Items
 			else if ( start == "The Swamp" ){ zone = "in the putrid swamps"; }
 			else if ( start == "The Tomb" ){ zone = "in a tomb"; }
 			else if ( start == "The Woods" ){ zone = "in the dense forest"; }
+			else if ( start == "The Subcity of Umbra" ){ zone = "in the dark subterranean city of Umbra";}
 
 			return zone;
 		}
@@ -882,8 +884,8 @@ namespace Server.Items
 			else if ( id == 170 ){ race = 307; }
 			else if ( id == 171 ){ race = 728; }
 			else if ( id == 172 ){ race = 810; }
-			else if ( id == 173 ){ race = 605; } // Define o corpo 605 como padrão para o ID 173
-			else if ( id == 174 ){ race = 606; } // Define o corpo 606 como padrão para o ID 174
+			else if ( id == 173 ){ race = 605; } 
+			else if ( id == 174 ){ race = 606; }
 
 			return race;
 		}
@@ -911,7 +913,7 @@ namespace Server.Items
 						raceItem.OriginalHue = originalHue;
 						raceItem.OriginalHairHue = originalHairHue;
 						
-						// Set Drow hue if needed
+						// DROW
 						if ( id == 605 || id == 606 )
 						{
 							raceItem.Hue = 1316;
@@ -935,15 +937,13 @@ namespace Server.Items
 
 				if ( makeOne )
 				{
-					// FIRST TIME transforming from human to race
+					
 					Item race = GetCostume( id );
 					BaseRace raceItem = (BaseRace)race;
-					
-					// Save CURRENT human appearance as true original
+								
 					raceItem.OriginalHue = m.Hue;
 					raceItem.OriginalHairHue = m.HairHue;
 					
-					// Set Drow hue if needed
 					if ( id == 605 || id == 606 )
 					{
 						raceItem.Hue = 1316;
@@ -952,7 +952,6 @@ namespace Server.Items
 						m.HairHue = 1150;
 					}
 					
-					// Delete any existing race items
 					ArrayList costume = new ArrayList();
 					foreach ( Item item in World.Items.Values )
 					{
@@ -1020,7 +1019,6 @@ namespace Server.Items
 			{
 				BaseRace race = (BaseRace)raceItem;
 				
-				// Get original appearance from race item
 				originalHue = race.OriginalHue;
 				originalHairHue = race.OriginalHairHue;				
 				
@@ -1029,7 +1027,6 @@ namespace Server.Items
 
 			m.BodyMod = 0;
 			
-			// Restore original appearance
 			if ( originalHue != 0 )
 				m.Hue = originalHue;
 			else
@@ -1042,7 +1039,7 @@ namespace Server.Items
 				
 			m.HueMod = -1;
 			m.RaceID = 0;
-			m.RaceSection = 0; // Importante para o Gump de poções resetar a página
+			m.RaceSection = 0;
 			
 			m.RaceAngerSound = 0;
 			m.RaceIdleSound = 0;
@@ -1051,13 +1048,11 @@ namespace Server.Items
 			m.RaceHurtSound = 0;
 			m.RaceHomeLand = 0;
 
-			// Restore original gender
 			if ( m.RaceWasFemale )
 				m.Female = true;
 			else
 				m.Female = false;
 
-			// Garante que o corpo volte ao humano baseado no sexo
 			if ( m.Female )
 				m.Body = 401;
 			else
@@ -1614,11 +1609,8 @@ namespace Server.Items
 				case 170: race = "Wight,170,25782,739,307,2849,47,61,471,zombi,evil,tomb,1,0,0,0,1,0,0,1,0,1,0,0,0,1,0,1,0,2,0,0,0,0,0,0,0,0,1,0,19,32,4,0"; break;
 				case 171: race = "Zombi,171,25778,735,728,2850,33,76,471,zombi,evil,tomb,1,0,0,0,1,0,0,1,0,1,0,0,0,1,0,1,0,2,0,0,0,0,0,0,0,0,1,0,1,30,4,0"; break;
 				case 172: race = "Zombi,172,25783,797,810,2851,39,73,471,zombi,evil,tomb,1,0,0,0,1,0,0,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,49,30,4,0"; break;
-				case 173: race = "Elfo Negro,173,14,-49986,605,605,39,73,0,drow,neutral,cave,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,14,0,0"; break;
-				case 174: race = "Elfa Negra,174,15,-49987,606,606,93,140,0,drow,neutral,cave,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,14,0,1"; break;			
-				case 175: race = "Elfo,175,14,-49986,744,745,39,73,0,elf,neutral,woods,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,-14,-22,-2"; break;
-				case 176: race = "Elfa,176,15,-49987,744,745,93,140,0,elf,neutral,woods,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,-14,-22,-2"; break;			
-				
+				case 173: race = "Elfo Negro,173,14,-49986,605,605,39,73,0,drow,neutral,umbra,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,14,0,0"; break;
+				case 174: race = "Elfa Negra,174,15,-49987,606,606,93,140,0,drow,neutral,umbra,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,14,0,1"; break;	
 				// Name,Index,ItemID,Gump,Body,Icon,x,y,Sound,Species,Alignment,Start,Size,Phy,Fir,Cld,Poi,Eny,Str,Dex,Int,Hits,Stam,Mana,RegHits,RegStam,RegMana,Night,Attack%,Defend%,CastRecover,CastSpd,Potions,LowMana,LowReg,Luck,Reflect,SpellDmg,WepDmg,WepSpeed,Skill1,Skill2,Food,Gender - 44 fields
 				
 			}
@@ -1749,7 +1741,6 @@ namespace Server.Items
 
 			int version = reader.ReadInt();
 			
-			// Initialize with defaults
 			m_OriginalHue = 0;
 			m_OriginalHairHue = 0;
 

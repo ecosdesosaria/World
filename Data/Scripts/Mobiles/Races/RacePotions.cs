@@ -44,7 +44,7 @@ namespace Server.Items
 		public override void Serialize( GenericWriter writer )
 		{
 			base.Serialize( writer );
-			writer.Write( (int)1 ); // version
+			writer.Write( (int)1 ); 
 		}
 
 		public override void Deserialize( GenericReader reader )
@@ -256,10 +256,10 @@ namespace Server.Items
 
 					x = x - 15;
 					y = y - 29;
-					AddImage(x, y, 2818);	// IMAGEM HUMANA
+					AddImage(x, y, 2818);	
 
-					AddButton(12, 573, 4014, 4014, prev, GumpButtonType.Reply, 0);	// ANTERIOR
-					AddButton(347, 573, 4005, 4005, next, GumpButtonType.Reply, 0);	// PRÓXIMO
+					AddButton(12, 573, 4014, 4014, prev, GumpButtonType.Reply, 0);	
+					AddButton(347, 573, 4005, 4005, next, GumpButtonType.Reply, 0);	
 
 					// LADO DIREITO -----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -356,7 +356,14 @@ namespace Server.Items
 				}
 				else if ( info.ButtonID == 1000 )
 				{
-					BaseRace.BackToHuman( from );
+					if ( from.RaceID > 0 )
+					{
+						BaseRace.BackToHuman( from );
+					}
+					else
+					{
+						from.SendMessage("Você já está na forma humana.");
+					}
 					if ( m_Tavern == 0 ){ from.PlaySound( Utility.RandomList( 0x030, 0x031 ) ); }
 					Effects.SendLocationParticles( EffectItem.Create( from.Location, from.Map, EffectItem.DefaultDuration ), 0x3728, 8, 20, 0, 0, 5042, 0 );
 				}
