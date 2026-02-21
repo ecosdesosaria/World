@@ -51,7 +51,7 @@ namespace Server.Custom.DefenderOfTheRealm.Vow.VowOfTheScourge
             from.SendGump(new VowOfTheScourgeGump(from, this));
         }
 
-        public override string DefaultDescription{ get{ return "A Vow represents a commitment to slay fearsome foes that dwell in dungeons. Once its completed, bring it to the one that bestowed it upon you. Say 'rewards' to that person in order to see what gifts can be bestowed upon you by completing them."; } }
+        public override string DefaultDescription{ get{ return "Um Juramento representa o compromisso de abater inimigos temíveis que habitam em masmorras. Quando for concluído, leve-o até quem o concedeu a você. Diga 'recompensas' a essa pessoa para ver quais presentes podem ser concedidos a você ao completá-los."; } }
 
         public override void GetProperties(ObjectPropertyList list)
         {

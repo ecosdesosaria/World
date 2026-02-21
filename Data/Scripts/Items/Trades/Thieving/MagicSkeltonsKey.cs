@@ -12,7 +12,7 @@ namespace Server.Items
 		{
 			get
 			{
-				return "These keys can open almost any door or container. Use the key and select locked item to see if it works.";
+				return "Estas chaves podem abrir quase qualquer porta ou baú. Use a chave e selecione o item trancado para ver se funciona.";
 			}
 		}
 
@@ -38,7 +38,7 @@ namespace Server.Items
 			}
 			else
 			{
-				from.SendMessage( "What locked container or door do you want to use the key on?" );
+				from.SendMessage( "Em qual baú ou porta trancada você quer usar a chave?" );
 				t = new UnlockTarget( this );
 				from.Target = t;
 			}
@@ -47,7 +47,7 @@ namespace Server.Items
 		public override void AddNameProperties( ObjectPropertyList list )
 		{
 			base.AddNameProperties( list );
-			list.Add( 1049644, "Open any locked container or door" );
+			list.Add( 1049644, "Abre qualquer baú ou porta trancada" );
 		}
 
 		private class UnlockTarget : Target
@@ -63,7 +63,7 @@ namespace Server.Items
 			protected override void OnTarget( Mobile from, object targeted )
 			{
 				bool trash = false;
-					if ( Utility.RandomMinMax(1,10) == 1 ){ trash = false; }
+					if ( Utility.RandomMinMax(1,10) == 1 ){ trash = true; }
 
 				if ( !m_Key.IsChildOf( from.Backpack ) )
 				{
@@ -71,30 +71,30 @@ namespace Server.Items
 				}
 				else if ( targeted == m_Key )
 				{
-					from.SendMessage( "This key is to unlock almost any container." );
+					from.SendMessage( "Esta chave pode abrir quase qualquer baú ou porta trancada." );
 				}
 				else if ( targeted is BaseHouseDoor )  // house door check
 				{
-					from.SendMessage( "This key is to unlock almost any container." );
+					from.SendMessage( "Esta chave pode abrir quase qualquer baú ou porta trancada." );
 				}
 				else if ( targeted is Item && ((Item)targeted).VirtualContainer )
 				{
-					from.SendMessage( "This key is to unlock almost any container." );
+					from.SendMessage( "Esta chave pode abrir quase qualquer baú ou porta trancada." );
 				}
 				else if ( targeted is BaseDoor )
 				{
 					if ( Server.Items.DoorType.IsSpaceshipDoor( (BaseDoor)targeted ) && m_Key.ItemID != 0x3A75 )
 					{
-						from.SendMessage( "This doesn't have a key hole, but it does have a card slot." );
+						from.SendMessage( "Isso não tem uma fechadura para chave, mas tem uma entrada para cartão." );
 					}
 					else if ( !(Server.Items.DoorType.IsSpaceshipDoor( (BaseDoor)targeted )) && m_Key.ItemID == 0x3A75 )
 					{
-						from.SendMessage( "This doesn't have a card slot, but it does have a key hole." );
+						from.SendMessage( "Isso não tem uma entrada para cartão, mas tem uma fechadura para chave." );
 					}
 					else if ( Server.Items.DoorType.IsSpaceshipDoor( (BaseDoor)targeted ) && m_Key.ItemID == 0x3A75 )
 					{
 						if ( ((BaseDoor)targeted).Locked == false )
-							from.SendMessage( "That does not need to be unlocked." );
+							from.SendMessage( "Isso não precisa ser destrancado." );
 
 						else
 						{
@@ -108,7 +108,7 @@ namespace Server.Items
 					else if ( Server.Items.DoorType.IsDungeonDoor( (BaseDoor)targeted ) && m_Key.ItemID != 0x3A75 )
 					{
 						if ( ((BaseDoor)targeted).Locked == false )
-							from.SendMessage( "That does not need to be unlocked." );
+							from.SendMessage( "Isso não precisa ser destrancado." );
 
 						else
 						{
@@ -120,7 +120,7 @@ namespace Server.Items
 						}
 					}
 					else
-						from.SendMessage( "That does not need to be unlocked." );
+						from.SendMessage( "Isso não precisa ser destrancado." );
 				}
 				else if ( targeted is ILockable )
 				{
@@ -137,15 +137,15 @@ namespace Server.Items
 					{
 						if ( o is BaseDoor && !((BaseDoor)o).UseLocks() )  // this seems to check house doors also
 						{
-							from.SendMessage( "This key is to unlock any container." );
+							from.SendMessage( "Esta chave pode abrir quase qualquer baú ou porta trancada." );
 						}
 						else if ( ((Item)o).Catalog == Catalogs.SciFi && ((ILockpickable)targeted).Locked && m_Key.ItemID != 0x3A75 )
 						{
-							from.SendMessage( "This doesn't have a key hole, but it does have a card slot." );
+							from.SendMessage( "Isso não tem uma fechadura para chave, mas tem uma entrada para cartão." );
 						}
 						else if ( ((Item)o).Catalog != Catalogs.SciFi && ((ILockpickable)targeted).Locked && m_Key.ItemID == 0x3A75 )
 						{
-							from.SendMessage( "This doesn't have a card slot, but it does have a key hole." );
+							from.SendMessage( "Isso não tem uma entrada para cartão, mas tem uma fechadura para chave." );
 						}
 						else if ( ((Item)o).Catalog == Catalogs.SciFi && o.Locked && m_Key.ItemID == 0x3A75 )
 						{
@@ -167,8 +167,8 @@ namespace Server.Items
 							if ( targeted is Item )
 							{
 								Item item = (Item)targeted;
-								if ( trash ){ from.SendMessage( "You swipe the key card to open the lock, but also wearing it out from further use." ); }
-								else { from.SendMessage( "You swipe the key card to open the lock." ); }
+								if ( trash ){ from.SendMessage( "Você desliza o cartão-chave para abrir o trinco, mas também o desgasta para uso futuro." ); }
+								else { from.SendMessage( "Você desliza o cartão-chave para abrir o trinco." ); }
 							}
 
 							from.RevealingAction();
@@ -195,8 +195,8 @@ namespace Server.Items
 							if ( targeted is Item )
 							{
 								Item item = (Item)targeted;
-								if ( trash ){ from.SendMessage( "The key opens the lock, wearing the key out from further use." ); }
-								else { from.SendMessage( "The key opens the lock." ); }
+								if ( trash ){ from.SendMessage( "A chave abre a fechadura, desgastando a chave para uso futuro." ); }
+								else { from.SendMessage( "A chave abre a fechadura." ); }
 							}
 
 							from.RevealingAction();
@@ -206,12 +206,12 @@ namespace Server.Items
 					}
 					else
 					{
-						from.SendMessage( "You don't need to use this key on that." );
+						from.SendMessage( "Você não precisa usar esta chave nisso." );
 					}
 				}
 				else
 				{
-					from.SendMessage( "This key is to unlock any container." );
+					from.SendMessage( "Esta chave pode abrir quase qualquer baú ou porta trancada." );
 				}
 			}
 		}
