@@ -139,20 +139,20 @@ namespace Server.Items
 		            if (win != "")
 		            {
 		                from.CloseGump(typeof(ShinobiScrollGump));
-		                from.SendMessage("You learned the " + win + " ability!");
+		                from.SendMessage("Você aprendeu " + win + " como habilidade!");
 		                from.PlaySound(0x4D5);
 		                dropped.Delete();
 		                InvalidateProperties();
 		            }
 		            else
 		            {
-		                from.SendMessage("That item does not belong here.");
+		                from.SendMessage("Esse item não pertence aqui.");
 		            }
 		        }
 		    }
 		    else
 		    {
-		        from.SendMessage("That item does not belong here.");
+		        from.SendMessage("Esse item não pertence aqui.");
 		    }		
 
 		    return false;
@@ -289,15 +289,15 @@ namespace Server.Items
 
 			if ( ability == 290 )
 			{
-				if ( type == "name" ){ 			str = "Patas de Guepardo"; }
+				if ( type == "name" ){ 			str = "Cheetah Paws"; }
 				else if ( type == "points" ){ 	str = "65"; }
 				else if ( type == "mana" ){ 	str = "60"; }
 				else if ( type == "skill" ){	str = "80"; }
 				else if ( type == "icon" ){ 	str = "10876"; }
-				else if ( type == "prize1" ){	str = "baú do sofrimento"; }
-				else if ( type == "prize2" ){	str = "ovo da galinha harpia"; }
-				else if ( type == "where1" ){	str = "a Pirâmide Antiga"; }
-				else if ( type == "where2" ){	str = "Masmorra da Cobiça"; }
+				else if ( type == "prize1" ){	str = "chest of suffering"; }
+				else if ( type == "prize2" ){	str = "egg of the harpy hen"; }
+				else if ( type == "where1" ){	str = "the Ancient Pyramid"; }
+				else if ( type == "where2" ){	str = "Dungeon Covetous"; }
 				else
 				{ 
 					str = "Isso aumenta a velocidade de corrida do Ninja por cerca de 10-25 minutos, fazendo-o correr tão rápido quanto um guepardo. Este poder não pode ser invocado em certas áreas e frequentemente deixará de funcionar ao entrar nessas áreas.";
@@ -305,15 +305,15 @@ namespace Server.Items
 			}
 			else if ( ability == 291 )
 			{
-				if ( type == "name" ){ 			str = "Engano"; }
+				if ( type == "name" ){ 			str = "Deception"; }
 				else if ( type == "points" ){ 	str = "20"; }
 				else if ( type == "mana" ){ 	str = "15"; }
 				else if ( type == "skill" ){	str = "30"; }
 				else if ( type == "icon" ){ 	str = "10871"; }
-				else if ( type == "prize1" ){	str = "bracelete de guerra"; }
-				else if ( type == "prize2" ){	str = "rosto do rei antigo"; }
-				else if ( type == "where1" ){	str = "Masmorra das Pistas"; }
-				else if ( type == "where2" ){	str = "as Catacumbas de Lodoria"; }
+				else if ( type == "prize1" ){	str = "braclet of war"; }
+				else if ( type == "prize2" ){	str = "face of the ancient king"; }
+				else if ( type == "where1" ){	str = "Dungeon Clues"; }
+				else if ( type == "where2" ){	str = "the Lodoria Catacombs"; }
 				else
 				{ 
 					str = "O ninja pode se disfarçar, onde outros não o reconheceriam e alguns guardas podem olhar para o outro lado.";
@@ -321,15 +321,15 @@ namespace Server.Items
 			}
 			else if ( ability == 292 )
 			{
-				if ( type == "name" ){ 			str = "Olho de Águia"; }
+				if ( type == "name" ){ 			str = "Eagle Eye"; }
 				else if ( type == "points" ){ 	str = "55"; }
 				else if ( type == "mana" ){ 	str = "50"; }
 				else if ( type == "skill" ){	str = "70"; }
 				else if ( type == "icon" ){ 	str = "10872"; }
-				else if ( type == "prize1" ){	str = "toco dos antigos"; }
-				else if ( type == "prize2" ){	str = "varinha de Talosh"; }
-				else if ( type == "where1" ){	str = "Poço de Dardin"; }
-				else if ( type == "where2" ){	str = "Masmorra do Engano"; }
+				else if ( type == "prize1" ){	str = "stump of the ancients"; }
+				else if ( type == "prize2" ){	str = "wand of Talosh"; }
+				else if ( type == "where1" ){	str = "Dardin's Pit"; }
+				else if ( type == "where2" ){	str = "Dungeon Deceit"; }
 				else
 				{ 
 					str = "Os olhos do ninja são focados onde podem talvez detectar criaturas ocultas, armadilhas ou tesouros.";
@@ -337,15 +337,15 @@ namespace Server.Items
 			}
 			else if ( ability == 293 )
 			{
-				if ( type == "name" ){ 			str = "Espionagem"; }
+				if ( type == "name" ){ 			str = "Espionage"; }
 				else if ( type == "points" ){ 	str = "15"; }
 				else if ( type == "mana" ){ 	str = "10"; }
 				else if ( type == "skill" ){	str = "20"; }
 				else if ( type == "icon" ){ 	str = "10873"; }
-				else if ( type == "prize1" ){	str = "sangue sombrio"; }
-				else if ( type == "prize2" ){	str = "cabeça de Urg"; }
-				else if ( type == "where1" ){	str = "Masmorra da Perdição"; }
-				else if ( type == "where2" ){	str = "Masmorra do Desprezo"; }
+				else if ( type == "prize1" ){	str = "dark blood"; }
+				else if ( type == "prize2" ){	str = "head of Urg"; }
+				else if ( type == "where1" ){	str = "Dungeon Doom"; }
+				else if ( type == "where2" ){	str = "Dungeon Despise"; }
 				else
 				{ 
 					str = "Algumas das fechaduras mais simples podem ser manipuladas com esta habilidade, mas não todas como ladrões mestres podem.";
@@ -353,15 +353,15 @@ namespace Server.Items
 			}
 			else if ( ability == 294 )
 			{
-				if ( type == "name" ){ 			str = "Fuga do Furão"; }
+				if ( type == "name" ){ 			str = "Ferret Flee"; }
 				else if ( type == "points" ){ 	str = "35"; }
 				else if ( type == "mana" ){ 	str = "30"; }
 				else if ( type == "skill" ){	str = "50"; }
 				else if ( type == "icon" ){ 	str = "10874"; }
-				else if ( type == "prize1" ){	str = "dente de escama de fogo"; }
-				else if ( type == "prize2" ){	str = "coroa de Vorgol"; }
-				else if ( type == "where1" ){	str = "os Fogos do Inferno"; }
-				else if ( type == "where2" ){	str = "a Cidade das Brasas"; }
+				else if ( type == "prize1" ){	str = "firescale tooth"; }
+				else if ( type == "prize2" ){	str = "crown of Vorgol"; }
+				else if ( type == "where1" ){	str = "the Fires of Hell"; }
+				else if ( type == "where2" ){	str = "the City of Embers"; }
 				else
 				{ 
 					str = "Se contido por coisas como magia de paralisia, teias de aranha ou redes, o ninja pode tentar se libertar de tais contenções e escapar.";
@@ -369,15 +369,15 @@ namespace Server.Items
 			}
 			else if ( ability == 295 )
 			{
-				if ( type == "name" ){ 			str = "Salto do Macaco"; }
+				if ( type == "name" ){ 			str = "Monkey Leap"; }
 				else if ( type == "points" ){ 	str = "25"; }
 				else if ( type == "mana" ){ 	str = "20"; }
 				else if ( type == "skill" ){	str = "40"; }
 				else if ( type == "icon" ){ 	str = "10875"; }
-				else if ( type == "prize1" ){	str = "icor de Xthizx"; }
-				else if ( type == "prize2" ){	str = "garra de Saramon"; }
-				else if ( type == "where1" ){	str = "as Minas de Morinia"; }
-				else if ( type == "where2" ){	str = "Masmorra de Hythloth"; }
+				else if ( type == "prize1" ){	str = "ichor of Xthizx"; }
+				else if ( type == "prize2" ){	str = "claw of Saramon"; }
+				else if ( type == "where1" ){	str = "the Mines of Morinia"; }
+				else if ( type == "where2" ){	str = "Dungeon Hythloth"; }
 				else
 				{ 
 					str = "Permite que o ninja salte em direção ou para longe de um local muito rapidamente.";
@@ -385,15 +385,15 @@ namespace Server.Items
 			}
 			else if ( ability == 296 )
 			{
-				if ( type == "name" ){ 			str = "Shuriken Místico"; }
+				if ( type == "name" ){ 			str = "Mystic Shuriken"; }
 				else if ( type == "points" ){ 	str = "45"; }
 				else if ( type == "mana" ){ 	str = "40"; }
 				else if ( type == "skill" ){	str = "60"; }
 				else if ( type == "icon" ){ 	str = "10877"; }
-				else if ( type == "prize1" ){	str = "coração de uma rainha vampira"; }
-				else if ( type == "prize2" ){	str = "chifre dos infernos congelados"; }
-				else if ( type == "where1" ){	str = "as Profundezas Perinianas"; }
-				else if ( type == "where2" ){	str = "o Covil do Demônio de Gelo"; }
+				else if ( type == "prize1" ){	str = "heart of a vampire queen"; }
+				else if ( type == "prize2" ){	str = "horn of the frozen hells"; }
+				else if ( type == "where1" ){	str = "the Perinian Depths"; }
+				else if ( type == "where2" ){	str = "the Ice Fiend Lair"; }
 				else
 				{ 
 					str = "Invoca um shuriken do nada e o arremessa em direção ao seu oponente, causando muito dano à distância.";
@@ -401,15 +401,15 @@ namespace Server.Items
 			}
 			else if ( ability == 297 )
 			{
-				if ( type == "name" ){ 			str = "Força do Tigre"; }
+				if ( type == "name" ){ 			str = "Tiger Strength"; }
 				else if ( type == "points" ){	str = "75"; }
 				else if ( type == "mana" ){ 	str = "70"; }
 				else if ( type == "skill" ){	str = "90"; }
 				else if ( type == "icon" ){ 	str = "10878"; }
-				else if ( type == "prize1" ){	str = "ampulheta das eras"; }
-				else if ( type == "prize2" ){	str = "sal elemental"; }
-				else if ( type == "where1" ){	str = "a Masmorra do Tempo Espera"; }
-				else if ( type == "where2" ){	str = "Masmorra da Vergonha"; }
+				else if ( type == "prize1" ){	str = "hourglass of ages"; }
+				else if ( type == "prize2" ){	str = "elemental salt"; }
+				else if ( type == "where1" ){	str = "the Dungeon of Time Awaits"; }
+				else if ( type == "where2" ){	str = "Dungeon Shame"; }
 				else
 				{ 
 					str = "Invoca um tigre místico do reino de Durama para lutar com o ninja durante sua jornada.";
